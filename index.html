@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zahlensystem Umrechnung</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <!-- Punktestand Anzeige -->
+    <div class="points">Punkte: <span id="points">0</span></div>
+
+    <!-- Hauptcontainer für die Inhalte -->
+    <div class="container">
+        <!-- Abschnitt für Erklärungstext -->
+        <div id="instruction">
+            <h1>Umrechnung von Dezimal zu Hexadezimal</h1>
+            <p>
+                Um eine Dezimalzahl in eine Hexadezimalzahl umzuwandeln, teilen Sie die Zahl durch 16 und notieren den Rest.
+                Wiederholen Sie den Vorgang mit dem ganzzahligen Ergebnis, bis dieses null ist. Die Reste von unten nach oben ergeben die Hexadezimalzahl.
+            </p>
+            <button onclick="showQuestion()">Zur Aufgabe</button>
+        </div>
+
+        <!-- Abschnitt für die Aufgaben -->
+        <div id="question" style="display: none;">
+            <h1>Aufgabe 1</h1>
+            <p id="task">Wandle die Dezimalzahl <strong>26</strong> in Hexadezimal um.</p>
+            <input type="text" id="answer" placeholder="Antwort hier eingeben">
+            <button onclick="checkAnswer()">Antwort prüfen</button>
+            <div id="feedback" class="feedback"></div>
+            <button id="nextLevel" style="display: none;" onclick="nextLevel()">Nächstes Level</button>
+        </div>
+    </div>
+
+    <!-- Sounddatei -->
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="incorrect-sound" src="incorrect.mp3"></audio>
+
+    <script src="main.js"></script>
+</body>
+</html>
