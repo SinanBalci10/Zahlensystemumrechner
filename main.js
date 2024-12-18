@@ -60,4 +60,5 @@ function nextLevel() {
         document.getElementById('feedback').textContent = "";
         document.getElementById('nextLevel').style.display = 'none';
     }
+
 }
