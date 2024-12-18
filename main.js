@@ -50,7 +50,7 @@ function checkAnswer() {
         document.getElementById('feedback').style.color = "blue";
     }
 }
-
+//dd
 // Funktion: Gehe zum nächsten Level
 function nextLevel() {
     currentLevel++;
