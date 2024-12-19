@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +14,20 @@
 
     <!-- Hauptcontainer für die Inhalte -->
     <div class="container">
-        <!-- Abschnitt für Erklärungstext -->
+        <!-- Abschnitt für Modus-Auswahl -->
         <div id="instruction">
-            <h1>Umrechnung von Dezimal zu Hexadezimal</h1>
-            <p>
-                Um eine Dezimalzahl in eine Hexadezimalzahl umzuwandeln, teilen Sie die Zahl durch 16 und notieren den Rest.
-                Wiederholen Sie den Vorgang mit dem ganzzahligen Ergebnis, bis dieses null ist. Die Reste von unten nach oben ergeben die Hexadezimalzahl.
-            </p>
-            <button onclick="showQuestion()">Zur Aufgabe</button>
+            <h1>Umrechnung von Zahlensystemen</h1>
+            <div>
+                <button onclick="showLearnMode()">Lernmodus</button>
+                <button onclick="showQuestion()">Zur Aufgabe</button>
+            </div>
+        </div>
+
+        <!-- Abschnitt für Lernmodus -->
+        <div id="learnMode" style="display: none;">
+            <h1>Lernmodus</h1>
+            <p>Hier kommt ein Erklärungstext rein.</p>
+            <button onclick="showInstruction()">Zurück</button>
         </div>
 
         <!-- Abschnitt für die Aufgaben -->
@@ -31,6 +36,8 @@
             <p id="task">Wandle die Dezimalzahl <strong>26</strong> in Hexadezimal um.</p>
             <input type="text" id="answer" placeholder="Antwort hier eingeben">
             <button onclick="checkAnswer()">Antwort prüfen</button>
+            <button onclick="toggleExample()">Beispiel</button>
+            <div id="exampleText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
             <div id="feedback" class="feedback"></div>
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
@@ -38,7 +45,6 @@
         </div>
     </div>
 
-    <!-- Sounddatei -->
     <audio id="correct-sound" src="correct.mp3"></audio>
     <audio id="incorrect-sound" src="incorrect.mp3"></audio>
 

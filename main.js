@@ -1,4 +1,3 @@
-
 // Punktestand-Variable
 let points = 0;
 let currentLevel = 1;
@@ -8,25 +7,33 @@ let tasks = [
     { question: "Wandle die Dezimalzahl 123 in Hexadezimal um.", answer: "7B", answered: false }
 ];
 
-
 // sounds
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
 
+// Funktion: Zeige den Lernmodus
+function showLearnMode() {
+    document.getElementById('instruction').style.display = 'none';
+    document.getElementById('learnMode').style.display = 'block';
+}
+
+// Funktion: Zurück zur Modus-Auswahl
+function showInstruction() {
+    document.getElementById('learnMode').style.display = 'none';
+    document.getElementById('question').style.display = 'none';
+    document.getElementById('instruction').style.display = 'block';
+}
+
 // Funktion: Zeige die erste Aufgabe
 function showQuestion() {
     document.getElementById('instruction').style.display = 'none';
+    document.getElementById('learnMode').style.display = 'none';
     document.getElementById('question').style.display = 'block';
 }
 
 // Funktion: Überprüft die Antwort
 function checkAnswer() {
-    const userAnswer = document.getElementById('answer').value.trim().toUpperCase();+
-
-    // Debug-Ausgaben hinzufügen
-    console.log("Current Level:", currentLevel);
-    console.log("Task Object:", tasks[currentLevel - 1]);
-
+    const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
 
     if (userAnswer === tasks[currentLevel - 1].answer && !tasks[currentLevel - 1].answered) {
         document.getElementById('feedback').textContent = "Richtig!";
@@ -54,7 +61,7 @@ function checkAnswer() {
         document.getElementById('feedback').style.color = "blue";
     }
 }
-//hi
+
 // Funktion: Gehe zum nächsten Level
 function nextLevel() {
     currentLevel++;
@@ -64,5 +71,14 @@ function nextLevel() {
         document.getElementById('feedback').textContent = "";
         document.getElementById('nextLevel').style.display = 'none';
     }
+}
 
+// Funktion: Beispieltext ein-/ausblenden
+function toggleExample() {
+    const exampleText = document.getElementById('exampleText');
+    if (exampleText.style.display === 'none' || exampleText.style.display === '') {
+        exampleText.style.display = 'block';
+    } else {
+        exampleText.style.display = 'none';
+    }
 }
