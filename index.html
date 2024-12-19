@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zahlensystem Umrechnung</title>
@@ -31,6 +32,8 @@
             <input type="text" id="answer" placeholder="Antwort hier eingeben">
             <button onclick="checkAnswer()">Antwort prüfen</button>
             <div id="feedback" class="feedback"></div>
+            <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
+            <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
             <button id="nextLevel" style="display: none;" onclick="nextLevel()">Nächstes Level</button>
         </div>
     </div>

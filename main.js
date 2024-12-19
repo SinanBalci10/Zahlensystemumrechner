@@ -31,6 +31,8 @@ function checkAnswer() {
     if (userAnswer === tasks[currentLevel - 1].answer && !tasks[currentLevel - 1].answered) {
         document.getElementById('feedback').textContent = "Richtig!";
         document.getElementById('feedback').style.color = "green";
+        document.getElementById('success-icon').style.display = "inline";
+        document.getElementById('error-icon').style.display = "none";
         points += 10;
         tasks[currentLevel - 1].answered = true; // Verhindert erneutes Punktesammeln
         document.getElementById('points').textContent = points;
@@ -44,6 +46,8 @@ function checkAnswer() {
     } else if (userAnswer !== tasks[currentLevel - 1].answer) {
         document.getElementById('feedback').textContent = "Falsch, versuche es noch einmal.";
         document.getElementById('feedback').style.color = "red";
+        document.getElementById('error-icon').style.display = "inline";
+        document.getElementById('success-icon').style.display = "none";
         incorrectSound.play(); // Fehler-Sound abspielen
     } else {
         document.getElementById('feedback').textContent = "Du hast diese Aufgabe bereits richtig gelöst.";
