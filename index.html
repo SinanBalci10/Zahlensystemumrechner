@@ -26,8 +26,20 @@
         <!-- Abschnitt für Lernmodus -->
         <div id="learnMode" style="display: none;">
             <h1>Lernmodus</h1>
-            <p>Hier kommt ein Erklärungstext rein.</p>
+            <p>Wähle ein Thema aus:</p>
+            <ul>
+                <li><button onclick="showTopic('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
+                <li><button onclick="showTopic('Binär zu Dezimal')">Binär zu Dezimal</button></li>
+                <li><button onclick="showTopic('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
+            </ul>
             <button onclick="showInstruction()">Zurück</button>
+        </div>
+
+        <!-- Abschnitt für spezifische Themen -->
+        <div id="topicDetail" style="display: none;">
+            <h1 id="topicTitle"></h1>
+            <p id="topicContent">Hier kommt der Erklärungstext für das gewählte Thema.</p>
+            <button onclick="showLearnMode()">Zurück zur Themenauswahl</button>
         </div>
 
         <!-- Abschnitt für die Aufgaben -->

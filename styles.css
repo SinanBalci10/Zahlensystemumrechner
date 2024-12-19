@@ -63,16 +63,16 @@ button:hover {
 }
 
 input {
-    padding: 12px; /* Innenabstand (oben, unten, links, rechts) */
-    margin: 10px auto; /* Symmetrischer Außenabstand */
-    width: calc(100% - 24px); /* Gesamte Breite minus Padding für Symmetrie */
-    max-width: 100%; /* Verhindert Überschreiten des Containers */
-    display: block; /* Zentriert das Element horizontal */
-    border: 1px solid #ccc; /* Rahmen */
-    border-radius: 5px; /* Abgerundete Ecken */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Leichter Schatten */
+    padding: 12px;
+    margin: 10px auto;
+    width: calc(100% - 24px);
+    max-width: 100%;
+    display: block;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 1rem;
-    box-sizing: border-box; /* Bezieht Padding und Border in die Breite mit ein */
+    box-sizing: border-box;
 }
 
 .feedback {
@@ -82,7 +82,6 @@ input {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-/* Zusätzliche Stile für neue Elemente */
 #exampleText {
     color: #555;
     font-size: 0.9rem;

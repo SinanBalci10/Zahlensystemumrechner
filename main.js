@@ -11,16 +11,25 @@ let tasks = [
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
 
+// Themen mit Erklärungstexten
+const topics = {
+    "Dezimal zu Hexadezimal": "Eine Dezimalzahl wird durch wiederholtes Teilen durch 16 in eine Hexadezimalzahl umgewandelt. Die Reste ergeben von unten nach oben die Hexadezimaldarstellung.",
+    "Binär zu Dezimal": "Eine Binärzahl wird durch Multiplikation jedes Bits mit der entsprechenden Potenz von 2 in eine Dezimalzahl umgewandelt.",
+    "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
+};
+
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
     document.getElementById('instruction').style.display = 'none';
     document.getElementById('learnMode').style.display = 'block';
+    document.getElementById('topicDetail').style.display = 'none';
 }
 
-// Funktion: Zurück zur Modus-Auswahl
+// Funktion: Zeige die Themenauswahl
 function showInstruction() {
     document.getElementById('learnMode').style.display = 'none';
     document.getElementById('question').style.display = 'none';
+    document.getElementById('topicDetail').style.display = 'none';
     document.getElementById('instruction').style.display = 'block';
 }
 
@@ -28,7 +37,16 @@ function showInstruction() {
 function showQuestion() {
     document.getElementById('instruction').style.display = 'none';
     document.getElementById('learnMode').style.display = 'none';
+    document.getElementById('topicDetail').style.display = 'none';
     document.getElementById('question').style.display = 'block';
+}
+
+// Funktion: Zeige spezifisches Thema
+function showTopic(topic) {
+    document.getElementById('learnMode').style.display = 'none';
+    document.getElementById('topicDetail').style.display = 'block';
+    document.getElementById('topicTitle').textContent = topic;
+    document.getElementById('topicContent').textContent = topics[topic];
 }
 
 // Funktion: Überprüft die Antwort
