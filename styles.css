@@ -5,6 +5,10 @@ h1, #task {
     color: #000000; /* Schwarz */
 }
 
+p {
+    color: #000000; /* Schwarz */
+}
+
 body {
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
