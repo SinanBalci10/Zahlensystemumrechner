@@ -18,8 +18,8 @@
         <div id="instruction">
             <h1>Umrechnung von Zahlensystemen</h1>
             <div>
-                <button onclick="showLearnMode()">Lernmodus</button>
-                <button onclick="showQuestion()">Zur Aufgabe</button>
+                <button onclick="showLearnMode()">Erklärung</button>
+                <button onclick="showQuestion()">Übungsaufgaben</button>
             </div>
         </div>
 
@@ -32,14 +32,14 @@
                 <li><button onclick="showTopic('Binär zu Dezimal')">Binär zu Dezimal</button></li>
                 <li><button onclick="showTopic('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
             </ul>
-            <button onclick="showInstruction()">Zurück</button>
+            <button onclick="showInstruction()">Hauptmenü</button>
         </div>
 
         <!-- Abschnitt für spezifische Themen -->
         <div id="topicDetail" style="display: none;">
             <h1 id="topicTitle"></h1>
             <p id="topicContent">Hier kommt der Erklärungstext für das gewählte Thema.</p>
-            <button onclick="showLearnMode()">Zurück zur Themenauswahl</button>
+            <button onclick="showLearnMode()">Hauptmenü</button>
         </div>
 
         <!-- Abschnitt für die Aufgaben -->
@@ -54,7 +54,7 @@
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
             <button id="nextLevel" style="display: none;" onclick="nextLevel()">Nächstes Level</button>
-            <button onclick="showInstruction()" style="margin-top: 20px;">Zurück zur Modusauswahl</button>
+            <button onclick="showInstruction()" style="margin-top: 20px;">Hauptmenü</button>
         </div>
     </div>
 
