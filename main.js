@@ -80,6 +80,9 @@ function showQuestion() {
     document.getElementById('learnMode').style.display = 'none';
     document.getElementById('topicDetail').style.display = 'none';
     document.getElementById('question').style.display = 'block';
+
+    startNewTask(); // Timer starten, sobald die Übungsaufgaben beginnen
+
 }
 
 // Funktion: Zeige spezifisches Thema
