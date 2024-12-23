@@ -113,6 +113,10 @@ input {
     text-align: left;
 }
 
+ul {
+    color: #000000; /* Schwarz für die drei Punkte */
+}
+
 /* Animationen */
 @keyframes fadeIn {
     from {
