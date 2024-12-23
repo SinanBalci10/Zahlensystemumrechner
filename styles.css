@@ -63,6 +63,13 @@ button:hover {
     background: #0056b3;
 }
 
+.button-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+}
+
 #nextLevel {
     display: block;
     margin: 20px auto;
