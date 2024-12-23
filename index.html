@@ -20,7 +20,6 @@
             <div>
                 <button onclick="showLearnMode()">Lernmodus</button>
                 <button onclick="showQuestion()">Zur Aufgabe</button>
-                <button onclick="showInstruction()" style="margin-top: 20px;">Zurück zur Modusauswahl</button>
             </div>
         </div>
 
@@ -50,6 +49,7 @@
             <input type="text" id="answer" placeholder="Antwort hier eingeben">
             <button onclick="checkAnswer()">Antwort prüfen</button>
             <button onclick="toggleExample()">Beispiel</button>
+            <button onclick="showInstruction()" style="margin-top: 20px;">Zurück zur Modusauswahl</button>
             <div id="exampleText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
             <div id="feedback" class="feedback"></div>
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
