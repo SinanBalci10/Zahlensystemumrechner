@@ -45,6 +45,19 @@ body {
     animation: slideIn 1s ease-in-out;
 }
 
+.timer {
+    position: fixed;
+    top: 50px;
+    right: 10px;
+    background: rgba(255, 87, 34, 0.9);
+    color: #ffffff;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: slideIn 1s ease-in-out;
+}
+
 button {
     display: block;
     margin: 10px auto; /* Zentriert alle Buttons */

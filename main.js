@@ -7,6 +7,17 @@ let tasks = [
     { question: "Wandle die Dezimalzahl 123 in Hexadezimal um.", answer: "7B", answered: false }
 ];
 
+// Variable für den Timer
+let timerInterval;
+let elapsedTime = 0;
+
+
+// Timer-Element im DOM
+const timerElement = document.createElement('div');
+timerElement.className = 'timer';
+timerElement.textContent = `Zeit: 0s`;
+document.body.appendChild(timerElement);
+
 // sounds
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
@@ -17,6 +28,36 @@ const topics = {
     "Binär zu Dezimal": "Eine Binärzahl wird durch Multiplikation jedes Bits mit der entsprechenden Potenz von 2 in eine Dezimalzahl umgewandelt.",
     "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
 };
+
+// Funktion: Timer starten
+function startTimer() {
+    elapsedTime = 0; // Zeit auf 0 setzen
+    updateTimerDisplay(); // Anzeige aktualisieren
+
+    // Timer-Interval starten
+    timerInterval = setInterval(() => {
+        elapsedTime++;
+        updateTimerDisplay();
+    }, 1000);
+}
+
+// Funktion: Timer stoppen
+function stopTimer() {
+    clearInterval(timerInterval); // Timer-Interval stoppen
+}
+
+// Funktion: Timer-Anzeige aktualisieren
+function updateTimerDisplay() {
+    timerElement.textContent = `Zeit: ${elapsedTime}s`;
+}
+
+// Funktion: Aufgabe starten und Timer zurücksetzen
+function startNewTask() {
+    stopTimer(); // Aktuellen Timer stoppen
+    startTimer(); // Neuen Timer starten
+
+    // Zusätzliche Logik zum Laden der neuen Aufgabe kann hier eingefügt werden
+}
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
@@ -63,6 +104,8 @@ function checkAnswer() {
         document.getElementById('points').textContent = points;
         correctSound.play(); // Erfolgssound abspielen
 
+        stopTimer(); // Timer stoppen, wenn die Antwort richtig ist
+
         if (currentLevel < tasks.length) {
             document.getElementById('nextLevel').style.display = 'block';
         } else {
@@ -88,6 +131,7 @@ function nextLevel() {
         document.getElementById('answer').value = "";
         document.getElementById('feedback').textContent = "";
         document.getElementById('nextLevel').style.display = 'none';
+        startNewTask(); // Timer für die neue Aufgabe starten
     }
 }
 
