@@ -16,13 +16,14 @@ let elapsedTime = 0;
 const timerElement = document.createElement('div');
 timerElement.className = 'timer';
 timerElement.textContent = `Zeit: 0s`;
+timerElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstellen, dass es unsichtbar ist
 document.body.appendChild(timerElement);
 
 // Punktestand-Element im DOM
 const pointsElement = document.createElement('div');
 pointsElement.className = 'points';
 pointsElement.textContent = `Punkte: ${points}`;
-pointsElement.style.display = 'none'; // Standardmäßig ausgeblendet
+pointsElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstellen, dass es unsichtbar ist
 document.body.appendChild(pointsElement);
 
 // sounds
@@ -73,7 +74,9 @@ function startTimer() {
     updateTimerDisplay(); // Anzeige aktualisieren
 
     timerElement.style.display = 'block'; // Timer anzeigen
+    timerElement.style.visibility = 'visible';
     pointsElement.style.display = 'block'; // Punktestand anzeigen
+    pointsElement.style.visibility = 'visible';
 
     // Timer-Interval starten
     timerInterval = setInterval(() => {
@@ -86,7 +89,9 @@ function startTimer() {
 function stopTimer() {
     clearInterval(timerInterval); // Timer-Interval stoppen
     timerElement.style.display = 'none'; // Timer ausblenden
+    timerElement.style.visibility = 'hidden';
     pointsElement.style.display = 'none'; // Punktestand ausblenden
+    pointsElement.style.visibility = 'hidden';
 }
 
 // Funktion: Timer-Anzeige aktualisieren
