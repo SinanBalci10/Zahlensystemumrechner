@@ -24,7 +24,35 @@ const incorrectSound = document.getElementById('incorrect-sound');
 
 // Themen mit Erklärungstexten
 const topics = {
-    "Dezimal zu Hexadezimal": "Eine Dezimalzahl wird durch wiederholtes Teilen durch 16 in eine Hexadezimalzahl umgewandelt. Die Reste ergeben von unten nach oben die Hexadezimaldarstellung.",
+    "Dezimal zu Hexadezimal": `Eine Dezimalzahl ist eine Zahl im Zehnersystem (Basis 10),
+    während eine Hexadezimalzahl im Sechzehnersystem (Basis 16) dargestellt wird.
+    Die Umwandlung von einer Dezimalzahl in eine Hexadezimalzahl erfolgt durch
+    wiederholte Division der Zahl durch 16, wobei die Reste notiert werden.
+    Hexadezimalzahl (auch Basis-16) ist eine Zahl, die 16 verschiedene Ziffern
+    verwendet: 0-9 und A-F (wobei A=10, B=11, ..., F=15 entspricht).
+    Diese Reste, von unten nach oben gelesen, ergeben die Hexadezimaldarstellung.
+
+    Beispiel:
+
+    Um die Dezimalzahl 5078 in eine Hexadezimalzahl umzuwandeln:
+
+    1. 5078 ÷ 16 ergibt einen Quotienten von 317 und einen Rest von 6.
+    2. 317 ÷ 16 ergibt einen Quotienten von 19 und einen Rest von 13 (entspricht D
+       im Hexadezimalsystem).
+    3. 19 ÷ 16 ergibt einen Quotienten von 1 und einen Rest von 3.
+    4. 1 ÷ 16 ergibt einen Quotienten von 0 und einen Rest von 1.
+
+    Reste ermitteln:
+
+    Wenn man sich als Beispiel 1. anguckt, schreibt man statt "÷" ein "-".
+    Multipliziere dann mit dem Ergebnis, also:
+    5078 - 16 * 317 = 6
+    usw.
+
+    Die Reste, von unten nach oben gelesen, sind 1, 3, D und 6.
+    Daher ist die Hexadezimaldarstellung von 5078 gleich 13D6.`,
+
+    
     "Binär zu Dezimal": "Eine Binärzahl wird durch Multiplikation jedes Bits mit der entsprechenden Potenz von 2 in eine Dezimalzahl umgewandelt.",
     "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
 };
