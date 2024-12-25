@@ -19,12 +19,15 @@ timerElement.textContent = `Zeit: 0s`;
 timerElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstellen, dass es unsichtbar ist
 document.body.appendChild(timerElement);
 
-// Punktestand-Element im DOM
-const pointsElement = document.createElement('div');
-pointsElement.className = 'points';
-pointsElement.textContent = `Punkte: ${points}`;
-pointsElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstellen, dass es unsichtbar ist
-
+// Punktestand-Element im DOM, Punktestand-Element im DOM, nur erstellen, wenn es noch nicht existiert
+let pointsElement = document.querySelector('.points');
+if (!pointsElement) {
+    pointsElement = document.createElement('div');
+    pointsElement.className = 'points';
+    pointsElement.textContent = `Punkte: ${points}`;
+    pointsElement.style.cssText = 'display: none; visibility: hidden;'; // Standardmäßig unsichtbar
+    document.body.appendChild(pointsElement);
+}
 
 document.body.appendChild(pointsElement);
 
@@ -157,7 +160,7 @@ function showTopic(topic) {
     } else {
         console.error("Das Element mit der ID 'topicContent' wurde nicht gefunden.");
     }
-    
+
     pointsElement.style.display = 'none'; // Punktestand ausblenden, wenn ein Thema angezeigt wird
     pointsElement.style.visibility = 'hidden';
 
