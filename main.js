@@ -24,6 +24,8 @@ const pointsElement = document.createElement('div');
 pointsElement.className = 'points';
 pointsElement.textContent = `Punkte: ${points}`;
 pointsElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstellen, dass es unsichtbar ist
+
+
 document.body.appendChild(pointsElement);
 
 // sounds
@@ -155,6 +157,10 @@ function showTopic(topic) {
     } else {
         console.error("Das Element mit der ID 'topicContent' wurde nicht gefunden.");
     }
+    
+    pointsElement.style.display = 'none'; // Punktestand ausblenden, wenn ein Thema angezeigt wird
+    pointsElement.style.visibility = 'hidden';
+
 }
 
 // Funktion: Überprüft die Antwort
