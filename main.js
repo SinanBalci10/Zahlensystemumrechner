@@ -87,6 +87,8 @@ function startTimer() {
         updateTimerDisplay();
     }, 1000);
 }
+console.log('Punkte-Element Status:', pointsElement.style.display, pointsElement.style.visibility);
+
 
 // Funktion: Timer stoppen
 function stopTimer() {
@@ -228,4 +230,3 @@ window.onload = () => {
     pointsElement.style.visibility = 'hidden';
 };
 
-console.log('Punkte-Element Status:', pointsElement.style.display, pointsElement.style.visibility);
