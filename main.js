@@ -56,7 +56,7 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
-    // Beispieltext ausblenden
+    // Beispieltext ausblenden, wenn nächstes level
     document.getElementById('exampleText').style.display = 'none';
 }
 

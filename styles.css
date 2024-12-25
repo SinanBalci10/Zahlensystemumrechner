@@ -70,6 +70,7 @@ button {
     font-size: 1rem;
     transition: background 0.3s ease;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 100%; 
 }
 
 button:hover {
@@ -81,6 +82,10 @@ button:hover {
     justify-content: center;
     gap: 10px;
     margin: 10px 0;
+}
+
+.button-row button {
+    flex: 1; /* Gleiche Breite für alle Buttons bei erkllärung*/
 }
 
 #nextLevel {
