@@ -87,8 +87,6 @@ function startTimer() {
         updateTimerDisplay();
     }, 1000);
 }
-console.log('Punkte-Element Status:', pointsElement.style.display, pointsElement.style.visibility);
-
 
 // Funktion: Timer stoppen
 function stopTimer() {
@@ -225,6 +223,8 @@ function toggleExample() {
     }
 }
 
+// punktestand wird von css beeinflusst und wird dadurch trotzdem am anfang angezeigt
+// durch die funktion, wird punktestand ausgeblendet
 window.onload = () => {
     pointsElement.style.display = 'none';
     pointsElement.style.visibility = 'hidden';
