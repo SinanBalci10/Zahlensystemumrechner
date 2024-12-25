@@ -29,8 +29,6 @@ if (!pointsElement) {
     document.body.appendChild(pointsElement);
 }
 
-document.body.appendChild(pointsElement);
-
 // sounds
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
