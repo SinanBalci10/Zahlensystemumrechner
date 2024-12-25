@@ -73,6 +73,10 @@ function showInstruction() {
     document.getElementById('question').style.display = 'none';
     document.getElementById('topicDetail').style.display = 'none';
     document.getElementById('instruction').style.display = 'block';
+
+    stopTimer(); // Timer stoppen
+    elapsedTime = 0; // Zeit zurücksetzen
+    updateTimerDisplay(); // Anzeige auf 0 setzen
 }
 
 // Funktion: Zeige die erste Aufgabe
