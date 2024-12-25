@@ -227,3 +227,5 @@ window.onload = () => {
     pointsElement.style.display = 'none';
     pointsElement.style.visibility = 'hidden';
 };
+
+console.log('Punkte-Element Status:', pointsElement.style.display, pointsElement.style.visibility);
