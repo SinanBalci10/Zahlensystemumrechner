@@ -56,8 +56,9 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
-    // Beispieltext ausblenden, wenn nächstes level drücken
+    // Beispieltext ausblenden
     document.getElementById('exampleText').style.display = 'none';
+}
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
