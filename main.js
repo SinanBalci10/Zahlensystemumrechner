@@ -123,10 +123,12 @@ function showQuestion() {
 
 // Funktion: Zeige spezifisches Thema
 function showTopic(topic) {
-    document.getElementById('learnMode').style.display = 'none';
-    document.getElementById('topicDetail').style.display = 'block';
-    document.getElementById('topicTitle').textContent = topic;
-    document.getElementById('topicContent').textContent = topics[topic];
+    const topicContent = document.getElementById('topicContent');
+    if (topicContent) {
+        topicContent.innerHTML = topics[topic]; // HTML korrekt rendern
+    } else {
+        console.error("Das Element mit der ID 'topicContent' wurde nicht gefunden.");
+    }
 }
 
 // Funktion: Überprüft die Antwort
