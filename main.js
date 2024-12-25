@@ -18,6 +18,13 @@ timerElement.className = 'timer';
 timerElement.textContent = `Zeit: 0s`;
 document.body.appendChild(timerElement);
 
+// Punktestand-Element im DOM
+const pointsElement = document.createElement('div');
+pointsElement.className = 'points';
+pointsElement.textContent = `Punkte: ${points}`;
+pointsElement.style.display = 'none'; // Standardmäßig ausgeblendet
+document.body.appendChild(pointsElement);
+
 // sounds
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
@@ -65,6 +72,9 @@ function startTimer() {
     elapsedTime = 0; // Zeit auf 0 setzen
     updateTimerDisplay(); // Anzeige aktualisieren
 
+    timerElement.style.display = 'block'; // Timer anzeigen
+    pointsElement.style.display = 'block'; // Punktestand anzeigen
+
     // Timer-Interval starten
     timerInterval = setInterval(() => {
         elapsedTime++;
@@ -75,6 +85,8 @@ function startTimer() {
 // Funktion: Timer stoppen
 function stopTimer() {
     clearInterval(timerInterval); // Timer-Interval stoppen
+    timerElement.style.display = 'none'; // Timer ausblenden
+    pointsElement.style.display = 'none'; // Punktestand ausblenden
 }
 
 // Funktion: Timer-Anzeige aktualisieren
