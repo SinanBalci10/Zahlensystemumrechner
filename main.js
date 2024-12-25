@@ -222,3 +222,8 @@ function toggleExample() {
         exampleText.style.display = 'none';
     }
 }
+
+window.onload = () => {
+    pointsElement.style.display = 'none';
+    pointsElement.style.visibility = 'hidden';
+};
