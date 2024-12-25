@@ -130,6 +130,10 @@ function showInstruction() {
     stopTimer(); // Timer stoppen
     elapsedTime = 0; // Zeit zurücksetzen
     updateTimerDisplay(); // Anzeige auf 0 setzen
+
+    // Punkte ebenfalls ausblenden, wenn ins Hauptmenü gewechselt wird
+    pointsElement.style.display = 'none';
+    pointsElement.style.visibility = 'hidden';
 }
 
 // Funktion: Zeige die erste Aufgabe
