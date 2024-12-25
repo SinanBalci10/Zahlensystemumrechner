@@ -67,7 +67,7 @@ function showLearnMode() {
     document.getElementById('topicDetail').style.display = 'none';
 }
 
-// Funktion: Zeige die Themenauswahl
+// Funktion: Hauptmenü anzeigen
 function showInstruction() {
     document.getElementById('learnMode').style.display = 'none';
     document.getElementById('question').style.display = 'none';
