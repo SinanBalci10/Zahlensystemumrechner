@@ -176,6 +176,9 @@ function showTopic(topic) {
     const topicTitle = document.getElementById('topicTitle');
     const topicContent = document.getElementById('topicContent');
 
+    console.log("Thema:", topic);
+    console.log("Inhalt gefunden:", topics[topic]);
+
     if (topicDetail && topicTitle && topicContent) {
         topicDetail.style.display = 'block'; // Bereich anzeigen
         topicTitle.textContent = topic; // Titel setzen
@@ -185,12 +188,14 @@ function showTopic(topic) {
             topicContent.innerHTML = "Keine Inhalte für dieses Thema verfügbar."; // Fallback
         }
     } else {
+        console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
+    }
 
     pointsElement.style.display = 'none'; // Punktestand ausblenden, wenn ein Thema angezeigt wird
     pointsElement.style.visibility = 'hidden';
 
 }
-}
+
 
 // Funktion: Überprüft die Antwort
 function checkAnswer() {
