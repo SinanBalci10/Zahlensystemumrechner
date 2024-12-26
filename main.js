@@ -153,10 +153,12 @@ function startNewTask() {
 function showLearnMode() {
     const topicDetail = document.getElementById('topicDetail');
     const learnMode = document.getElementById('learnMode');
+    const instruction = document.getElementById('instruction');
 
-    if (topicDetail && learnMode) {
+    if (topicDetail && learnMode && instruction) {
         topicDetail.style.display = 'none'; // Aktuelles Thema ausblenden
         learnMode.style.display = 'block'; // Themenauswahl wieder anzeigen
+        instruction.style.display = 'block'; // "Themen" und "Aufgaben" wieder anzeigen
     } else {
         console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
     }
@@ -195,8 +197,9 @@ function showTopic(topic) {
     const topicTitle = document.getElementById('topicTitle');
     const topicContent = document.getElementById('topicContent');
     const learnMode = document.getElementById('learnMode'); // Bereich mit Themen-Buttons
+    const instruction = document.getElementById('instruction'); // Bereich mit "Themen" und "Aufgaben"
 
-    if (topicDetail && topicTitle && topicContent && learnMode) {
+    if (topicDetail && topicTitle && topicContent && learnMode && instruction) {
         // Thema anzeigen
         topicDetail.style.display = 'block'; // Bereich mit Inhalt anzeigen
         topicTitle.textContent = topic; // Titel setzen
@@ -206,8 +209,9 @@ function showTopic(topic) {
             topicContent.innerHTML = "Keine Inhalte für dieses Thema verfügbar."; // Fallback
         }
 
-        // Bereich mit Themen-Buttons ausblenden
-        learnMode.style.display = 'none';
+        // Bereiche und Buttons ausblenden
+        learnMode.style.display = 'none'; // Themen-Buttons ausblenden
+        instruction.style.display = 'none'; // "Themen" und "Aufgaben" ausblenden
     } else {
         console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
     }
