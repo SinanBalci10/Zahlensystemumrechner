@@ -178,12 +178,18 @@ function showTopic(topic) {
 
     if (topicDetail && topicTitle && topicContent) {
         topicDetail.style.display = 'block'; // Bereich anzeigen
-        topicTitle.textContent = topic; // Titel aktualisieren
-        topicContent.innerHTML = topics[topic]; // Inhalt setzen
+        topicTitle.textContent = topic; // Titel setzen
+        if (topics[topic]) {
+            topicContent.innerHTML = topics[topic]; // Text aus 'topics' einfügen
+        } else {
+            topicContent.innerHTML = "Keine Inhalte für dieses Thema verfügbar."; // Fallback
+        }
     } else {
-        console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
-    }
 
+    pointsElement.style.display = 'none'; // Punktestand ausblenden, wenn ein Thema angezeigt wird
+    pointsElement.style.visibility = 'hidden';
+
+}
 }
 
 // Funktion: Überprüft die Antwort
