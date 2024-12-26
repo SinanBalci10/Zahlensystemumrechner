@@ -172,6 +172,8 @@ function showQuestion() {
 
 // Funktion: Zeige spezifisches Thema
 function showTopic(topic) {
+    console.log("Thema:", topic);
+    console.log("Inhalt gefunden:", topics[topic]);
     const topicDetail = document.getElementById('topicDetail');
     const topicTitle = document.getElementById('topicTitle');
     const topicContent = document.getElementById('topicContent');
