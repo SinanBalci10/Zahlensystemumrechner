@@ -285,6 +285,7 @@ function toggleExample() {
 // punktestand wird von css beeinflusst und wird dadurch trotzdem am anfang angezeigt
 // durch die funktion, wird punktestand ausgeblendet
 window.onload = () => {
+    document.getElementById('instruction').style.display = 'none';
     pointsElement.style.display = 'none';
     pointsElement.style.visibility = 'hidden';
 };
