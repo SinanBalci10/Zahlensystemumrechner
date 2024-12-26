@@ -18,7 +18,7 @@ timerElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstel
 document.body.appendChild(timerElement);
 
 // Punktestand-Element im DOM, Punktestand-Element im DOM, nur erstellen, wenn es noch nicht existiert
-let pointsElement = document.querySelector('.points');
+let pointsElement = document.querySelector('.points');f
 if (!pointsElement) {
     pointsElement = document.createElement('div');
     pointsElement.className = 'points';
@@ -122,8 +122,18 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
-    // Beispieltext ausblenden, wenn nächstes level
-    document.getElementById('exampleText').style.display = 'none';
+    // Zufällige Dezimalzahl generieren
+    currentDecimal = Math.floor(Math.random() * 99) + 1;
+
+    // Beispieltext ausblenden
+    const exampleText = document.getElementById('exampleText');
+    if (exampleText) {
+        exampleText.style.display = 'none';
+    }
+
+    // Aufgabe anzeigen
+    document.getElementById('task').textContent = `Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
+    document.getElementById('steps').innerHTML = ""; // Schritte zurücksetzen
 }
 
 // Funktion: Zeige den Lernmodus
