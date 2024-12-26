@@ -66,8 +66,13 @@
 
     <script>function
      clearAnswerField() {
-        document.getElementById('answer').value = ""; // Lösche den Inhalt des Eingabefelds
+        const answerInput = document.getElementById('answer');
+    if (answerInput) {
+        answerInput.value = ""; // Eingabefeld leeren
+    } else {
+        console.error("Das Eingabefeld mit der ID 'answer' wurde nicht gefunden.");
     }
+}
     </script>
     
     <script src="main.js"></script>
