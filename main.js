@@ -151,9 +151,15 @@ function startNewTask() {
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
-    document.getElementById('instruction').style.display = 'none';
-    document.getElementById('learnMode').style.display = 'block';
-    document.getElementById('topicDetail').style.display = 'none';
+    const topicDetail = document.getElementById('topicDetail');
+    const learnMode = document.getElementById('learnMode');
+
+    if (topicDetail && learnMode) {
+        topicDetail.style.display = 'none'; // Aktuelles Thema ausblenden
+        learnMode.style.display = 'block'; // Themenauswahl wieder anzeigen
+    } else {
+        console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
+    }
 }
 
 // Funktion: Hauptmenü anzeigen
