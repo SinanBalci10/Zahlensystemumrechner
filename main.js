@@ -1,11 +1,8 @@
 // Punktestand-Variable
 let points = 0;
 let currentLevel = 1;
-let tasks = [
-    { question: "Wandle die Dezimalzahl 26 in Hexadezimal um.", answer: "1A", answered: false },
-    { question: "Wandle die Dezimalzahl 255 in Hexadezimal um.", answer: "FF", answered: false },
-    { question: "Wandle die Dezimalzahl 123 in Hexadezimal um.", answer: "7B", answered: false }
-];
+let currentDecimal = 0; // Aktuelle Zufallszahl
+
 
 // Variable für den Timer
 let timerInterval;
@@ -17,6 +14,7 @@ const timerElement = document.createElement('div');
 timerElement.className = 'timer';
 timerElement.textContent = `Zeit: 0s`;
 timerElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstellen, dass es unsichtbar ist
+
 document.body.appendChild(timerElement);
 
 // Punktestand-Element im DOM, Punktestand-Element im DOM, nur erstellen, wenn es noch nicht existiert
@@ -70,6 +68,23 @@ const topics = {
     "Binär zu Dezimal": "Eine Binärzahl wird durch Multiplikation jedes Bits mit der entsprechenden Potenz von 2 in eine Dezimalzahl umgewandelt.",
     "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
 };
+
+
+
+// Funktion: Dezimalzahl in Hexadezimalzahl umwandeln
+function convertDecimalToHex(decimal) {
+    let result = "";
+    let steps = [];
+    while (decimal > 0) {
+        const remainder = decimal % 16;
+        const hexDigit = remainder.toString(16).toUpperCase();
+        steps.push(`Teilen: ${decimal} ÷ 16 = ${Math.floor(decimal / 16)}, Rest: ${remainder} (${hexDigit})`);
+        result = hexDigit + result;
+        decimal = Math.floor(decimal / 16);
+    }
+    steps.push(`Ergebnis: ${result}`);
+    return { result, steps };
+}
 
 // Funktion: Timer starten
 function startTimer() {
@@ -171,33 +186,32 @@ function showTopic(topic) {
 // Funktion: Überprüft die Antwort
 function checkAnswer() {
     const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
+    const correctAnswer = convertDecimalToHex(currentDecimal).result;
 
-    if (userAnswer === tasks[currentLevel - 1].answer && !tasks[currentLevel - 1].answered) {
+    if (userAnswer === correctAnswer && document.getElementById('nextLevel').style.display === 'block') {
+        // Bereits gelöste Aufgabe
+        document.getElementById('feedback').textContent = "Du hast diese Aufgabe bereits richtig gelöst.";
+        document.getElementById('feedback').style.color = "blue";
+    } else if (userAnswer === correctAnswer) {
+        // Neue korrekte Antwort
         document.getElementById('feedback').textContent = "Richtig!";
         document.getElementById('feedback').style.color = "green";
         document.getElementById('success-icon').style.display = "inline";
         document.getElementById('error-icon').style.display = "none";
-        points += 10;
-        tasks[currentLevel - 1].answered = true; // Verhindert erneutes Punktesammeln
-        document.getElementById('points').textContent = points;
+        points += 10; // Punkte hinzufügen
+        pointsElement.textContent = `Punkte: ${points}`; // Punktestand aktualisieren
         correctSound.play(); // Erfolgssound abspielen
 
         stopTimer(); // Timer stoppen, wenn die Antwort richtig ist
 
-        if (currentLevel < tasks.length) {
-            document.getElementById('nextLevel').style.display = 'block';
-        } else {
-            document.getElementById('feedback').textContent += " Gratulation, du hast alle Aufgaben gelöst!";
-        }
-    } else if (userAnswer !== tasks[currentLevel - 1].answer) {
+        document.getElementById('nextLevel').style.display = 'block'; // Nächstes Level anzeigen
+    } else {
+        // Falsche Antwort
         document.getElementById('feedback').textContent = "Falsch, versuche es noch einmal.";
         document.getElementById('feedback').style.color = "red";
         document.getElementById('error-icon').style.display = "inline";
         document.getElementById('success-icon').style.display = "none";
         incorrectSound.play(); // Fehler-Sound abspielen
-    } else {
-        document.getElementById('feedback').textContent = "Du hast diese Aufgabe bereits richtig gelöst.";
-        document.getElementById('feedback').style.color = "blue";
     }
 }
 
