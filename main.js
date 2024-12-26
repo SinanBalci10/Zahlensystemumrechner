@@ -185,23 +185,23 @@ function showQuestion() {
 
 // Funktion: Zeige spezifisches Thema
 function showTopic(topic) {
-    console.log("Thema:", topic);
-    console.log("Inhalt gefunden:", topics[topic]);
     const topicDetail = document.getElementById('topicDetail');
     const topicTitle = document.getElementById('topicTitle');
     const topicContent = document.getElementById('topicContent');
+    const learnMode = document.getElementById('learnMode'); // Bereich mit Themen-Buttons
 
-    console.log("Thema:", topic);
-    console.log("Inhalt gefunden:", topics[topic]);
-
-    if (topicDetail && topicTitle && topicContent) {
-        topicDetail.style.display = 'block'; // Bereich anzeigen
+    if (topicDetail && topicTitle && topicContent && learnMode) {
+        // Thema anzeigen
+        topicDetail.style.display = 'block'; // Bereich mit Inhalt anzeigen
         topicTitle.textContent = topic; // Titel setzen
         if (topics[topic]) {
-            topicContent.innerHTML = topics[topic]; // Text aus 'topics' einfügen
+            topicContent.innerHTML = topics[topic]; // Inhalt aus 'topics' einfügen
         } else {
             topicContent.innerHTML = "Keine Inhalte für dieses Thema verfügbar."; // Fallback
         }
+
+        // Bereich mit Themen-Buttons ausblenden
+        learnMode.style.display = 'none';
     } else {
         console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
     }
