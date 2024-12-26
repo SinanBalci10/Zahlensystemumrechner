@@ -18,7 +18,7 @@ timerElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstel
 document.body.appendChild(timerElement);
 
 // Punktestand-Element im DOM, Punktestand-Element im DOM, nur erstellen, wenn es noch nicht existiert
-let pointsElement = document.querySelector('.points');f
+let pointsElement = document.querySelector('.points');
 if (!pointsElement) {
     pointsElement = document.createElement('div');
     pointsElement.className = 'points';
