@@ -134,7 +134,19 @@ function startNewTask() {
     // Aufgabe anzeigen
     document.getElementById('task').textContent = `Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
     document.getElementById('steps').innerHTML = ""; // Schritte zurücksetzen
-    document.getElementById('feedback').textContent = ""; // Feedback zurücksetzen
+
+    // Feedback zurücksetzen
+    const feedback = document.getElementById('feedback');
+    if (feedback) {
+        feedback.textContent = ""; // Feedback löschen
+    }
+
+    // Erfolg- und Fehlersymbole ausblenden
+    document.getElementById('success-icon').style.display = "none";
+    document.getElementById('error-icon').style.display = "none";
+
+    // Eingabefeld leeren
+    clearAnswerField();
 }
 
 // Funktion: Zeige den Lernmodus
