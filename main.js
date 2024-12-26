@@ -179,14 +179,10 @@ function showTopic(topic) {
     if (topicDetail && topicTitle && topicContent) {
         topicDetail.style.display = 'block'; // Bereich anzeigen
         topicTitle.textContent = topic; // Titel aktualisieren
-        topicContent.innerHTML = topics[topic]; // Text aus 'topics' einfügen
+        topicContent.innerHTML = topics[topic]; // Inhalt setzen
     } else {
         console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
-    
     }
-
-    pointsElement.style.display = 'none'; // Punktestand ausblenden, wenn ein Thema angezeigt wird
-    pointsElement.style.visibility = 'hidden';
 
 }
 
