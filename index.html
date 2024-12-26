@@ -55,8 +55,9 @@
             <div id="exampleText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
-            <button id="nextLevel" style="display: none;" onclick="clearAnswerField(); startNewTask();">Nächste Aufgabe</button>
-            <button onclick="showInstruction()" style="margin-top: 20px;">Hauptmenü</button>
+            <button id="nextLevel" style="display: none;" onclick="clearFeedback(); clearAnswerField(); startNewTask();">Nächste Aufgabe</button>
+        </div>
+    </main><button onclick="showInstruction()" style="margin-top: 20px;">Hauptmenü</button>
         </div>
     </div>
 
@@ -64,14 +65,18 @@
     <audio id="incorrect-sound" src="incorrect.mp3"></audio>
 
     <script>
-    function clearAnswerField() {
-        const answerInput = document.getElementById('answer');
-    if (answerInput) {
-        answerInput.value = ""; // Eingabefeld leeren
-    } else {
-        console.error("Das Eingabefeld mit der ID 'answer' wurde nicht gefunden.");
-    }
-}
+   function clearAnswerField() {
+            document.getElementById('answer').value = ""; // Lösche den Inhalt des Eingabefelds
+        }
+
+        function clearFeedback() {
+            const feedback = document.getElementById('feedback');
+            if (feedback) {
+                feedback.textContent = ""; // Feedback zurücksetzen
+            }
+            document.getElementById('success-icon').style.display = "none";
+            document.getElementById('error-icon').style.display = "none";
+        }
     </script>
     
     <script src="main.js"></script>
