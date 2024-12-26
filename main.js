@@ -122,18 +122,19 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
+    // Button für nächste Aufgabe ausblenden
+    const nextLevelButton = document.getElementById('nextLevel');
+    if (nextLevelButton) {
+        nextLevelButton.style.display = 'none'; // Ausblenden
+    }
+
     // Zufällige Dezimalzahl generieren
     currentDecimal = Math.floor(Math.random() * 99) + 1;
-
-    // Beispieltext ausblenden
-    const exampleText = document.getElementById('exampleText');
-    if (exampleText) {
-        exampleText.style.display = 'none';
-    }
 
     // Aufgabe anzeigen
     document.getElementById('task').textContent = `Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
     document.getElementById('steps').innerHTML = ""; // Schritte zurücksetzen
+    document.getElementById('feedback').textContent = ""; // Feedback zurücksetzen
 }
 
 // Funktion: Zeige den Lernmodus
@@ -201,39 +202,41 @@ function showTopic(topic) {
 
 // Funktion: Überprüft die Antwort
 function checkAnswer() {
-        const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
-        const correctAnswer = convertDecimalToHex(currentDecimal).result;
-    
-        // Prüfen, ob die Aufgabe bereits gelöst wurde
-        const nextLevelButton = document.getElementById('nextLevel');
-        if (userAnswer === correctAnswer && nextLevelButton.style.display === 'block') {
-            document.getElementById('feedback').textContent = "Du hast diese Aufgabe bereits richtig gelöst.";
-            document.getElementById('feedback').style.color = "blue";
-            return;
+    const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
+    const correctAnswer = convertDecimalToHex(currentDecimal).result;
+    const nextLevelButton = document.getElementById('nextLevel');
+
+    // Prüfen, ob die Aufgabe bereits gelöst wurde
+    if (userAnswer === correctAnswer && nextLevelButton.style.display === 'block') {
+        document.getElementById('feedback').textContent = "Du hast diese Aufgabe bereits richtig gelöst.";
+        document.getElementById('feedback').style.color = "blue";
+        return;
+    }
+
+    // Prüfen, ob die Antwort korrekt ist
+    if (userAnswer === correctAnswer) {
+        document.getElementById('feedback').textContent = "Richtig!";
+        document.getElementById('feedback').style.color = "green";
+        document.getElementById('success-icon').style.display = "inline";
+        document.getElementById('error-icon').style.display = "none";
+        points += 10; // Punkte hinzufügen
+        pointsElement.textContent = `Punkte: ${points}`; // Punktestand aktualisieren
+        correctSound.play(); // Erfolgssound abspielen
+
+        stopTimer(); // Timer stoppen, wenn die Antwort richtig ist
+
+        // Button für nächste Aufgabe anzeigen
+        if (nextLevelButton) {
+            nextLevelButton.style.display = 'block'; // Sichtbar machen
         }
-    
-        // Prüfen, ob die Antwort korrekt ist
-        if (userAnswer === correctAnswer) {
-            document.getElementById('feedback').textContent = "Richtig!";
-            document.getElementById('feedback').style.color = "green";
-            document.getElementById('success-icon').style.display = "inline";
-            document.getElementById('error-icon').style.display = "none";
-            points += 10; // Punkte hinzufügen
-            pointsElement.textContent = `Punkte: ${points}`; // Punktestand aktualisieren
-            correctSound.play(); // Erfolgssound abspielen
-    
-            stopTimer(); // Timer stoppen, wenn die Antwort richtig ist
-    
-            // Nächstes Level anzeigen
-            nextLevelButton.style.display = 'block';
-        } else {
-            // Antwort ist falsch
-            document.getElementById('feedback').textContent = "Falsch, versuche es noch einmal.";
-            document.getElementById('feedback').style.color = "red";
-            document.getElementById('error-icon').style.display = "inline";
-            document.getElementById('success-icon').style.display = "none";
-            incorrectSound.play(); // Fehler-Sound abspielen
-        }
+    } else {
+        // Antwort ist falsch
+        document.getElementById('feedback').textContent = "Falsch, versuche es noch einmal.";
+        document.getElementById('feedback').style.color = "red";
+        document.getElementById('error-icon').style.display = "inline";
+        document.getElementById('success-icon').style.display = "none";
+        incorrectSound.play(); // Fehler-Sound abspielen
+    }
 }
 
 // Funktion: Gehe zum nächsten Level
