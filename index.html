@@ -55,7 +55,8 @@
             <div id="exampleText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
-            <button id="nextLevel" style="display: none;" onclick="startNewTask()">Nächste Aufgabe</button>
+            <button id="nextLevel" style="display: none;" onclick="startNewTask(); clearAnswerField();">Nächste Aufgabe</button>
+
             <button onclick="showInstruction()" style="margin-top: 20px;">Hauptmenü</button>
         </div>
     </div>
@@ -63,6 +64,12 @@
     <audio id="correct-sound" src="correct.mp3"></audio>
     <audio id="incorrect-sound" src="incorrect.mp3"></audio>
 
+    <script>function
+     clearAnswerField() {
+        document.getElementById('answer').value = ""; // Lösche den Inhalt des Eingabefelds
+    }
+    </script>
+    
     <script src="main.js"></script>
 </body>
 </html>
