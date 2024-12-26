@@ -198,12 +198,15 @@ function checkAnswer() {
     const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
     const correctAnswer = convertDecimalToHex(currentDecimal).result;
 
+    // Prüfen, ob die Antwort bereits gelöst wurde
     if (userAnswer === correctAnswer && document.getElementById('nextLevel').style.display === 'block') {
-        // Bereits gelöste Aufgabe
         document.getElementById('feedback').textContent = "Du hast diese Aufgabe bereits richtig gelöst.";
         document.getElementById('feedback').style.color = "blue";
-    } else if (userAnswer === correctAnswer) {
-        // Neue korrekte Antwort
+        return;
+    }
+
+    // Prüfen, ob die Antwort korrekt ist
+    if (userAnswer === correctAnswer) {
         document.getElementById('feedback').textContent = "Richtig!";
         document.getElementById('feedback').style.color = "green";
         document.getElementById('success-icon').style.display = "inline";
@@ -214,9 +217,10 @@ function checkAnswer() {
 
         stopTimer(); // Timer stoppen, wenn die Antwort richtig ist
 
-        document.getElementById('nextLevel').style.display = 'block'; // Nächstes Level anzeigen
+        // Nächstes Level anzeigen
+        document.getElementById('nextLevel').style.display = 'block';
     } else {
-        // Falsche Antwort
+        // Antwort ist falsch
         document.getElementById('feedback').textContent = "Falsch, versuche es noch einmal.";
         document.getElementById('feedback').style.color = "red";
         document.getElementById('error-icon').style.display = "inline";
