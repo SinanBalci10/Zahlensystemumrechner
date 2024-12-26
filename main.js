@@ -172,20 +172,17 @@ function showQuestion() {
 
 // Funktion: Zeige spezifisches Thema
 function showTopic(topic) {
-    document.getElementById('learnMode').style.display = 'none'; // Lernmodus ausblenden
     const topicDetail = document.getElementById('topicDetail');
-    if (topicDetail) {
-        topicDetail.style.display = 'block'; // Bereich anzeigen
-    }
     const topicTitle = document.getElementById('topicTitle');
-    if (topicTitle) {
-        topicTitle.textContent = topic; // Titel aktualisieren
-    }
     const topicContent = document.getElementById('topicContent');
-    if (topicContent) {
-        topicContent.innerHTML = topics[topic]; // Inhalte einfügen
+
+    if (topicDetail && topicTitle && topicContent) {
+        topicDetail.style.display = 'block'; // Bereich anzeigen
+        topicTitle.textContent = topic; // Titel aktualisieren
+        topicContent.innerHTML = topics[topic]; // Text aus 'topics' einfügen
     } else {
-        console.error("Das Element mit der ID 'topicContent' wurde nicht gefunden.");
+        console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
+    
     }
 
     pointsElement.style.display = 'none'; // Punktestand ausblenden, wenn ein Thema angezeigt wird
