@@ -164,7 +164,7 @@ function showLearnMode() {
 
 // Funktion: Hauptmenü anzeigen
 function showInstruction() {
-
+    
    // Bereiche ausblenden, die nicht zum Hauptmenü gehören
    document.getElementById('learnMode').style.display = 'none';
    document.getElementById('question').style.display = 'none';
@@ -188,19 +188,13 @@ function showInstruction() {
 
 // Funktion: Zeige die erste Aufgabe
 function showQuestion() {
-    // Andere Bereiche ausblenden
-    document.getElementById('instruction').style.display = 'none'; // Hauptmenü ausblenden
-    document.getElementById('learnMode').style.display = 'none'; // Themen ausblenden
-    document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
-
-    // Aufgabenbereich anzeigen
+    document.getElementById('instruction').style.display = 'none';
+    document.getElementById('learnMode').style.display = 'none';
+    document.getElementById('topicDetail').style.display = 'none';
     document.getElementById('question').style.display = 'block';
+    document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
 
-    // Hauptmenü-Button anzeigen
-    document.getElementById('mainMenuButton').style.display = 'block';
-
-    // Neue Aufgabe starten (Timer und Inhalte)
-    startNewTask();
+    startNewTask(); // Timer starten, sobald die Übungsaufgaben beginnen
 
 }
 
