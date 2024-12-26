@@ -150,43 +150,57 @@ function startNewTask() {
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
-    const topicDetail = document.getElementById('topicDetail');
-    const learnMode = document.getElementById('learnMode');
-    const instruction = document.getElementById('instruction');
-
-    if (topicDetail && learnMode && instruction) {
-        topicDetail.style.display = 'none'; // Aktuelles Thema ausblenden
-        learnMode.style.display = 'block'; // Themenauswahl wieder anzeigen
-        instruction.style.display = 'block'; // "Themen" und "Aufgaben" wieder anzeigen
-    } else {
-        console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
-    }
+     // Hauptmenü und andere Bereiche ausblenden
+     document.getElementById('instruction').style.display = 'none'; // Hauptmenü ausblenden
+     document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
+     document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
+ 
+     // Themenbereich einblenden
+     document.getElementById('learnMode').style.display = 'block'; // Themen anzeigen
+ 
+     // Hauptmenü-Button einblenden
+     document.getElementById('mainMenuButton').style.display = 'block'; // Button anzeigen
 }
 
 // Funktion: Hauptmenü anzeigen
 function showInstruction() {
-    document.getElementById('learnMode').style.display = 'none';
-    document.getElementById('question').style.display = 'none';
-    document.getElementById('topicDetail').style.display = 'none';
-    document.getElementById('instruction').style.display = 'block';
 
-    stopTimer(); // Timer stoppen
-    elapsedTime = 0; // Zeit zurücksetzen
-    updateTimerDisplay(); // Anzeige auf 0 setzen
+   // Bereiche ausblenden, die nicht zum Hauptmenü gehören
+   document.getElementById('learnMode').style.display = 'none';
+   document.getElementById('question').style.display = 'none';
+   document.getElementById('topicDetail').style.display = 'none';
 
-    // Punkte ebenfalls ausblenden, wenn ins Hauptmenü gewechselt wird
-    pointsElement.style.display = 'none';
-    pointsElement.style.visibility = 'hidden';
+   // Hauptmenü anzeigen
+   document.getElementById('instruction').style.display = 'block';
+
+   // Hauptmenü-Button ausblenden
+   document.getElementById('mainMenuButton').style.display = 'none';
+
+   // Timer stoppen und zurücksetzen
+   stopTimer();
+   elapsedTime = 0;
+   updateTimerDisplay();
+
+   // Punkteanzeige ausblenden
+   pointsElement.style.display = 'none';
+   pointsElement.style.visibility = 'hidden';
 }
 
 // Funktion: Zeige die erste Aufgabe
 function showQuestion() {
-    document.getElementById('instruction').style.display = 'none';
-    document.getElementById('learnMode').style.display = 'none';
-    document.getElementById('topicDetail').style.display = 'none';
+    // Andere Bereiche ausblenden
+    document.getElementById('instruction').style.display = 'none'; // Hauptmenü ausblenden
+    document.getElementById('learnMode').style.display = 'none'; // Themen ausblenden
+    document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
+
+    // Aufgabenbereich anzeigen
     document.getElementById('question').style.display = 'block';
 
-    startNewTask(); // Timer starten, sobald die Übungsaufgaben beginnen
+    // Hauptmenü-Button anzeigen
+    document.getElementById('mainMenuButton').style.display = 'block';
+
+    // Neue Aufgabe starten (Timer und Inhalte)
+    startNewTask();
 
 }
 
