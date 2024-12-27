@@ -150,15 +150,11 @@ function startNewTask() {
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
-     // Hauptmenü und andere Bereiche ausblenden
-     document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
-     document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
- 
-     // Themenbereich einblenden
-     document.getElementById('learnMode').style.display = 'block'; // Themen anzeigen
- 
-     // Hauptmenü-Button einblenden
-     document.getElementById('mainMenuButton').style.display = 'block'; 
+    document.getElementById('instruction').style.display = 'none'; // Startseite ausblenden
+    document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
+    document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
+    document.getElementById('learnMode').style.display = 'block'; // Themen anzeigen
+    document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
 }
 
 // Funktion: Hauptmenü anzeigen
