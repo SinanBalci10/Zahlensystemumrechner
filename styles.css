@@ -4,6 +4,10 @@
     display: none;
 }
 
+#instruction {
+    display: block; /* Startseite sichtbar */
+}
+
 h1, #task {
     color: #000000; /* Schwarz */
 }
