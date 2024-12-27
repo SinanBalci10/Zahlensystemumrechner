@@ -1,5 +1,9 @@
 /* Allgemeine Stile für die App */
 
+.hidden {
+    display: none;
+}
+
 h1, #task {
     color: #000000; /* Schwarz */
 }
