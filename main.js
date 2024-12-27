@@ -132,13 +132,21 @@ function startNewTask() {
     currentDecimal = Math.floor(Math.random() * 99) + 1;
 
     // Aufgabe anzeigen
-    document.getElementById('task').textContent = `Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
-    document.getElementById('steps').innerHTML = ""; // Schritte zurücksetzen
+    const taskElement = document.getElementById('task');
+    if (taskElement) {
+        taskElement.textContent = `Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
+    }
 
+    // Schritte zurücksetzen
+    const stepsElement = document.getElementById('steps');
+    if (stepsElement) {
+        stepsElement.innerHTML = "";
+    }
 
      // Feedback zurücksetzen
      clearFeedback();
 
+     // Beispieltext ausblenden
      const exampleText = document.getElementById('exampleText');
      if (exampleText) {
          exampleText.style.display = 'none';
