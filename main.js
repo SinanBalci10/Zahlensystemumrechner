@@ -151,9 +151,8 @@ function startNewTask() {
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
      // Hauptmenü und andere Bereiche ausblenden
-    // document.getElementById('instruction').style.display = 'none'; // Hauptmenü ausblenden
-    // document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
-    // document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
+     document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
+     document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
  
      // Themenbereich einblenden
      document.getElementById('learnMode').style.display = 'block'; // Themen anzeigen
