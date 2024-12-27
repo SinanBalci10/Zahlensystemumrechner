@@ -283,6 +283,16 @@ function checkAnswer() {
         document.getElementById('success-icon').style.display = "none";
         incorrectSound.play(); // Fehler-Sound abspielen
     }
+
+    // Sicherstellen, dass Punkte und Timer sichtbar bleiben
+    const timerElement = document.getElementById('timer');
+    if (timerElement) {
+        timerElement.style.display = 'block';
+    }
+    const pointsElement = document.getElementById('points');
+    if (pointsElement) {
+        pointsElement.style.display = 'block';
+    }
 }
 
 // Funktion: Gehe zum nächsten Level
