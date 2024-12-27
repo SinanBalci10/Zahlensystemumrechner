@@ -273,7 +273,6 @@ function nextLevel() {
     if (nextLevelButton) {
         nextLevelButton.style.display = 'none';
     }
-        startNewTask(); // Timer für die neue Aufgabe starten
   
 }
 
