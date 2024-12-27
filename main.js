@@ -183,10 +183,11 @@ function showInstruction() {
 
 // Funktion: Zeige die erste Aufgabe
 function showQuestion() {
-    document.getElementById('instruction').style.display = 'none';
-    document.getElementById('learnMode').style.display = 'none';
-    document.getElementById('topicDetail').style.display = 'none';
-    document.getElementById('question').style.display = 'block';
+    document.getElementById('instruction').style.display = 'none'; // ausblenden
+    document.getElementById('learnMode').style.display = 'none'; //ausblenden
+    document.getElementById('topicDetail').style.display = 'none'; //ausblenden
+    
+    document.getElementById('question').style.display = 'block'; // frage einblenden
     document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
 
     startNewTask(); // Timer starten, sobald die Übungsaufgaben beginnen
