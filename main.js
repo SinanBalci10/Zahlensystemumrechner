@@ -186,7 +186,7 @@ function showQuestion() {
     document.getElementById('instruction').style.display = 'none'; // ausblenden
     document.getElementById('learnMode').style.display = 'none'; //ausblenden
     document.getElementById('topicDetail').style.display = 'none'; //ausblenden
-    
+
     document.getElementById('question').style.display = 'block'; // frage einblenden
     document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
 
@@ -266,14 +266,15 @@ function checkAnswer() {
 
 // Funktion: Gehe zum nächsten Level
 function nextLevel() {
-    currentLevel++;
-    if (currentLevel <= tasks.length) {
-        document.getElementById('task').textContent = tasks[currentLevel - 1].question;
-        document.getElementById('answer').value = "";
-        document.getElementById('feedback').textContent = "";
-        document.getElementById('nextLevel').style.display = 'none';
-        startNewTask(); // Timer für die neue Aufgabe starten
+    clearFeedback();
+    clearAnswerField();
+    startNewTask(); // Timer zurücksetzen und neue Aufgabe generieren
+    const nextLevelButton = document.getElementById('nextLevel');
+    if (nextLevelButton) {
+        nextLevelButton.style.display = 'none';
     }
+        startNewTask(); // Timer für die neue Aufgabe starten
+  
 }
 
 // Funktion: Beispieltext ein-/ausblenden
