@@ -84,6 +84,7 @@ function clearAnswerField() {
 }
 
 
+
 // Funktion: Dezimalzahl in Hexadezimalzahl umwandeln
 function convertDecimalToHex(decimal) {
     let result = "";
@@ -248,6 +249,7 @@ function showTopic(topic) {
 
 // Funktion: Überprüft die Antwort
 function checkAnswer() {
+    
     const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
     const correctAnswer = convertDecimalToHex(currentDecimal).result;
     const nextLevelButton = document.getElementById('nextLevel');
@@ -284,15 +286,7 @@ function checkAnswer() {
         incorrectSound.play(); // Fehler-Sound abspielen
     }
 
-    // Sicherstellen, dass Punkte und Timer sichtbar bleiben
-    const timerElement = document.getElementById('timer');
-    if (timerElement) {
-        timerElement.style.display = 'block';
-    }
-    const pointsElement = document.getElementById('points');
-    if (pointsElement) {
-        pointsElement.style.display = 'block';
-    }
+    
 }
 
 // Funktion: Gehe zum nächsten Level
