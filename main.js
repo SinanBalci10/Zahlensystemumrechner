@@ -69,6 +69,19 @@ const topics = {
     "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
 };
 
+function clearFeedback() {
+    const feedback = document.getElementById('feedback');
+    if (feedback) {
+        feedback.textContent = ""; // Feedback zurücksetzen
+    }
+}
+
+function clearAnswerField() {
+    const answerField = document.getElementById('answer');
+    if (answerField) {
+        answerField.value = ""; // Eingabefeld zurücksetzen
+    }
+}
 
 
 // Funktion: Dezimalzahl in Hexadezimalzahl umwandeln
