@@ -14,7 +14,7 @@
 
     <!-- Hauptcontainer für die Inhalte -->
     <div class="container">
-        <!-- Abschnitt für Modus-Auswahl -->
+        <!-- Abschnitt themen und übungsaufgaben -->
         <div id="instruction" class="section hidden">
             <h1>Umrechnung von Zahlensystemen</h1>
             <div class="button-row">
@@ -62,21 +62,6 @@
 
     <audio id="correct-sound" src="correct.mp3"></audio>
     <audio id="incorrect-sound" src="incorrect.mp3"></audio>
-
-    <script>
-   function clearAnswerField() {
-            document.getElementById('answer').value = ""; // Lösche den Inhalt des Eingabefelds
-        }
-
-        function clearFeedback() {
-            const feedback = document.getElementById('feedback');
-            if (feedback) {
-                feedback.textContent = ""; // Feedback zurücksetzen
-            }
-            document.getElementById('success-icon').style.display = "none";
-            document.getElementById('error-icon').style.display = "none";
-        }
-    </script>
     
     <script src="main.js"></script>
 </body>
