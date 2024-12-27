@@ -267,8 +267,15 @@ function checkAnswer() {
         document.getElementById('feedback').style.color = "green";
         document.getElementById('success-icon').style.display = "inline";
         document.getElementById('error-icon').style.display = "none";
+
         points += 10; // Punkte hinzufügen
-        pointsElement.textContent = `Punkte: ${points}`; // Punktestand aktualisieren
+
+        if (pointsElement) {
+            pointsElement.style.display = 'block';
+            pointsElement.style.visibility = 'visible';
+            pointsElement.textContent = `Punkte: ${points}`;
+        }
+
         correctSound.play(); // Erfolgssound abspielen
 
         stopTimer(); // Timer stoppen, wenn die Antwort richtig ist
@@ -283,6 +290,7 @@ function checkAnswer() {
         document.getElementById('feedback').style.color = "red";
         document.getElementById('error-icon').style.display = "inline";
         document.getElementById('success-icon').style.display = "none";
+
         incorrectSound.play(); // Fehler-Sound abspielen
     }
 
