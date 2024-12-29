@@ -361,7 +361,7 @@ function toggleExample() {
     const exampleText = document.getElementById('exampleText');
     if (exampleText.style.display === 'none' || exampleText.style.display === '') {
         // Aktualisiere den Beispieltext
-        exampleText.textContent = `2023 ÷ 16 = 126 Rest 7<br>
+        exampleText.innerHTML = `2023 ÷ 16 = 126 Rest 7<br>
 126 ÷ 16 = 7 Rest 14 (E)<br>
 7 ÷ 16 = 0 Rest 7<br>
 Hexadezimal: 7E7`;
