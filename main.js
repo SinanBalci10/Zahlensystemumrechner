@@ -265,6 +265,7 @@ function checkAnswer() {
     if (userAnswer === correctAnswer) {
         document.getElementById('feedback').textContent = "Richtig!";
         document.getElementById('feedback').style.color = "green";
+
         document.getElementById('success-icon').style.display = "inline";
         document.getElementById('error-icon').style.display = "none";
 
@@ -274,6 +275,11 @@ function checkAnswer() {
             pointsElement.style.display = 'block';
             pointsElement.style.visibility = 'visible';
             pointsElement.textContent = `Punkte: ${points}`;
+        }
+
+        if (timerElement) {
+            timerElement.style.display = 'block';
+            timerElement.style.visibility = 'visible';
         }
 
         correctSound.play(); // Erfolgssound abspielen
