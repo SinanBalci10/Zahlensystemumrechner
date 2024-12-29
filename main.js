@@ -66,7 +66,7 @@ const topics = {
     Daher ist die Hexadezimaldarstellung von 5078 gleich 13D6.</p>`,
 
 
-    
+
     "Binär zu Dezimal": "Eine Binärzahl wird durch Multiplikation jedes Bits mit der entsprechenden Potenz von 2 in eine Dezimalzahl umgewandelt.",
     "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
 };
@@ -138,33 +138,29 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
-   // Aufgabe inkrementieren
-   taskCounter++;
+    // Aufgabe inkrementieren
+    taskCounter++;
 
-   // Variablen zur Benennung der Aufgabe
-   let taskGroup = 1; // 1 für erste Gruppe, 2 für zweite Gruppe
-   let taskLetter = ""; // Buchstabe a, b oder c
+    // Variablen zur Benennung der Aufgabe
+    let taskGroup = 1; // 1 für erste Gruppe, 2 für zweite Gruppe
+    let taskLetter = ""; // Buchstabe a, b oder c
 
-   // Zufällige Dezimalzahl generieren je nach Aufgabe
-   if (taskCounter <= 3) {
-    currentDecimal = Math.floor(Math.random() * 99) + 1; // Zahlen zwischen 1 und 99
-    taskGroup = 1;
-    taskLetter = String.fromCharCode(96 + taskCounter); // Generiert a, b, c
-} else if (taskCounter <= 6) {
-    currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
-    taskGroup = 2;
-    taskLetter = String.fromCharCode(96 + (taskCounter - 3)); // Generiert a, b, c
-} else {
-
-
-    // Nach 6 Aufgaben: Hauptmenü anzeigen
-    showInstruction(); // Zurück zum Hauptmenü
-    alert("Du hast alle Aufgaben abgeschlossen!");
-    taskCounter = 0; // Zurücksetzen für eine neue Runde
-    return;
-}
-
-
+    // Zufällige Dezimalzahl generieren je nach Aufgabe
+    if (taskCounter <= 3) {
+        currentDecimal = Math.floor(Math.random() * 99) + 1; // Zahlen zwischen 1 und 99
+        taskGroup = 1;
+        taskLetter = String.fromCharCode(96 + taskCounter); // Generiert a, b, c
+    } else if (taskCounter <= 6) {
+        currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
+        taskGroup = 2;
+        taskLetter = String.fromCharCode(96 + (taskCounter - 3)); // Generiert a, b, c
+    } else {
+        // Nach 6 Aufgaben: Hauptmenü anzeigen
+        showInstruction(); // Zurück zum Hauptmenü
+        alert("Du hast alle Aufgaben abgeschlossen!");
+        taskCounter = 0; // Zurücksetzen für eine neue Runde
+        return;
+    }
 
 
     // Button für nächste Aufgabe ausblenden
@@ -174,10 +170,16 @@ function startNewTask() {
     }
 
 
-    // Aufgabe anzeigen
+     // Überschrift mit Aufgabe aktualisieren
+     const headerElement = document.getElementById('taskHeader'); // Überschrift-Element
+     if (headerElement) {
+         headerElement.textContent = `Aufgabe ${taskGroup}${taskLetter}`; // Aufgabe 1a, 1b, etc.
+     }
+
+    // Aufgabe anzeigen (Text bleibt gleich)
     const taskElement = document.getElementById('task');
     if (taskElement) {
-        taskElement.textContent = `Aufgabe ${taskGroup}${taskLetter}: Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
+        taskElement.textContent = `Wandle die Dezimalzahl (${currentDecimal}) in Hexadezimal um.`;
     }
 
     // Schritte zurücksetzen
@@ -185,16 +187,16 @@ function startNewTask() {
     if (stepsElement) {
         stepsElement.innerHTML = "";
     }
+    
+    // Feedback zurücksetzen
+    clearFeedback();
 
-     // Feedback zurücksetzen
-     clearFeedback();
+    // Beispieltext ausblenden
+    const exampleText = document.getElementById('exampleText');
+    if (exampleText) {
+        exampleText.style.display = 'none';
+    }
 
-     // Beispieltext ausblenden
-     const exampleText = document.getElementById('exampleText');
-     if (exampleText) {
-         exampleText.style.display = 'none';
-     }
- 
     // Eingabefeld leeren
     clearAnswerField();
 }
@@ -210,30 +212,30 @@ function showLearnMode() {
 
 // Funktion: Hauptmenü anzeigen
 function showInstruction() {
-    
-   // Bereiche ausblenden, die nicht zum Hauptmenü gehören
-   document.getElementById('learnMode').style.display = 'none';
-   document.getElementById('question').style.display = 'none';
-   document.getElementById('topicDetail').style.display = 'none';
 
-   // Hauptmenü anzeigen
-   document.getElementById('instruction').style.display = 'block';
+    // Bereiche ausblenden, die nicht zum Hauptmenü gehören
+    document.getElementById('learnMode').style.display = 'none';
+    document.getElementById('question').style.display = 'none';
+    document.getElementById('topicDetail').style.display = 'none';
 
-   // Hauptmenü-Button ausblenden
-   document.getElementById('mainMenuButton').style.display = 'none';
+    // Hauptmenü anzeigen
+    document.getElementById('instruction').style.display = 'block';
 
-   // Timer stoppen und zurücksetzen
-   stopTimer();
-   elapsedTime = 0;
-   updateTimerDisplay();
-   
-   //timer ausblenden
-   timerElement.style.display = "none";
-   timerElement.style.visibility = "hidden";
+    // Hauptmenü-Button ausblenden
+    document.getElementById('mainMenuButton').style.display = 'none';
 
-   // Punkteanzeige ausblenden
-   pointsElement.style.display = 'none';
-   pointsElement.style.visibility = 'hidden';
+    // Timer stoppen und zurücksetzen
+    stopTimer();
+    elapsedTime = 0;
+    updateTimerDisplay();
+
+    //timer ausblenden
+    timerElement.style.display = "none";
+    timerElement.style.visibility = "hidden";
+
+    // Punkteanzeige ausblenden
+    pointsElement.style.display = 'none';
+    pointsElement.style.visibility = 'hidden';
 }
 
 // Funktion: Zeige die erste Aufgabe
@@ -282,7 +284,7 @@ function showTopic(topic) {
 
 // Funktion: Überprüft die Antwort
 function checkAnswer() {
-    
+
     const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
     const correctAnswer = convertDecimalToHex(currentDecimal).result;
     const nextLevelButton = document.getElementById('nextLevel');
@@ -318,7 +320,7 @@ function checkAnswer() {
         }
 
 
-        
+
 
         correctSound.play(); // Erfolgssound abspielen
 
@@ -339,7 +341,7 @@ function checkAnswer() {
     }
 
     console.log('Timer sichtbar:', timerElement.style.display, timerElement.style.visibility);
-    
+
 }
 
 // Funktion: Gehe zum nächsten Level
@@ -351,7 +353,7 @@ function nextLevel() {
     if (nextLevelButton) {
         nextLevelButton.style.display = 'none';
     }
-  
+
 }
 
 // Funktion: Beispieltext ein-/ausblenden
