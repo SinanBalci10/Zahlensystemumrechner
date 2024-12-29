@@ -2,6 +2,8 @@
 let points = 0;
 let currentLevel = 1;
 let currentDecimal = 0; // Aktuelle Zufallszahl
+// Variable, um die aktuelle Aufgabe zu zählen
+let taskCounter = 0;
 
 
 // Variable für den Timer
@@ -136,14 +138,31 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
+   // Aufgabe inkrementieren
+   taskCounter++;
+
+   // Zufällige Dezimalzahl generieren je nach Aufgabe
+   if (taskCounter <= 3) {
+    currentDecimal = Math.floor(Math.random() * 99) + 1; // Zahlen zwischen 1 und 99
+} else if (taskCounter <= 6) {
+    currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
+} else {
+
+
+    // Nach 6 Aufgaben: Hauptmenü anzeigen
+    showInstruction(); // Zurück zum Hauptmenü
+    alert("Du hast alle Aufgaben abgeschlossen!");
+    taskCounter = 0; // Zurücksetzen für eine neue Runde
+    return;
+}
+
+
     // Button für nächste Aufgabe ausblenden
     const nextLevelButton = document.getElementById('nextLevel');
     if (nextLevelButton) {
         nextLevelButton.style.display = 'none'; // Ausblenden
     }
 
-    // Zufällige Dezimalzahl generieren
-    currentDecimal = Math.floor(Math.random() * 99) + 1;
 
     // Aufgabe anzeigen
     const taskElement = document.getElementById('task');
@@ -198,6 +217,7 @@ function showInstruction() {
    elapsedTime = 0;
    updateTimerDisplay();
    
+   //timer ausblenden
    timerElement.style.display = "none";
    timerElement.style.visibility = "hidden";
 
