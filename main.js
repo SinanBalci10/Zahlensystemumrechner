@@ -120,10 +120,10 @@ function startTimer() {
 // Funktion: Timer stoppen
 function stopTimer() {
     clearInterval(timerInterval); // Timer-Interval stoppen
-    timerElement.style.display = 'none'; // Timer ausblenden
-    timerElement.style.visibility = 'hidden';
-    pointsElement.style.display = 'none'; // Punktestand ausblenden
-    pointsElement.style.visibility = 'hidden';
+    //timerElement.style.display = 'none'; // Timer ausblenden
+    //timerElement.style.visibility = 'hidden';
+    //pointsElement.style.display = 'none'; // Punktestand ausblenden
+    //pointsElement.style.visibility = 'hidden';
 }
 
 // Funktion: Timer-Anzeige aktualisieren
