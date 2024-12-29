@@ -170,11 +170,11 @@ function startNewTask() {
     }
 
 
-     // Überschrift mit Aufgabe aktualisieren
-     const headerElement = document.getElementById('taskHeader'); // Überschrift-Element
-     if (headerElement) {
-         headerElement.textContent = `Aufgabe ${taskGroup}${taskLetter}`; // Aufgabe 1a, 1b, etc.
-     }
+    // Überschrift mit Aufgabe aktualisieren
+    const headerElement = document.getElementById('taskHeader'); // Überschrift-Element
+    if (headerElement) {
+        headerElement.textContent = `Aufgabe ${taskGroup}${taskLetter}`; // Aufgabe 1a, 1b, etc.
+    }
 
     // Aufgabe anzeigen (Text bleibt gleich)
     const taskElement = document.getElementById('task');
@@ -187,7 +187,7 @@ function startNewTask() {
     if (stepsElement) {
         stepsElement.innerHTML = "";
     }
-    
+
     // Feedback zurücksetzen
     clearFeedback();
 
@@ -360,8 +360,16 @@ function nextLevel() {
 function toggleExample() {
     const exampleText = document.getElementById('exampleText');
     if (exampleText.style.display === 'none' || exampleText.style.display === '') {
+        // Aktualisiere den Beispieltext
+        exampleText.textContent = `2023 ÷ 16 = 126 Rest 7
+126 ÷ 16 = 7 Rest 14 (E)
+7 ÷ 16 = 0 Rest 7
+Hexadezimal: 7E7`;
+
+        // Text anzeigen
         exampleText.style.display = 'block';
     } else {
+        // Text ausblenden
         exampleText.style.display = 'none';
     }
 }
