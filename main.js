@@ -141,11 +141,19 @@ function startNewTask() {
    // Aufgabe inkrementieren
    taskCounter++;
 
+   // Variablen zur Benennung der Aufgabe
+   let taskGroup = 1; // 1 für erste Gruppe, 2 für zweite Gruppe
+   let taskLetter = ""; // Buchstabe a, b oder c
+
    // Zufällige Dezimalzahl generieren je nach Aufgabe
    if (taskCounter <= 3) {
     currentDecimal = Math.floor(Math.random() * 99) + 1; // Zahlen zwischen 1 und 99
+    taskGroup = 1;
+    taskLetter = String.fromCharCode(96 + taskCounter); // Generiert a, b, c
 } else if (taskCounter <= 6) {
     currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
+    taskGroup = 2;
+    taskLetter = String.fromCharCode(96 + (taskCounter - 3)); // Generiert a, b, c
 } else {
 
 
@@ -155,6 +163,7 @@ function startNewTask() {
     taskCounter = 0; // Zurücksetzen für eine neue Runde
     return;
 }
+
 
 
     // Button für nächste Aufgabe ausblenden
