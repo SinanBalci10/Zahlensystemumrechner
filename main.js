@@ -197,6 +197,9 @@ function showInstruction() {
    stopTimer();
    elapsedTime = 0;
    updateTimerDisplay();
+   
+   timerElement.style.display = "none";
+   timerElement.style.visibility = "hidden";
 
    // Punkteanzeige ausblenden
    pointsElement.style.display = 'none';
