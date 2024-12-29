@@ -166,6 +166,7 @@ function startNewTask() {
 
 
 
+
     // Button für nächste Aufgabe ausblenden
     const nextLevelButton = document.getElementById('nextLevel');
     if (nextLevelButton) {
@@ -176,7 +177,7 @@ function startNewTask() {
     // Aufgabe anzeigen
     const taskElement = document.getElementById('task');
     if (taskElement) {
-        taskElement.textContent = `Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
+        taskElement.textContent = `Aufgabe ${taskGroup}${taskLetter}: Wandle die Dezimalzahl ${currentDecimal} in Hexadezimal um.`;
     }
 
     // Schritte zurücksetzen
