@@ -271,16 +271,21 @@ function checkAnswer() {
 
         points += 10; // Punkte hinzufügen
 
+        //punkte sichtbar machen
         if (pointsElement) {
             pointsElement.style.display = 'block';
             pointsElement.style.visibility = 'visible';
             pointsElement.textContent = `Punkte: ${points}`;
         }
 
+        // Timer sichtbar machen
         if (timerElement) {
             timerElement.style.display = 'block';
             timerElement.style.visibility = 'visible';
         }
+
+
+        
 
         correctSound.play(); // Erfolgssound abspielen
 
@@ -300,6 +305,7 @@ function checkAnswer() {
         incorrectSound.play(); // Fehler-Sound abspielen
     }
 
+    console.log('Timer sichtbar:', timerElement.style.display, timerElement.style.visibility);
     
 }
 
