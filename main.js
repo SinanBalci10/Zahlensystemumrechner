@@ -237,6 +237,13 @@ function showInstruction() {
     // Punkteanzeige ausblenden
     pointsElement.style.display = 'none';
     pointsElement.style.visibility = 'hidden';
+
+     // Notizbox leeren
+     const noteBox = document.getElementById('noteBox');
+     if (noteBox) {
+         noteBox.value = ""; // Notizbox-Inhalt zurücksetzen
+     }
+     
 }
 
 // Funktion: Zeige die erste Aufgabe
