@@ -226,8 +226,11 @@ function showInstruction() {
     // Hauptmenü anzeigen
     document.getElementById('instruction').style.display = 'block';
 
-    // Hauptmenü-Button ausblenden
-    document.getElementById('mainMenuButton').style.display = 'none';
+    // Hauptmenü-Button anzeigen
+    const mainMenuButton = document.getElementById('mainMenuButton');
+    if (mainMenuButton) {
+        mainMenuButton.style.display = 'block'; // Sicherstellen, dass er sichtbar ist
+    }
 
     // Timer stoppen und zurücksetzen
     stopTimer();
