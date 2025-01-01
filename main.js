@@ -138,8 +138,7 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
-    // Aufgabe inkrementieren
-    taskCounter++;
+
 
     // Variablen zur Benennung der Aufgabe
     let taskGroup = 1; // 1 für erste Gruppe, 2 für zweite Gruppe
@@ -330,6 +329,16 @@ function checkAnswer() {
         if (nextLevelButton) {
             nextLevelButton.style.display = 'block'; // Sichtbar machen
         }
+
+          // TaskCounter hochzählen und prüfen, ob alle Aufgaben abgeschlossen sind
+        taskCounter++;
+
+        if (taskCounter >= 6) {
+            alert("Du hast alle Aufgaben abgeschlossen!");
+            showInstruction(); // Zurück zum Hauptmenü
+            taskCounter = 0; // Zähler zurücksetzen für neue Runde
+        }
+
     } else {
         // Antwort ist falsch
         document.getElementById('feedback').textContent = "Falsch, versuche es noch einmal.";
