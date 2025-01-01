@@ -217,7 +217,7 @@ function showLearnMode() {
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
-        mainMenuButton.style.display = 'block'; // Sicherstellen, dass er sichtbar ist
+        mainMenuButton.classList.add('visible'); // Klasse hinzufügen
     }
 }
 
@@ -235,9 +235,10 @@ function showInstruction() {
     // Hauptmenü-Button ausblenden (weil wir bereits im Hauptmenü sind)
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
-        mainMenuButton.style.display = 'none'; // Im Hauptmenü unsichtbar
+        mainMenuButton.classList.remove('visible'); // Klasse entfernen
     }
-    
+}
+
     // Timer stoppen und zurücksetzen
     stopTimer();
     elapsedTime = 0;
