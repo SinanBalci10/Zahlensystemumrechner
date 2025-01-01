@@ -152,7 +152,7 @@ function startNewTask() {
     } else if (taskCounter <= 6) {
         currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
         taskGroup = 2;
-        taskLetter = String.fromCharCode(96 + (taskCounter - 3)); // Generiert a, b, c
+        taskLetter = String.fromCharCode(96 + ((taskCounter - 3) % 3) + 1); // Generiert a, b, c
     } else {
         // Nach 6 Aufgaben: Hauptmenü anzeigen
         showInstruction(); // Zurück zum Hauptmenü
