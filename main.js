@@ -217,7 +217,8 @@ function showLearnMode() {
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
-        mainMenuButton.classList.add('visible'); // Klasse hinzufügen
+        mainMenuButton.style.display = 'block'; // Button einblenden
+        mainMenuButton.style.visibility = 'visible'; // Falls visibility hidden aktiv ist
     }
 }
 
