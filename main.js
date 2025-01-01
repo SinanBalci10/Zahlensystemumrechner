@@ -138,6 +138,14 @@ function startNewTask() {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
+
+    // Hauptmenü-Button sichtbar machen
+    const mainMenuButton = document.getElementById('mainMenuButton');
+    if (mainMenuButton) {
+        mainMenuButton.style.display = 'block'; // Button einblenden
+        mainMenuButton.style.visibility = 'visible'; // Falls notwendig
+    }
+    
     // Notizbox zurücksetzen
     const noteBox = document.getElementById('noteBox');
     if (noteBox) {
@@ -217,7 +225,6 @@ function showLearnMode() {
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
-        console.log("Hauptmenü-Button wird eingeblendet."); // Debugging
         mainMenuButton.style.display = 'block'; // Button einblenden
         mainMenuButton.style.visibility = 'visible'; // Falls visibility hidden ist
     }
