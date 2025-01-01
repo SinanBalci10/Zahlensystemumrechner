@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
@@ -8,9 +9,10 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
+
 <body>
 
-    
+
     <!-- Punktestand Anzeige -->
     <div class="points">Punkte: <span id="points">0</span></div>
 
@@ -56,21 +58,20 @@
             </div>
             <div id="exampleText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
             <div id="noteBoxContainer"></div>
-                <label for="noteBox">Notizblock:</label>
-                <textarea id="noteBox" placeholder="Schreibe hier deine Notizen..."></textarea>
+            <label for="noteBox">Notizblock:</label>
+            <textarea id="noteBox" placeholder="Schreibe hier deine Notizen..."></textarea>
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
             <button id="nextLevel" style="display: none;" onclick="nextLevel()">Nächste Aufgabe</button>
             <button id="mainMenuButton" onclick="showInstruction()" style="margin-top: 20px;">Hauptmenü</button>
-    </main>
         </div>
-        
-</div>
+
     </div>
 
     <audio id="correct-sound" src="correct.mp3"></audio>
     <audio id="incorrect-sound" src="incorrect.mp3"></audio>
-    
+
     <script src="main.js"></script>
 </body>
+
 </html>
