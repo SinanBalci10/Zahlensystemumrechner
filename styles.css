@@ -1,7 +1,8 @@
 /* Allgemeine Stile für die App */
 
 #mainMenuButton {
-    display: none; /* Standardmäßig ausgeblendet */
+    display: block; /* Standardmäßig anzeigen */
+    visibility: visible;
 }
 
 #mainMenuButton.visible {
