@@ -237,7 +237,7 @@ function showInstruction() {
     if (mainMenuButton) {
         mainMenuButton.classList.remove('visible'); // Klasse entfernen
     }
-}
+
 
     // Timer stoppen und zurücksetzen
     stopTimer();
