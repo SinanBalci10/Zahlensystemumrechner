@@ -217,8 +217,9 @@ function showLearnMode() {
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
+        console.log("Hauptmenü-Button wird eingeblendet."); // Debugging
         mainMenuButton.style.display = 'block'; // Button einblenden
-        mainMenuButton.style.visibility = 'visible'; // Falls visibility hidden aktiv ist
+        mainMenuButton.style.visibility = 'visible'; // Falls visibility hidden ist
     }
 }
 
@@ -277,7 +278,7 @@ function showQuestion() {
         mainMenuButton.style.display = 'block'; // Button einblenden
         mainMenuButton.style.visibility = 'visible'; // Falls visibility hidden aktiv ist
     }
-    
+
     startNewTask(); // Timer starten, sobald die Übungsaufgaben beginnen
 
 }
