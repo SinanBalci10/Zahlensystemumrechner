@@ -146,15 +146,15 @@ function startNewTask() {
     let taskLetter = ""; // Buchstabe a, b oder c
 
     // Zufällige Dezimalzahl generieren je nach Aufgabe
-    if (taskCounter <= 3) {
+    if (taskCounter < 3) {
         currentDecimal = Math.floor(Math.random() * 99) + 1; // Zahlen zwischen 1 und 99
         taskGroup = 1;
-        taskLetter = String.fromCharCode(96 + taskCounter); // Generiert a, b, c
-    } else if (taskCounter <= 6) {
+        taskLetter = String.fromCharCode(96 + (taskCounter % 3) + 1); // Generiert a, b, c
+    } else if (taskCounter < 6) {
         currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
         taskGroup = 2;
-        taskLetter = String.fromCharCode(96 + (taskCounter % 3) + 1); // Generiert a, b, c
-        console.log(`taskCounter: ${taskCounter}, taskGroup: ${taskGroup}, taskLetter: ${taskLetter}`);    
+        taskLetter = String.fromCharCode(96 + ((taskCounter - 3) % 3) + 1); // Generiert a, b, c
+        console.log(`taskCounter: ${taskCounter}, taskGroup: ${taskGroup}, taskLetter: ${taskLetter}`);
     } else {
         // Nach 6 Aufgaben: Hauptmenü anzeigen
         showInstruction(); // Zurück zum Hauptmenü
@@ -299,6 +299,7 @@ function checkAnswer() {
 
     // Prüfen, ob die Antwort korrekt ist
     if (userAnswer === correctAnswer) {
+
         document.getElementById('feedback').textContent = "Richtig!";
         document.getElementById('feedback').style.color = "green";
 
@@ -320,9 +321,6 @@ function checkAnswer() {
             timerElement.style.visibility = 'visible';
         }
 
-
-
-
         correctSound.play(); // Erfolgssound abspielen
 
         stopTimer(); // Timer stoppen, wenn die Antwort richtig ist
@@ -332,8 +330,18 @@ function checkAnswer() {
             nextLevelButton.style.display = 'block'; // Sichtbar machen
         }
 
-          // TaskCounter hochzählen und prüfen, ob alle Aufgaben abgeschlossen sind
+        // TaskCounter hochzählen und prüfen, ob alle Aufgaben abgeschlossen sind
         taskCounter++;
+
+        // Buchstaben für aktuelle Aufgabe berechnen (a, b, c)
+        let taskGroup = taskCounter <= 3 ? 1 : 2; // Gruppe 1 (erste 3 Aufgaben), Gruppe 2 (nächste 3)
+        let taskLetter = String.fromCharCode(96 + ((taskCounter - 1) % 3) + 1);
+
+        // Überschrift für die nächste Aufgabe anzeigen
+        const headerElement = document.getElementById('taskHeader');
+        if (headerElement) {
+            headerElement.textContent = `Aufgabe ${taskGroup}${taskLetter}`;
+        }
 
         if (taskCounter >= 6) {
             alert("Du hast alle Aufgaben abgeschlossen!");
@@ -350,9 +358,6 @@ function checkAnswer() {
 
         incorrectSound.play(); // Fehler-Sound abspielen
     }
-
-    console.log('Timer sichtbar:', timerElement.style.display, timerElement.style.visibility);
-
 }
 
 // Funktion: Gehe zum nächsten Level
