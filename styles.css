@@ -1,6 +1,12 @@
 /* Allgemeine Stile für die App */
 
+#mainMenuButton {
+    display: none; /* Standardmäßig ausgeblendet */
+}
 
+#mainMenuButton.visible {
+    display: block; /* Sichtbar, wenn die Klasse "visible" hinzugefügt wird */
+}
 
 #noteBoxContainer {
     margin-top: 20px;

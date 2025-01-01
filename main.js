@@ -213,6 +213,12 @@ function showLearnMode() {
     document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
     document.getElementById('learnMode').style.display = 'block'; // Themen anzeigen
     document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
+    
+    // Hauptmenü-Button sichtbar machen
+    const mainMenuButton = document.getElementById('mainMenuButton');
+    if (mainMenuButton) {
+        mainMenuButton.style.display = 'block'; // Sicherstellen, dass er sichtbar ist
+    }
 }
 
 // Funktion: Hauptmenü anzeigen
@@ -226,12 +232,12 @@ function showInstruction() {
     // Hauptmenü anzeigen
     document.getElementById('instruction').style.display = 'block';
 
-    // Hauptmenü-Button anzeigen
+    // Hauptmenü-Button ausblenden (weil wir bereits im Hauptmenü sind)
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
-        mainMenuButton.style.display = 'block'; // Sicherstellen, dass er sichtbar ist
+        mainMenuButton.style.display = 'none'; // Im Hauptmenü unsichtbar
     }
-
+    
     // Timer stoppen und zurücksetzen
     stopTimer();
     elapsedTime = 0;
