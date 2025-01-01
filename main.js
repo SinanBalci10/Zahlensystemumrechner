@@ -135,10 +135,14 @@ function updateTimerDisplay() {
 
 // Funktion: Aufgabe starten und Timer zurücksetzen
 function startNewTask() {
-    console.log("Aktueller taskCounter:", taskCounter); // Debugging: Zeige den aktuellen Zählerstand
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
+    // Notizbox zurücksetzen
+    const noteBox = document.getElementById('noteBox');
+    if (noteBox) {
+        noteBox.value = ""; // Inhalt der Notizbox löschen
+    }
 
 
     // Variablen zur Benennung der Aufgabe
@@ -243,7 +247,7 @@ function showInstruction() {
      if (noteBox) {
          noteBox.value = ""; // Notizbox-Inhalt zurücksetzen
      }
-     
+
 }
 
 // Funktion: Zeige die erste Aufgabe
