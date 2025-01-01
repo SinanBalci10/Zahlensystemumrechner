@@ -135,6 +135,7 @@ function updateTimerDisplay() {
 
 // Funktion: Aufgabe starten und Timer zurücksetzen
 function startNewTask() {
+    console.log("Aktueller taskCounter:", taskCounter); // Debugging: Zeige den aktuellen Zählerstand
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
@@ -153,6 +154,7 @@ function startNewTask() {
         currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
         taskGroup = 2;
         taskLetter = String.fromCharCode(96 + (taskCounter % 3) + 1); // Generiert a, b, c
+        console.log(`taskCounter: ${taskCounter}, taskGroup: ${taskGroup}, taskLetter: ${taskLetter}`);    
     } else {
         // Nach 6 Aufgaben: Hauptmenü anzeigen
         showInstruction(); // Zurück zum Hauptmenü
