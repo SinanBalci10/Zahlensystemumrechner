@@ -9,6 +9,8 @@
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body>
+
+    
     <!-- Punktestand Anzeige -->
     <div class="points">Punkte: <span id="points">0</span></div>
 
@@ -53,6 +55,9 @@
                 <button onclick="toggleExample()">Beispiel</button>
             </div>
             <div id="exampleText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
+            <div id="noteBoxContainer">
+                <label for="noteBox">Notizbox:</label>
+                <textarea id="noteBox" placeholder="Schreibe hier deine Notizen..."></textarea>
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
             <button id="nextLevel" style="display: none;" onclick="nextLevel()">Nächste Aufgabe</button>

@@ -1,5 +1,23 @@
 /* Allgemeine Stile für die App */
 
+
+
+#noteBoxContainer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+#noteBox {
+    width: 90%;
+    height: 100px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+    resize: vertical; /* Benutzer kann die Größe der Box ändern */
+}
+
 .hidden {
     display: none;
 }
