@@ -52,7 +52,7 @@ const topics = {
         <p><li>317 ÷ 16 ergibt einen Quotienten von 19 und einen Rest von 13 (entspricht D
            im Hexadezimalsystem).</li></p>
         <li>19 ÷ 16 ergibt einen Quotienten von 1 und einen Rest von 3.</li>
-        <li>1 ÷ 16 ergibt einen Quotienten von 0 und einen Rest von 1.</li>
+        <p><li>1 ÷ 16 ergibt einen Quotienten von 0 und einen Rest von 1.</li>
     </ol>
 
     <h3>Reste ermitteln:</h3>
