@@ -270,6 +270,14 @@ function showQuestion() {
     document.getElementById('question').style.display = 'block'; // frage einblenden
     document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
 
+
+    // Hauptmenü-Button sichtbar machen
+    const mainMenuButton = document.getElementById('mainMenuButton');
+    if (mainMenuButton) {
+        mainMenuButton.style.display = 'block'; // Button einblenden
+        mainMenuButton.style.visibility = 'visible'; // Falls visibility hidden aktiv ist
+    }
+    
     startNewTask(); // Timer starten, sobald die Übungsaufgaben beginnen
 
 }
