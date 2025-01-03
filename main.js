@@ -82,6 +82,12 @@ function showExerciseMode() {
     // Übungsmodi anzeigen
     document.getElementById('exerciseMode').style.display = 'block';
 
+    // Zurück-zu-Übungsaufgaben-Button ausblenden
+    const backToExerciseButton = document.getElementById('backToExerciseButton');
+    if (backToExerciseButton) {
+        backToExerciseButton.style.display = 'none';
+    }
+
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
@@ -98,6 +104,12 @@ function showExercise(type) {
     if (type === 'Dezimal zu Hexadezimal') {
         // Aufgabenbereich anzeigen
         document.getElementById('question').style.display = 'block';
+
+         // Zurück-zu-Übungsaufgaben-Button sichtbar machen
+         const backToExerciseButton = document.getElementById('backToExerciseButton');
+         if (backToExerciseButton) {
+             backToExerciseButton.style.display = 'block';
+         }
 
         // Hauptmenü-Button sicherstellen
         const mainMenuButton = document.getElementById('mainMenuButton');
@@ -278,6 +290,13 @@ function showInstruction() {
     document.getElementById('question').style.display = 'none';
     document.getElementById('topicDetail').style.display = 'none';
     document.getElementById('exerciseMode').style.display = 'none';
+
+    // Zurück-zu-Übungsaufgaben-Button ausblenden
+    const backToExerciseButton = document.getElementById('backToExerciseButton');
+    if (backToExerciseButton) {
+        backToExerciseButton.style.display = 'none';
+    }
+
 
     // Hauptmenü anzeigen
     document.getElementById('instruction').style.display = 'block';
