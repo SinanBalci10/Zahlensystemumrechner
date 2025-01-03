@@ -22,7 +22,7 @@
         <div id="instruction" class="section">
             <h1>Umrechnung von Zahlensystemen</h1>
             <div class="button-row">
-                <button onclick="showLearnMode()">Themen</button>
+                <button onclick="showLearnMode()">Definition</button>
                 <button onclick="showExerciseMode()">Übungsaufgaben</button>
             </div>
         </div>
@@ -41,7 +41,7 @@
 
         <!-- Abschnitt für Themen -->
         <div id="learnMode" style="display: none;">
-            <h1>Themen</h1>
+            <h1>Definition</h1>
             <p>Wähle ein Thema aus:</p>
             <ul>
                 <li><button onclick="showTopic('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
@@ -75,7 +75,7 @@
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
             <button id="nextLevel" style="display: none;" onclick="nextLevel()">Nächste Aufgabe</button>
-            <button id="backToExerciseButton" onclick="showExerciseMode()" style="display: none; margin-bottom: 10px;">Übungsaufgaben</button>
+            <button id="backToExerciseButton" onclick="showExerciseMode()" style="display: none; margin-bottom: 10px;">Zurück</button>
             <button id="mainMenuButton" onclick="showInstruction()" style="margin-top: 20px;">Hauptmenü</button>
         </div>
 
