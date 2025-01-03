@@ -71,6 +71,46 @@ const topics = {
     "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
 };
 
+function showExerciseMode() {
+    // Startseite ausblenden
+    document.getElementById('instruction').style.display = 'none';
+
+    // Themenbereich und Aufgabenbereich ausblenden
+    document.getElementById('learnMode').style.display = 'none';
+    document.getElementById('question').style.display = 'none';
+
+    // Übungsmodi anzeigen
+    document.getElementById('exerciseMode').style.display = 'block';
+
+    // Hauptmenü-Button sichtbar machen
+    const mainMenuButton = document.getElementById('mainMenuButton');
+    if (mainMenuButton) {
+        mainMenuButton.style.display = 'block';
+        mainMenuButton.style.visibility = 'visible';
+    }
+}
+
+
+function showExercise(type) {
+    // Übungsmodi ausblenden
+    document.getElementById('exerciseMode').style.display = 'none';
+
+    if (type === 'Dezimal zu Hexadezimal') {
+        // Aufgabenbereich anzeigen
+        document.getElementById('question').style.display = 'block';
+
+        // Hauptmenü-Button sicherstellen
+        const mainMenuButton = document.getElementById('mainMenuButton');
+        if (mainMenuButton) {
+            mainMenuButton.style.display = 'block';
+        }
+
+        startNewTask(); // Starte neue Aufgabe
+    } else {
+        alert(`${type} wird demnächst hinzugefügt.`);
+    }
+}
+
 function clearFeedback() {
     const feedback = document.getElementById('feedback');
     if (feedback) {

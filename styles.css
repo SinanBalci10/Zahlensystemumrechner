@@ -1,5 +1,10 @@
 /* Allgemeine Stile für die App */
 
+
+#exerciseMode {
+    display: none; /* Standardmäßig ausblenden */
+}
+
 #mainMenuButton {
     display: block; /* Standardmäßig anzeigen */
     visibility: visible;

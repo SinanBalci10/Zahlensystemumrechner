@@ -23,8 +23,20 @@
             <h1>Umrechnung von Zahlensystemen</h1>
             <div class="button-row">
                 <button onclick="showLearnMode()">Themen</button>
-                <button onclick="showQuestion()">Übungsaufgaben</button>
+                <button onclick="showExerciseMode()">Übungsaufgaben</button>
             </div>
+        </div>
+
+        <!-- Abschnitt für die Übungsmodi -->
+        <div id="exerciseMode" style="display: none;">
+            <h1>Übungsaufgaben</h1>
+            <p>Wähle eine Übungsart aus:</p>
+            <ul>
+                <li><button onclick="showExercise('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
+                <li><button onclick="showExercise('Binär zu Dezimal')">Binär zu Dezimal</button></li>
+                <li><button onclick="showExercise('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
+            </ul>
+            <button id="mainMenuButton" onclick="showInstruction()">Hauptmenü</button>
         </div>
 
         <!-- Abschnitt für Themen -->
