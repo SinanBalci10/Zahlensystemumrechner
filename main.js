@@ -277,6 +277,7 @@ function showInstruction() {
     document.getElementById('learnMode').style.display = 'none';
     document.getElementById('question').style.display = 'none';
     document.getElementById('topicDetail').style.display = 'none';
+    document.getElementById('exerciseMode').style.display = 'none';
 
     // Hauptmenü anzeigen
     document.getElementById('instruction').style.display = 'block';
