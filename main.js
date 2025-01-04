@@ -1,7 +1,8 @@
 // Punktestand-Variable
 let points = 0;
 let currentLevel = 1;
-let currentDecimal = 0; // Aktuelle Zufallszahl
+// Aktuelle Zufallszahl
+let currentDecimal = 0; 
 // Variable, um die aktuelle Aufgabe zu zählen
 let taskCounter = 0;
 
@@ -101,23 +102,26 @@ function showExercise(type) {
     // Übungsmodi ausblenden
     document.getElementById('exerciseMode').style.display = 'none';
 
+    // Aufgabenbereich anzeigen
+    document.getElementById('question').style.display = 'block';
+
+    // Zurück-zu-Übungsaufgaben-Button sichtbar machen
+    const backToExerciseButton = document.getElementById('backToExerciseButton');
+    if (backToExerciseButton) {
+        backToExerciseButton.style.display = 'block';
+    }
+
+    // Hauptmenü-Button sicherstellen
+    const mainMenuButton = document.getElementById('mainMenuButton');
+    if (mainMenuButton) {
+        mainMenuButton.style.display = 'block';
+    }
+
+    // Aufgabentyp basierend auf dem übergebenen Parameter starten
     if (type === 'Dezimal zu Hexadezimal') {
-        // Aufgabenbereich anzeigen
-        document.getElementById('question').style.display = 'block';
-
-         // Zurück-zu-Übungsaufgaben-Button sichtbar machen
-         const backToExerciseButton = document.getElementById('backToExerciseButton');
-         if (backToExerciseButton) {
-             backToExerciseButton.style.display = 'block';
-         }
-
-        // Hauptmenü-Button sicherstellen
-        const mainMenuButton = document.getElementById('mainMenuButton');
-        if (mainMenuButton) {
-            mainMenuButton.style.display = 'block';
-        }
-
-        startNewTask(); // Starte neue Aufgabe
+        startNewTask("decimalToHex"); // Starte Dezimal zu Hexadezimal Aufgabe
+    } else if (type === 'Binär zu Dezimal') {
+        startNewTask("binaryToDecimal"); // Starte Binär zu Dezimal Aufgabe
     } else {
         alert(`${type} wird demnächst hinzugefügt.`);
     }
@@ -186,10 +190,9 @@ function updateTimerDisplay() {
 }
 
 // Funktion: Aufgabe starten und Timer zurücksetzen
-function startNewTask() {
+function startNewTask(taskType) {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
-
 
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
@@ -197,28 +200,40 @@ function startNewTask() {
         mainMenuButton.style.display = 'block'; // Button einblenden
         mainMenuButton.style.visibility = 'visible'; // Falls notwendig
     }
-    
+
     // Notizbox zurücksetzen
     const noteBox = document.getElementById('noteBox');
     if (noteBox) {
         noteBox.value = ""; // Inhalt der Notizbox löschen
     }
 
-
     // Variablen zur Benennung der Aufgabe
     let taskGroup = 1; // 1 für erste Gruppe, 2 für zweite Gruppe
     let taskLetter = ""; // Buchstabe a, b oder c
+    let taskContent = ""; // Aufgabenbeschreibung
+    let randomValue = ""; // Generierter Wert (Dezimal oder Binär)
 
-    // Zufällige Dezimalzahl generieren je nach Aufgabe
+    // Aufgabe basierend auf Typ generieren
     if (taskCounter < 3) {
-        currentDecimal = Math.floor(Math.random() * 99) + 1; // Zahlen zwischen 1 und 99
+        if (taskType === "decimalToHex") {
+            randomValue = Math.floor(Math.random() * 99) + 1; // Dezimalzahl (1 bis 99)
+            taskContent = `Wandle die Dezimalzahl (${randomValue}) in Hexadezimal um.`;
+        } else if (taskType === "binaryToDecimal") {
+            randomValue = generateRandomBinary(4); // Binärzahl mit 4 Stellen
+            taskContent = `Wandle die Binärzahl (${randomValue}) in eine Dezimalzahl um.`;
+        }
         taskGroup = 1;
         taskLetter = String.fromCharCode(96 + (taskCounter % 3) + 1); // Generiert a, b, c
     } else if (taskCounter < 6) {
-        currentDecimal = Math.floor(Math.random() * 900) + 100; // Zahlen zwischen 100 und 999
+        if (taskType === "decimalToHex") {
+            randomValue = Math.floor(Math.random() * 900) + 100; // Dezimalzahl (100 bis 999)
+            taskContent = `Wandle die Dezimalzahl (${randomValue}) in Hexadezimal um.`;
+        } else if (taskType === "binaryToDecimal") {
+            randomValue = generateRandomBinary(6); // Binärzahl mit 6 Stellen
+            taskContent = `Wandle die Binärzahl (${randomValue}) in eine Dezimalzahl um.`;
+        }
         taskGroup = 2;
         taskLetter = String.fromCharCode(96 + ((taskCounter - 3) % 3) + 1); // Generiert a, b, c
-        console.log(`taskCounter: ${taskCounter}, taskGroup: ${taskGroup}, taskLetter: ${taskLetter}`);
     } else {
         // Nach 6 Aufgaben: Hauptmenü anzeigen
         showInstruction(); // Zurück zum Hauptmenü
@@ -227,6 +242,12 @@ function startNewTask() {
         return;
     }
 
+    // Speichern des generierten Werts
+    if (taskType === "decimalToHex") {
+        currentDecimal = randomValue;
+    } else if (taskType === "binaryToDecimal") {
+        currentBinary = randomValue;
+    }
 
     // Button für nächste Aufgabe ausblenden
     const nextLevelButton = document.getElementById('nextLevel');
@@ -234,17 +255,16 @@ function startNewTask() {
         nextLevelButton.style.display = 'none'; // Ausblenden
     }
 
-
     // Überschrift mit Aufgabe aktualisieren
     const headerElement = document.getElementById('taskHeader'); // Überschrift-Element
     if (headerElement) {
         headerElement.textContent = `Aufgabe ${taskGroup}${taskLetter}`; // Aufgabe 1a, 1b, etc.
     }
 
-    // Aufgabe anzeigen (Text bleibt gleich)
+    // Aufgabe anzeigen
     const taskElement = document.getElementById('task');
     if (taskElement) {
-        taskElement.textContent = `Wandle die Dezimalzahl (${currentDecimal}) in Hexadezimal um.`;
+        taskElement.textContent = taskContent;
     }
 
     // Schritte zurücksetzen
@@ -265,6 +285,17 @@ function startNewTask() {
     // Eingabefeld leeren
     clearAnswerField();
 }
+
+// Funktion zur Generierung einer Binärzahl
+function generateRandomBinary(length) {
+    let binary = "";
+    for (let i = 0; i < length; i++) {
+        binary += Math.floor(Math.random() * 2); // Zufällige 0 oder 1
+    }
+    return binary;
+}
+
+
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
@@ -382,10 +413,23 @@ function showTopic(topic) {
 
 
 // Funktion: Überprüft die Antwort
-function checkAnswer() {
-
+function checkAnswer(taskType) {
     const userAnswer = document.getElementById('answer').value.trim().toUpperCase();
-    const correctAnswer = convertDecimalToHex(currentDecimal).result;
+    let correctAnswer = "";
+    let taskDescription = "";
+
+    // Korrekte Antwort und Aufgabenbeschreibung basierend auf taskType festlegen
+    if (taskType === "decimalToHex") {
+        correctAnswer = convertDecimalToHex(currentDecimal).result;
+        taskDescription = "Wandle die Dezimalzahl in eine Hexadezimalzahl um.";
+    } else if (taskType === "binaryToDecimal") {
+        correctAnswer = parseInt(currentBinary, 2).toString(); // Binär zu Dezimal
+        taskDescription = "Wandle die Binärzahl in eine Dezimalzahl um.";
+    } else {
+        console.error("Ungültiger Aufgabentyp:", taskType);
+        return;
+    }
+
     const nextLevelButton = document.getElementById('nextLevel');
 
     // Prüfen, ob die Aufgabe bereits gelöst wurde
@@ -397,7 +441,6 @@ function checkAnswer() {
 
     // Prüfen, ob die Antwort korrekt ist
     if (userAnswer === correctAnswer) {
-
         document.getElementById('feedback').textContent = "Richtig!";
         document.getElementById('feedback').style.color = "green";
 
@@ -406,7 +449,7 @@ function checkAnswer() {
 
         points += 10; // Punkte hinzufügen
 
-        //punkte sichtbar machen
+        // Punkteanzeige sichtbar machen
         if (pointsElement) {
             pointsElement.style.display = 'block';
             pointsElement.style.visibility = 'visible';
@@ -446,7 +489,6 @@ function checkAnswer() {
             showInstruction(); // Zurück zum Hauptmenü
             taskCounter = 0; // Zähler zurücksetzen für neue Runde
         }
-
     } else {
         // Antwort ist falsch
         document.getElementById('feedback').textContent = "Falsch, versuche es noch einmal.";
