@@ -73,6 +73,12 @@ const topics = {
     "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
 };
 
+const taskProgress = {
+    decimalToHex: 0,  // Fortschritt für Dezimal zu Hexadezimal
+    binaryToDecimal: 0,  // Fortschritt für Binär zu Dezimal
+    // Weitere Themen können hier hinzugefügt werden
+};
+
 function showExerciseMode() {
     // Startseite ausblenden
     document.getElementById('instruction').style.display = 'none';
@@ -118,16 +124,21 @@ function showExercise(type) {
         mainMenuButton.style.display = 'block';
     }
 
-    // Aufgabentyp basierend auf dem übergebenen Parameter starten
+    // Aufgabentyp setzen
     if (type === 'Dezimal zu Hexadezimal') {
         currentTaskType = "decimalToHex"; // Setze den aktuellen Aufgabentyp
-        startNewTask(currentTaskType); // Starte Dezimal zu Hexadezimal Aufgabe
     } else if (type === 'Binär zu Dezimal') {
         currentTaskType = "binaryToDecimal"; // Setze den aktuellen Aufgabentyp
-        startNewTask(currentTaskType); // Starte Binär zu Dezimal Aufgabe
     } else {
         alert(`${type} wird demnächst hinzugefügt.`);
+        return;
     }
+
+    // Lade den gespeicherten Fortschritt für das Thema
+    taskCounter = taskProgress[currentTaskType] || 0;
+
+    // Starte die Aufgabe basierend auf dem Typ
+    startNewTask(currentTaskType);
 }
 
 function clearFeedback() {
@@ -521,16 +532,17 @@ function nextLevel() {
     clearFeedback();
     clearAnswerField();
 
-    // Nächste Aufgabe basierend auf dem aktuellen Typ starten
-    startNewTask(currentTaskType); // Übergebe den aktuellen Aufgabentyp
+    // Speichere den Fortschritt für das aktuelle Thema
+    taskProgress[currentTaskType] = taskCounter;
+
+    // Starte die nächste Aufgabe
+    startNewTask(currentTaskType);
 
     // Button für nächste Aufgabe ausblenden
     const nextLevelButton = document.getElementById('nextLevel');
     if (nextLevelButton) {
         nextLevelButton.style.display = 'none';
     }
-
-    console.log("Next Level gestartet für:", currentTaskType);
 }
 
 // Funktion: Beispieltext ein-/ausblenden
