@@ -216,32 +216,38 @@ function startNewTask(taskType) {
     let taskContent = ""; // Aufgabenbeschreibung
     let randomValue = ""; // Generierter Wert (Dezimal oder Binär)
 
-    // Aufgabe basierend auf Typ generieren
-    if (taskCounter < 3) {
+     // Aufgabe basierend auf Typ generieren
+     if (taskCounter < 3) {
         if (taskType === "decimalToHex") {
-            randomValue = Math.floor(Math.random() * 99) + 1; // Dezimalzahl (1 bis 99)
-            taskContent = `Wandle die Dezimalzahl (${randomValue}) in Hexadezimal um.`;
+            generatedValue = Math.floor(Math.random() * 99) + 1; // Dezimalzahl (1 bis 99)
+            taskDescription = `Wandle die Dezimalzahl (${generatedValue}) in Hexadezimal um.`;
         } else if (taskType === "binaryToDecimal") {
-            randomValue = generateRandomBinary(4); // Binärzahl mit 4 Stellen
-            taskContent = `Wandle die Binärzahl (${randomValue}) in eine Dezimalzahl um.`;
+            const decimalValue = Math.floor(Math.random() * 99) + 1; // Dezimalwert (1 bis 99)
+            generatedValue = decimalValue.toString(2); // In Binär umwandeln
+            taskDescription = `Wandle die Binärzahl (${generatedValue}) in eine Dezimalzahl um.`;
         }
         taskGroup = 1;
         taskLetter = String.fromCharCode(96 + (taskCounter % 3) + 1); // Generiert a, b, c
     } else if (taskCounter < 6) {
         if (taskType === "decimalToHex") {
-            randomValue = Math.floor(Math.random() * 900) + 100; // Dezimalzahl (100 bis 999)
-            taskContent = `Wandle die Dezimalzahl (${randomValue}) in Hexadezimal um.`;
+            generatedValue = Math.floor(Math.random() * 900) + 100; // Dezimalzahl (100 bis 999)
+            taskDescription = `Wandle die Dezimalzahl (${generatedValue}) in Hexadezimal um.`;
         } else if (taskType === "binaryToDecimal") {
-            randomValue = generateRandomBinary(6); // Binärzahl mit 6 Stellen
-            taskContent = `Wandle die Binärzahl (${randomValue}) in eine Dezimalzahl um.`;
+            const decimalValue = Math.floor(Math.random() * 900) + 100; // Dezimalwert (100 bis 999)
+            generatedValue = decimalValue.toString(2); // In Binär umwandeln
+            taskDescription = `Wandle die Binärzahl (${generatedValue}) in eine Dezimalzahl um.`;
         }
         taskGroup = 2;
         taskLetter = String.fromCharCode(96 + ((taskCounter - 3) % 3) + 1); // Generiert a, b, c
     } else {
         // Nach 6 Aufgaben: Hauptmenü anzeigen
+        const feedback = document.getElementById('feedback');
+        if (feedback) {
+            feedback.textContent = "Herzlichen Glückwunsch, du hast alle Aufgaben abgeschlossen!";
+            feedback.style.color = "green";
+        }
         showInstruction(); // Zurück zum Hauptmenü
-        alert("Du hast alle Aufgaben abgeschlossen!");
-        taskCounter = 0; // Zurücksetzen für eine neue Runde
+        taskCounter = 0; // Zähler zurücksetzen für neue Runde
         return;
     }
 
