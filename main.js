@@ -134,6 +134,11 @@ function showExercise(type) {
         return;
     }
 
+    // Prüfen, ob alle Aufgaben in diesem Thema abgeschlossen wurden
+    if (taskProgress[currentTaskType] >= 6) {
+        taskProgress[currentTaskType] = 0; // Fortschritt zurücksetzen
+    }
+
     // Lade den gespeicherten Fortschritt für das Thema
     taskCounter = taskProgress[currentTaskType] || 0;
 
@@ -531,6 +536,14 @@ function nextLevel() {
     // Feedback und Eingabefelder zurücksetzen
     clearFeedback();
     clearAnswerField();
+    // Prüfen, ob alle Aufgaben abgeschlossen sind
+    if (taskCounter >= 6) {
+        alert("Du hast alle Aufgaben abgeschlossen!");
+        taskProgress[currentTaskType] = 0; // Fortschritt für das aktuelle Thema zurücksetzen
+        taskCounter = 0; // Zähler zurücksetzen
+        showExerciseMode(); // Zurück zur Übungsmodi-Auswahl
+        return;
+    }
 
     // Speichere den Fortschritt für das aktuelle Thema
     taskProgress[currentTaskType] = taskCounter;
