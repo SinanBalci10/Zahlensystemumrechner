@@ -11,6 +11,7 @@ let taskCounter = 0;
 let timerInterval;
 let elapsedTime = 0;
 
+let currentTaskType = null;
 
 // Timer-Element im DOM
 const timerElement = document.createElement('div');
@@ -119,9 +120,11 @@ function showExercise(type) {
 
     // Aufgabentyp basierend auf dem übergebenen Parameter starten
     if (type === 'Dezimal zu Hexadezimal') {
-        startNewTask("decimalToHex"); // Starte Dezimal zu Hexadezimal Aufgabe
+        currentTaskType = "decimalToHex"; // Setze den aktuellen Aufgabentyp
+        startNewTask(currentTaskType); // Starte Dezimal zu Hexadezimal Aufgabe
     } else if (type === 'Binär zu Dezimal') {
-        startNewTask("binaryToDecimal"); // Starte Binär zu Dezimal Aufgabe
+        currentTaskType = "binaryToDecimal"; // Setze den aktuellen Aufgabentyp
+        startNewTask(currentTaskType); // Starte Binär zu Dezimal Aufgabe
     } else {
         alert(`${type} wird demnächst hinzugefügt.`);
     }
@@ -502,14 +505,26 @@ function checkAnswer(taskType) {
 
 // Funktion: Gehe zum nächsten Level
 function nextLevel() {
+    // Überprüfen, ob der aktuelle Aufgabentyp gesetzt ist
+    if (!currentTaskType) {
+        console.error("Kein Aufgabentyp definiert. Bitte wähle eine Übungsart aus.");
+        return;
+    }
+
+    // Feedback und Eingabefelder zurücksetzen
     clearFeedback();
     clearAnswerField();
-    startNewTask(); // Timer zurücksetzen und neue Aufgabe generieren
+
+    // Nächste Aufgabe basierend auf dem aktuellen Typ starten
+    startNewTask(currentTaskType); // Übergebe den aktuellen Aufgabentyp
+
+    // Button für nächste Aufgabe ausblenden
     const nextLevelButton = document.getElementById('nextLevel');
     if (nextLevelButton) {
         nextLevelButton.style.display = 'none';
     }
 
+    console.log("Next Level gestartet für:", currentTaskType);
 }
 
 // Funktion: Beispieltext ein-/ausblenden
