@@ -214,28 +214,28 @@ function startNewTask(taskType) {
     let taskGroup = 1; // 1 für erste Gruppe, 2 für zweite Gruppe
     let taskLetter = ""; // Buchstabe a, b oder c
     let taskContent = ""; // Aufgabenbeschreibung
-    let randomValue = ""; // Generierter Wert (Dezimal oder Binär)
+    let generatedValue = ""; // Generierter Wert (Dezimal oder Binär)
 
-     // Aufgabe basierend auf Typ generieren
-     if (taskCounter < 3) {
+    // Aufgabe basierend auf Typ generieren
+    if (taskCounter < 3) {
         if (taskType === "decimalToHex") {
             generatedValue = Math.floor(Math.random() * 99) + 1; // Dezimalzahl (1 bis 99)
-            taskDescription = `Wandle die Dezimalzahl (${generatedValue}) in Hexadezimal um.`;
+            taskContent = `Wandle die Dezimalzahl (${generatedValue}) in Hexadezimal um.`;
         } else if (taskType === "binaryToDecimal") {
             const decimalValue = Math.floor(Math.random() * 99) + 1; // Dezimalwert (1 bis 99)
             generatedValue = decimalValue.toString(2); // In Binär umwandeln
-            taskDescription = `Wandle die Binärzahl (${generatedValue}) in eine Dezimalzahl um.`;
+            taskContent = `Wandle die Binärzahl (${generatedValue}) in eine Dezimalzahl um.`;
         }
         taskGroup = 1;
         taskLetter = String.fromCharCode(96 + (taskCounter % 3) + 1); // Generiert a, b, c
     } else if (taskCounter < 6) {
         if (taskType === "decimalToHex") {
             generatedValue = Math.floor(Math.random() * 900) + 100; // Dezimalzahl (100 bis 999)
-            taskDescription = `Wandle die Dezimalzahl (${generatedValue}) in Hexadezimal um.`;
+            taskContent = `Wandle die Dezimalzahl (${generatedValue}) in Hexadezimal um.`;
         } else if (taskType === "binaryToDecimal") {
             const decimalValue = Math.floor(Math.random() * 900) + 100; // Dezimalwert (100 bis 999)
             generatedValue = decimalValue.toString(2); // In Binär umwandeln
-            taskDescription = `Wandle die Binärzahl (${generatedValue}) in eine Dezimalzahl um.`;
+            taskContent = `Wandle die Binärzahl (${generatedValue}) in eine Dezimalzahl um.`;
         }
         taskGroup = 2;
         taskLetter = String.fromCharCode(96 + ((taskCounter - 3) % 3) + 1); // Generiert a, b, c
@@ -253,9 +253,9 @@ function startNewTask(taskType) {
 
     // Speichern des generierten Werts
     if (taskType === "decimalToHex") {
-        currentDecimal = randomValue;
+        currentDecimal = generatedValue;
     } else if (taskType === "binaryToDecimal") {
-        currentBinary = randomValue;
+        currentBinary = generatedValue;
     }
 
     // Button für nächste Aufgabe ausblenden
@@ -273,7 +273,7 @@ function startNewTask(taskType) {
     // Aufgabe anzeigen
     const taskElement = document.getElementById('task');
     if (taskElement) {
-        taskElement.textContent = taskContent;
+        taskElement.textContent = taskContent; // Zeige die korrekte Aufgabenbeschreibung an
     }
 
     // Schritte zurücksetzen
