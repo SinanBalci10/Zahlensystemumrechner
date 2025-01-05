@@ -290,7 +290,6 @@ function showLearnMode() {
     // Alle nicht benötigten Bereiche ausblenden
     document.getElementById('instruction').style.display = 'none'; // Startseite ausblenden
     document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
-    document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
 
     // Themenbereich anzeigen
     document.getElementById('learnMode').style.display = 'block';
