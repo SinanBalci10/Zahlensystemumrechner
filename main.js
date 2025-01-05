@@ -2,7 +2,7 @@
 let points = 0;
 let currentLevel = 1;
 // Aktuelle Zufallszahl
-let currentDecimal = 0; 
+let currentDecimal = 0;
 // Variable, um die aktuelle Aufgabe zu zählen
 let taskCounter = 0;
 
@@ -35,43 +35,6 @@ if (!pointsElement) {
 const correctSound = document.getElementById('correct-sound');
 const incorrectSound = document.getElementById('incorrect-sound');
 
-// Themen mit Erklärungstexten
-const topics = {
-    "Dezimal zu Hexadezimal": `<p>Eine Dezimalzahl ist eine Zahl im Zehnersystem (Basis 10),
-    während eine Hexadezimalzahl im Sechzehnersystem (Basis 16) dargestellt wird.</p>
-    <p>Die Umwandlung von einer Dezimalzahl in eine Hexadezimalzahl erfolgt durch
-    wiederholte Division der Zahl durch 16, wobei die Reste notiert werden.
-    Hexadezimalzahl (auch Basis-16) ist eine Zahl, die 16 verschiedene Ziffern
-    verwendet: 0-9 und A-F (wobei A=10, B=11, ..., F=15 entspricht).</p>
-    <p>Diese Reste, von unten nach oben gelesen, ergeben die Hexadezimaldarstellung.</p>
-
-    <h3>Beispiel:</h3>
-
-    <p>Um die Dezimalzahl 5078 in eine Hexadezimalzahl umzuwandeln:</p>
-
-    <ol>
-        <li>5078 ÷ 16 ergibt einen Quotienten von 317 und einen Rest von 6.</li>
-        <p><li>317 ÷ 16 ergibt einen Quotienten von 19 und einen Rest von 13 (entspricht D
-           im Hexadezimalsystem).</li></p>
-        <li>19 ÷ 16 ergibt einen Quotienten von 1 und einen Rest von 3.</li>
-        <p><li>1 ÷ 16 ergibt einen Quotienten von 0 und einen Rest von 1.</li>
-    </ol>
-
-    <h3>Reste ermitteln:</h3>
-
-    <p>Wenn man sich als Beispiel 1. anguckt, schreibt man statt "÷" ein "-".
-    Multipliziere dann mit dem Ergebnis, also:</p>
-    <p>5078 - 16 * 317 = 6</p>
-    <p>usw.</p>
-
-    <p>Die Reste, von unten nach oben gelesen, sind 1, 3, D und 6.
-    Daher ist die Hexadezimaldarstellung von 5078 gleich 13D6.</p>`,
-
-
-
-    "Binär zu Dezimal": "Eine Binärzahl wird durch Multiplikation jedes Bits mit der entsprechenden Potenz von 2 in eine Dezimalzahl umgewandelt.",
-    "Hexadezimal zu Binär": "Jede Hexadezimalziffer wird in ihre entsprechende 4-Bit-Binärdarstellung umgewandelt."
-};
 
 const taskProgress = {
     decimalToHex: 0,  // Fortschritt für Dezimal zu Hexadezimal
@@ -329,7 +292,7 @@ function showLearnMode() {
     document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
     document.getElementById('learnMode').style.display = 'block'; // Themen anzeigen
     document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
-    
+
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
@@ -377,11 +340,11 @@ function showInstruction() {
     pointsElement.style.display = 'none';
     pointsElement.style.visibility = 'hidden';
 
-     // Notizbox leeren
-     const noteBox = document.getElementById('noteBox');
-     if (noteBox) {
-         noteBox.value = ""; // Notizbox-Inhalt zurücksetzen
-     }
+    // Notizbox leeren
+    const noteBox = document.getElementById('noteBox');
+    if (noteBox) {
+        noteBox.value = ""; // Notizbox-Inhalt zurücksetzen
+    }
 
 }
 
@@ -408,33 +371,32 @@ function showQuestion() {
 
 // Funktion: Zeige spezifisches Thema
 function showTopic(topic) {
-    const topicDetail = document.getElementById('topicDetail');
-    const topicTitle = document.getElementById('topicTitle');
-    const topicContent = document.getElementById('topicContent');
-    const learnMode = document.getElementById('learnMode'); // Bereich mit Themen-Buttons
-    const instruction = document.getElementById('instruction'); // Bereich mit "Themen" und "Aufgaben"
+    // Alle Themenbereiche ausblenden
+    document.getElementById('decimalToHexDefinition').style.display = 'none';
+    document.getElementById('binaryToDecimalDefinition').style.display = 'none';
+    document.getElementById('hexToBinaryDefinition').style.display = 'none';
 
-    if (topicDetail && topicTitle && topicContent && learnMode && instruction) {
-        // Thema anzeigen
-        topicDetail.style.display = 'block'; // Bereich mit Inhalt anzeigen
-        topicTitle.textContent = topic; // Titel setzen
-        if (topics[topic]) {
-            topicContent.innerHTML = topics[topic]; // Inhalt aus 'topics' einfügen
-        } else {
-            topicContent.innerHTML = "Keine Inhalte für dieses Thema verfügbar."; // Fallback
-        }
-
-        // Bereiche und Buttons ausblenden
-        learnMode.style.display = 'none'; // Themen-Buttons ausblenden
-        instruction.style.display = 'none'; // "Themen" und "Aufgaben" ausblenden
+    // Themenbereich anzeigen basierend auf dem Thema
+    if (topic === "Dezimal zu Hexadezimal") {
+        document.getElementById('decimalToHexDefinition').style.display = 'block';
+    } else if (topic === "Binär zu Dezimal") {
+        document.getElementById('binaryToDecimalDefinition').style.display = 'block';
+    } else if (topic === "Hexadezimal zu Binär") {
+        document.getElementById('hexToBinaryDefinition').style.display = 'block';
     } else {
-        console.error("Ein erforderliches Element fehlt in der HTML-Struktur.");
+        console.error("Unbekanntes Thema:", topic);
+        return; // Beende die Funktion, wenn das Thema nicht existiert
     }
 
-    pointsElement.style.display = 'none'; // Punktestand ausblenden, wenn ein Thema angezeigt wird
-    pointsElement.style.visibility = 'hidden';
+    // Hauptmenü und andere Bereiche ausblenden
+    document.getElementById('learnMode').style.display = 'none';
+    document.getElementById('instruction').style.display = 'none';
 
+    // Punktestand ausblenden
+    pointsElement.style.display = 'none';
+    pointsElement.style.visibility = 'hidden';
 }
+
 
 
 // Funktion: Überprüft die Antwort
