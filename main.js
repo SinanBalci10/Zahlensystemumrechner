@@ -308,7 +308,6 @@ function showInstruction() {
     // Bereiche ausblenden, die nicht zum Hauptmenü gehören
     document.getElementById('learnMode').style.display = 'none';
     document.getElementById('question').style.display = 'none';
-    document.getElementById('topicDetail').style.display = 'none';
     document.getElementById('exerciseMode').style.display = 'none';
 
     // Zurück-zu-Übungsaufgaben-Button ausblenden
@@ -353,7 +352,6 @@ function showInstruction() {
 function showQuestion() {
     document.getElementById('instruction').style.display = 'none'; // ausblenden
     document.getElementById('learnMode').style.display = 'none'; //ausblenden
-    document.getElementById('topicDetail').style.display = 'none'; //ausblenden
 
     document.getElementById('question').style.display = 'block'; // frage einblenden
     document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
