@@ -287,16 +287,18 @@ function generateRandomBinary(length) {
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
+    // Alle nicht benötigten Bereiche ausblenden
     document.getElementById('instruction').style.display = 'none'; // Startseite ausblenden
     document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
     document.getElementById('topicDetail').style.display = 'none'; // Thema-Details ausblenden
-    document.getElementById('learnMode').style.display = 'block'; // Themen anzeigen
-    document.getElementById('mainMenuButton').style.display = 'block'; // Hauptmenü-Button anzeigen
+
+    // Themenbereich anzeigen
+    document.getElementById('learnMode').style.display = 'block';
 
     // Hauptmenü-Button sichtbar machen
     const mainMenuButton = document.getElementById('mainMenuButton');
     if (mainMenuButton) {
-        mainMenuButton.style.display = 'block'; // Button einblenden
+        mainMenuButton.style.display = 'block';
         mainMenuButton.style.visibility = 'visible'; // Falls visibility hidden ist
     }
 }
@@ -371,31 +373,36 @@ function showQuestion() {
 
 // Funktion: Zeige spezifisches Thema
 function showTopic(topic) {
-    // Alle Themenbereiche ausblenden
-    document.getElementById('decimalToHexDefinition').style.display = 'none';
-    document.getElementById('binaryToDecimalDefinition').style.display = 'none';
-    document.getElementById('hexToBinaryDefinition').style.display = 'none';
-
-    // Themenbereich anzeigen basierend auf dem Thema
-    if (topic === "Dezimal zu Hexadezimal") {
-        document.getElementById('decimalToHexDefinition').style.display = 'block';
-    } else if (topic === "Binär zu Dezimal") {
-        document.getElementById('binaryToDecimalDefinition').style.display = 'block';
-    } else if (topic === "Hexadezimal zu Binär") {
-        document.getElementById('hexToBinaryDefinition').style.display = 'block';
-    } else {
-        console.error("Unbekanntes Thema:", topic);
-        return; // Beende die Funktion, wenn das Thema nicht existiert
-    }
-
-    // Hauptmenü und andere Bereiche ausblenden
-    document.getElementById('learnMode').style.display = 'none';
-    document.getElementById('instruction').style.display = 'none';
-
-    // Punktestand ausblenden
-    pointsElement.style.display = 'none';
-    pointsElement.style.visibility = 'hidden';
-}
+       // Alle Themenbereiche ausblenden
+       document.getElementById('decimalToHexDefinition').style.display = 'none';
+       document.getElementById('binaryToDecimalDefinition').style.display = 'none';
+       document.getElementById('hexToBinaryDefinition').style.display = 'none';
+       document.getElementById('hexToDecimalDefinition').style.display = 'none'; // Neu hinzugefügt
+   
+       // Themenbereich anzeigen basierend auf dem Thema
+       if (topic === "Dezimal zu Hexadezimal") {
+           document.getElementById('decimalToHexDefinition').style.display = 'block';
+       } else if (topic === "Binär zu Dezimal") {
+           document.getElementById('binaryToDecimalDefinition').style.display = 'block';
+       } else if (topic === "Hexadezimal zu Binär") {
+           document.getElementById('hexToBinaryDefinition').style.display = 'block';
+       } else if (topic === "Hexadezimal zu Dezimal") { // Neu hinzugefügt
+           document.getElementById('hexToDecimalDefinition').style.display = 'block';
+       } else {
+           console.error(`Unbekanntes Thema: "${topic}"`);
+           return; // Beende die Funktion, wenn das Thema nicht existiert
+       }
+   
+       // Hauptmenü und andere Bereiche ausblenden
+       document.getElementById('learnMode').style.display = 'none';
+       document.getElementById('instruction').style.display = 'none';
+   
+       // Punktestand ausblenden
+       if (pointsElement) {
+           pointsElement.style.display = 'none';
+           pointsElement.style.visibility = 'hidden';
+       }
+   }
 
 
 
