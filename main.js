@@ -372,14 +372,11 @@ function showQuestion() {
 function showTopic(topic) {
        // Alle Themenbereiche ausblenden
        document.getElementById('decimalToHexDefinition').style.display = 'none';
-       document.getElementById('hexToBinaryDefinition').style.display = 'none';
        document.getElementById('hexToDecimalDefinition').style.display = 'none'; // Neu hinzugefügt
    
        // Themenbereich anzeigen basierend auf dem Thema
        if (topic === "Dezimal zu Hexadezimal") {
            document.getElementById('decimalToHexDefinition').style.display = 'block';
-       } else if (topic === "Hexadezimal zu Binär") {
-           document.getElementById('hexToBinaryDefinition').style.display = 'block';
        } else if (topic === "Hexadezimal zu Dezimal") { // Neu hinzugefügt
            document.getElementById('hexToDecimalDefinition').style.display = 'block';
        } else {
