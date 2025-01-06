@@ -287,9 +287,13 @@ function generateRandomBinary(length) {
 
 // Funktion: Zeige den Lernmodus
 function showLearnMode() {
+
     // Alle nicht benötigten Bereiche ausblenden
     document.getElementById('instruction').style.display = 'none'; // Startseite ausblenden
     document.getElementById('question').style.display = 'none'; // Aufgabenbereich ausblenden
+
+     // Alle Themenbereiche ausblenden
+     document.getElementById('decimalToHexDefinition').style.display = 'none';
 
     // Themenbereich anzeigen
     document.getElementById('learnMode').style.display = 'block';

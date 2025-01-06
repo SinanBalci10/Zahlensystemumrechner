@@ -1,6 +1,14 @@
 /* Allgemeine Stile für die App */
 
 
+
+#decimalToHexDefinition,
+#binaryToDecimalDefinition,
+#hexToBinaryDefinition,
+#hexToDecimalDefinition {
+    color: black; /* Setzt die Textfarbe auf Schwarz */
+}
+
 #exerciseMode {
     display: none; /* Standardmäßig ausblenden */
 }
