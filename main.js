@@ -383,7 +383,7 @@ function showTopic(topic) {
        // Themenbereich anzeigen basierend auf dem Thema
        if (topic === "Dezimal zu Hexadezimal") {
            document.getElementById('decimalToHexDefinition').style.display = 'block';
-        } else if (topic === "binaryToDecimalDefinition") {
+        } else if (topic === "Binär zu Dezimal") {
               document.getElementById('binaryToDecimalDefinition').style.display = 'block';
        //} else if (topic === "Hexadezimal zu Dezimal") { // Neu hinzugefügt
          //  document.getElementById('hexToDecimalDefinition').style.display = 'block';
