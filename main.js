@@ -74,6 +74,15 @@ function übungsmodusAnzeigen() {
 
 
 function übungAnzeigen(type) {
+
+    // Spezieller Fall: Hexadezimal zu Binärzahl ist nicht verfügbar
+    if (type === 'Hexadezimal zu binärZahl') {
+        alert("Diese Übung ist derzeit nicht verfügbar.");
+        // Zurück zum Aufgabenbereich
+        übungsmodusAnzeigen();
+        return;
+    }
+    
     // Übungsmodi ausblenden und Aufgabenbereich einblenden
     document.getElementById('übungsmodus').style.display = 'none';
     document.getElementById('frage').style.display = 'block';
