@@ -9,6 +9,10 @@
     color: black; /* Setzt die Textfarbe auf Schwarz */
 }
 
+#antwort {
+    margin-bottom: 20px; /* Fügt mehr Abstand unterhalb des Eingabefelds hinzu */
+}
+
 ::marker {
     content: ""; /* Entfernt den Marker */
 }
@@ -18,6 +22,7 @@
 }
 
 #hauptmenüButton {
+    margin-top: 20px;
     display: block; /* Standardmäßig anzeigen */
     visibility: visible;
 }
@@ -40,6 +45,7 @@
     padding: 10px;
     font-size: 14px;
     resize: vertical; /* Benutzer kann die Größe der Box ändern */
+    margin-bottom: 20px;
 }
 
 .hidden {
