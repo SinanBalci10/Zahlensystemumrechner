@@ -110,8 +110,11 @@ body {
 }
 
 button {
-    margin-left: auto; /* Gleicher Abstand links */
-    margin-right: auto; /* Gleicher Abstand rechts */
+    display: inline-block; /* Verhindert, dass die Buttons die gesamte Breite des Containers einnehmen */
+    margin: 0 auto; /* Zentriert die Buttons innerhalb der weißen Box */
+    text-align: center; /* Text innerhalb des Buttons zentrieren */
+    padding: 10px 20px; /* Optional: Einheitlicher Innenabstand */
+
     display: block;
     margin: 10px auto; /* Zentriert alle Buttons */
     padding: 12px 25px;
@@ -185,7 +188,17 @@ input {
 }
 
 ul {
-    color: #000000; /* Schwarz für die drei Punkte */
+    list-style: none; /* Entfernt die Standard-Listensymbole */
+    padding: 0; /* Entfernt den inneren Abstand */
+    margin: 0 auto; /* Zentriert die Liste */
+    text-align: center; /* Zentriert die Inhalte innerhalb der Liste */
+    width: fit-content; /* Passt die Breite der Liste an ihre Inhalte an */
+   /* color: #000000;  Schwarz für die drei Punkte */
+}
+
+ul li {
+    text-align: center; /* Zentriert den Inhalt innerhalb jedes Listenelements */
+    margin: 10px 0; /* Gleichmäßiger Abstand zwischen den Buttons */
 }
 
 /* Animationen */
