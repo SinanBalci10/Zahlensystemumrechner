@@ -77,12 +77,12 @@ function übungAnzeigen(type) {
 
     // Spezieller Fall: Hexadezimal zu Binärzahl ist nicht verfügbar
     if (type === 'Hexadezimal zu binärZahl') {
-        alert("Diese Übung ist derzeit nicht verfügbar.");
+        alert("Diese Übung ist derzeit nicht verfügbar. Bitte wähle eine andere Übung.");
         // Zurück zum Aufgabenbereich
         übungsmodusAnzeigen();
         return;
     }
-    
+
     // Übungsmodi ausblenden und Aufgabenbereich einblenden
     document.getElementById('übungsmodus').style.display = 'none';
     document.getElementById('frage').style.display = 'block';
@@ -103,11 +103,8 @@ function übungAnzeigen(type) {
         aktuellerAufgabentyp = "dezimalZuHex"; // Setze den aktuellen Aufgabentyp
     } else if (type === 'binärZahl zu Dezimal') {
         aktuellerAufgabentyp = "binärZahlZuDezimal"; // Setze den aktuellen Aufgabentyp
-    } else {
-        alert(`${type} ist noch nicht verfügbar. Bitte wähle eine andere Übung.`);
-        return;
-    }
-
+    } 
+    
     // Fortschritt zurücksetzen, falls alle Aufgaben abgeschlossen wurden
     if (aufgabenfortschritt[aktuellerAufgabentyp] >= 6) {
         aufgabenfortschritt[aktuellerAufgabentyp] = 0; // Fortschritt zurücksetzen
