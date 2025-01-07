@@ -139,7 +139,6 @@ function dezimalZuHexaumwandeln(dezimalZahl) {
     while (dezimalZahl > 0) {
         const rest = dezimalZahl % 16; // Rest berechnen
         const hexadezimalziffeer = rest.toString(16).toUpperCase(); // Rest in Hexadezimal umwandeln
-        // Schritt erklären
         schritte.push(`Teilen: ${dezimalZahl} ÷ 16 = ${Math.floor(dezimalZahl / 16)}, Rest: ${rest} (${hexadezimalziffeer})`);
         ergebnis = hexadezimalziffeer + ergebnis;
         dezimalZahl = Math.floor(dezimalZahl / 16);
@@ -260,9 +259,9 @@ function starteNeueAufgabe(aufgabentyp) {
     }
 
     // Aufgabe anzeigen
-    const taskElement = document.getElementById('task');
-    if (taskElement) {
-        taskElement.textContent = aufgabeninhalt; // Zeige die korrekte Aufgabenbeschreibung an
+    const aufgaben = document.getElementById('aufgaben');
+    if (aufgaben) {
+        aufgaben.textContent = aufgabeninhalt; // Zeige die korrekte Aufgabenbeschreibung an
     }
 
     // Schritte zurücksetzen
