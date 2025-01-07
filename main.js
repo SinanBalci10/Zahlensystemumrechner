@@ -58,13 +58,13 @@ function übungsmodusAnzeigen() {
     // Zeige den Übungsmodus an
     document.getElementById('übungsmodus').style.display = 'block';
 
-     // Verstecke den Zurück-zur-Übung-Button, falls er angezeigt wird
+    // Verstecke den Zurück-zur-Übung-Button, falls er angezeigt wird
     const zurückZurÜbungButton = document.getElementById('zurückZurÜbungButton');
     if (zurückZurÜbungButton) {
         zurückZurÜbungButton.style.display = 'none';
     }
 
-   // Blende den Hauptmenü-Button ein, damit der Nutzer zurück zum Hauptmenü gelangen kann
+    // Blende den Hauptmenü-Button ein, damit der Nutzer zurück zum Hauptmenü gelangen kann
     const hauptmenüButton = document.getElementById('hauptmenüButton');
     if (hauptmenüButton) {
         hauptmenüButton.style.display = 'block';
@@ -139,13 +139,15 @@ function dezimalZuHexaumwandeln(dezimalZahl) {
     // Solange die Zahl größer als 0 ist, weiter teilen
     while (dezimalZahl > 0) {
         const rest = dezimalZahl % 16; // Rest berechnen
-        const hexadezimalziffeer = rest.toString(16).toUpperCase(); // Rest in Hexadezimal umwandeln
-        schritte.push(`Teilen: ${dezimalZahl} ÷ 16 = ${Math.floor(dezimalZahl / 16)}, Rest: ${rest} (${hexadezimalziffeer})`);
-        ergebnis = hexadezimalziffeer + ergebnis;
+        const hexadezimalziffer = rest.toString(16).toUpperCase(); // Rest in Hexadezimal umwandeln
+        schritte.push(`Zahl ${dezimalZahl}, geteilt durch 16, Rest ${rest} (Hex: ${hexadezimalZiffer})`);
+        ergebnis = hexadezimalziffer + ergebnis;
         dezimalZahl = Math.floor(dezimalZahl / 16);
     }
+
     // Hexadezimalziffer vorne anfügen
     schritte.push(`Ergebnis: ${ergebnis}`);
+
     // Dezimalzahl für die nächste Runde aktualisieren
     return { ergebnis, schritte };
 }
@@ -302,9 +304,9 @@ function lernmodusAnzeigen() {
     document.getElementById('anleitung').style.display = 'none'; // Startseite ausblenden
     document.getElementById('frage').style.display = 'none'; // Aufgabenbereich ausblenden
 
-     // Alle Themenbereiche ausblenden
-     document.getElementById('dezimalZuHexaDefinition').style.display = 'none';
-     document.getElementById('binärZuDezimalDefinition').style.display = 'none';
+    // Alle Themenbereiche ausblenden
+    document.getElementById('dezimalZuHexaDefinition').style.display = 'none';
+    document.getElementById('binärZuDezimalDefinition').style.display = 'none';
 
     // Themenbereich anzeigen
     document.getElementById('lernmodus').style.display = 'block';
@@ -385,33 +387,33 @@ function frageAnzeigen() {
 
 // Funktion: Zeige spezifisches Thema
 function themaAnzeigen(thema) {
-       // Alle Themenbereiche ausblenden
-       document.getElementById('dezimalZuHexaDefinition').style.display = 'none';
-       document.getElementById('binärZuDezimalDefinition').style.display = 'none';
-       //document.getElementById('hexTodezimalZahlDefinition').style.display = 'none'; // Neu hinzugefügt
-   
-       // Themenbereich anzeigen basierend auf dem Thema
-       if (thema === "Dezimal zu Hexadezimal") {
-           document.getElementById('dezimalZuHexaDefinition').style.display = 'block';
-        } else if (thema === "Binär zu Dezimal") {
-              document.getElementById('binärZuDezimalDefinition').style.display = 'block';
-       //} else if (thema === "Hexadezimal zu Dezimal") { // Neu hinzugefügt
-         //  document.getElementById('hexTodezimalZahlDefinition').style.display = 'block';
-       } else {
-           console.error(`Unbekanntes Thema: "${thema}"`);
-           return; // Beende die Funktion, wenn das Thema nicht existiert
-       }
-   
-       // Hauptmenü und andere Bereiche ausblenden
-       document.getElementById('lernmodus').style.display = 'none';
-       document.getElementById('anleitung').style.display = 'none';
-   
-       // Punktestand ausblenden
-       if (punkteElement) {
-           punkteElement.style.display = 'none';
-           punkteElement.style.visibility = 'hidden';
-       }
-   }
+    // Alle Themenbereiche ausblenden
+    document.getElementById('dezimalZuHexaDefinition').style.display = 'none';
+    document.getElementById('binärZuDezimalDefinition').style.display = 'none';
+    //document.getElementById('hexTodezimalZahlDefinition').style.display = 'none'; // Neu hinzugefügt
+
+    // Themenbereich anzeigen basierend auf dem Thema
+    if (thema === "Dezimal zu Hexadezimal") {
+        document.getElementById('dezimalZuHexaDefinition').style.display = 'block';
+    } else if (thema === "Binär zu Dezimal") {
+        document.getElementById('binärZuDezimalDefinition').style.display = 'block';
+        //} else if (thema === "Hexadezimal zu Dezimal") { // Neu hinzugefügt
+        //  document.getElementById('hexTodezimalZahlDefinition').style.display = 'block';
+    } else {
+        console.error(`Unbekanntes Thema: "${thema}"`);
+        return; // Beende die Funktion, wenn das Thema nicht existiert
+    }
+
+    // Hauptmenü und andere Bereiche ausblenden
+    document.getElementById('lernmodus').style.display = 'none';
+    document.getElementById('anleitung').style.display = 'none';
+
+    // Punktestand ausblenden
+    if (punkteElement) {
+        punkteElement.style.display = 'none';
+        punkteElement.style.visibility = 'hidden';
+    }
+}
 
 
 
