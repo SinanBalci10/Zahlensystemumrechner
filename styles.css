@@ -116,7 +116,7 @@ button {
     padding: 10px 20px; /* Optional: Einheitlicher Innenabstand */
 
     display: block;
-    margin: 10px auto; /* Zentriert alle Buttons */
+   /* margin: 10px auto;  Zentriert alle Buttons */
     padding: 12px 25px;
     border: none;
     background: #007bff;
