@@ -13,46 +13,46 @@
 <body>
 
     <!-- Punktestand Anzeige -->
-    <div class="points">Punkte: <span id="points">0</span></div>
+    <div class="punkte">Punkte: <span id="punkte">0</span></div>
 
     <!-- Hauptcontainer für die Inhalte -->
     <div class="container">
         
         <!-- Abschnitt themen und übungsaufgaben -->
-        <div id="instruction" class="section">
+        <div id="anleitung" class="section">
             <h1>Umrechnung von Zahlensystemen</h1>
             <div class="button-row">
-                <button onclick="showLearnMode()">Definition</button>
-                <button onclick="showExerciseMode()">Aufgaben</button>
+                <button onclick="lernmodusAnzeigen()">Definition</button>
+                <button onclick="übungsmodusAnzeigen()">Aufgaben</button>
             </div>
         </div>
 
         <!-- Abschnitt für die Übungsmodi -->
-        <div id="exerciseMode" style="display: none;">
+        <div id="übungsmodus" style="display: none;">
             <h1>Aufgaben</h1>
             <p>Wähle eine Übungsart aus:</p>
             <ul>
-                <li><button onclick="showExercise('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
-                <li><button onclick="showExercise('Binär zu Dezimal')">Binär zu Dezimal</button></li>
-                <li><button onclick="showExercise('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
+                <li><button onclick="übungAnzeigen('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
+                <li><button onclick="übungAnzeigen('Binär zu Dezimal')">Binär zu Dezimal</button></li>
+                <li><button onclick="übungAnzeigen('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
             </ul>
-            <button id="mainMenuButton" onclick="showInstruction()">Hauptmenü</button>
+            <button id="hauptmenüButton" onclick="anleitungAnzeigen()">Hauptmenü</button>
         </div>
 
         <!-- Abschnitt für Definitionen -->
-        <div id="learnMode" style="display: none;">
+        <div id="lernmodus" style="display: none;">
             <h1>Definition</h1>
             <p>Wähle ein Thema aus:</p>
             <ul>
-                <li><button onclick="showTopic('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
-                <li><button onclick="showTopic('Binär zu Dezimal')">Binär zu Dezimal</button></li>
-                <li><button onclick="showTopic('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
+                <li><button onclick="themaAnzeigen('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
+                <li><button onclick="themaAnzeigen('Binär zu Dezimal')">Binär zu Dezimal</button></li>
+                <li><button onclick="themaAnzeigen('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
             </ul>
-            <button id="mainMenuButton" onclick="showInstruction()">Hauptmenü</button>
+            <button id="hauptmenüButton" onclick="anleitungAnzeigen()">Hauptmenü</button>
         </div>
 
         <!-- Abschnitt für spezifische Themen -->
-        <div id="decimalToHexDefinition" style="display: none;">
+        <div id="dezimalZuHexaDefinition" style="display: none;">
             <h2>Dezimalzahl zu Hexadezimalzahl</h2>
             <p>Eine Dezimalzahl ist eine Zahl im Zehnersystem (Basis 10), während eine Hexadezimalzahl im Sechzehnersystem (Basis 16) dargestellt wird.</p>
             <p>Die Umwandlung von einer Dezimalzahl in eine Hexadezimalzahl erfolgt durch wiederholte Division der Zahl durch 16, wobei die Reste notiert werden. Hexadezimalzahl (auch Basis-16) ist eine Zahl, die 16 verschiedene Ziffern verwendet: 0-9 und A-F (wobei A=10, B=11, ..., F=15 entspricht).</p>
@@ -68,11 +68,11 @@
             <h3>Reste ermitteln:</h3>
             <p>5078 - (16 × 317) = 6</p>
             <p>Die Reste, von unten nach oben gelesen, sind 1, 3, D und 6. Daher ist die Hexadezimaldarstellung von 5078 gleich 13D6.</p>
-            <button onclick="showLearnMode()">Zurück zur Themenauswahl</button>
+            <button onclick="lernmodusAnzeigen()">Zurück zur Themenauswahl</button>
         </div>
 
         <!-- Abschnitt für spezifische Themen -->
-        <div id="binaryToDecimalDefinition" style="display: none;">
+        <div id="binärZuDezimalDefinition" style="display: none;">
             <h2>Binär zu Dezimal</h2>
             <p><strong>Binärsystem:</strong> Das Binärsystem ist ein Zahlensystem mit der Basis 2. Es verwendet nur die Ziffern 0 und 1. Jede Stelle hat einen Stellenwert, der eine Potenz von 2 ist, basierend auf der Position der Stelle, beginnend bei 0 (von rechts nach links).</p>
             <p><strong>Dezimalsystem:</strong> Das Dezimalsystem ist ein Zahlensystem mit der Basis 10. Es ist das gebräuchlichste Zahlensystem und verwendet die Ziffern von 0 bis 9.</p>
@@ -94,34 +94,34 @@
                 </li>
             </ol>
             <p><strong>Ergebnis:</strong> Die Binärzahl <strong>1101</strong> entspricht der Dezimalzahl <strong>13</strong>.</p>
-            <button onclick="showLearnMode()">Zurück zur Themenauswahl</button>
+            <button onclick="lernmodusAnzeigen()">Zurück zur Themenauswahl</button>
         </div>
 
         <!-- Abschnitt für die Aufgaben -->
-        <div id="question" style="display: none;">
-            <h1 id="taskHeader">Aufgabe</h1>
+        <div id="frage" style="display: none;">
+            <h1 id="aufgabenüberschrift">Aufgabe</h1>
             <p id="task">Wandle die Dezimalzahl in Hexadezimal um.</p>
-            <input type="text" id="answer" placeholder="Antwort hier eingeben">
+            <input type="text" id="antwort" placeholder="Antwort hier eingeben">
             <div id="feedback" class="feedback"></div>
             <div class="button-row">
-                <button onclick="checkAnswer(currentTaskType)">Antwort prüfen</button>
-                <button onclick="toggleExample()">Beispiel</button>
+                <button onclick="antwortÜberprüfen(aktuellerAufgabentyp)">Antwort prüfen</button>
+                <button onclick="beispielUmschalten()">Beispiel</button>
             </div>
-            <div id="exampleText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
-            <div id="noteBoxContainer"></div>
-            <label for="noteBox">Notizblock:</label>
-            <textarea id="noteBox" placeholder="Schreibe hier deine Notizen..."></textarea>
+            <div id="beispielText" style="display: none; margin-top: 10px;">Hier könnte ein Beispieltext stehen.</div>
+            <div id="notizblockContainer"></div>
+            <label for="notizblock">Notizblock:</label>
+            <textarea id="notizblock" placeholder="Schreibe hier deine Notizen..."></textarea>
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
-            <button id="nextLevel" style="display: none;" onclick="nextLevel()">Nächste Aufgabe</button>
-            <button id="backToExerciseButton" onclick="showExerciseMode()" style="display: none; margin-bottom: 10px;">Zurück</button>
-            <button id="mainMenuButton" onclick="showInstruction()" style="margin-top: 20px;">Hauptmenü</button>
+            <button id="nächstesLevel" style="display: none;" onclick="nächstesLevel()">Nächste Aufgabe</button>
+            <button id="zurückZurÜbungButton" onclick="übungsmodusAnzeigen()" style="display: none; margin-bottom: 10px;">Zurück</button>
+            <button id="hauptmenüButton" onclick="anleitungAnzeigen()" style="margin-top: 20px;">Hauptmenü</button>
         </div>
 
     </div>
 
-    <audio id="correct-sound" src="correct.mp3"></audio>
-    <audio id="incorrect-sound" src="incorrect.mp3"></audio>
+    <audio id="richtigerSound" src="correct.mp3"></audio>
+    <audio id="falscherSound" src="incorrect.mp3"></audio>
 
     <script src="main.js"></script>
 </body>

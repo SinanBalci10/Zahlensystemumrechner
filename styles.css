@@ -2,32 +2,32 @@
 
 
 
-#decimalToHexDefinition,
-#binaryToDecimalDefinition,
-#hexToBinaryDefinition,
-#hexToDecimalDefinition {
+#dezimalZuHexaDefinition,
+#binärZuDezimalDefinition,
+#hexTobinärDefinition,
+#hexTodezimalZahlDefinition {
     color: black; /* Setzt die Textfarbe auf Schwarz */
 }
 
-#exerciseMode {
+#übungsmodus {
     display: none; /* Standardmäßig ausblenden */
 }
 
-#mainMenuButton {
+#hauptmenüButton {
     display: block; /* Standardmäßig anzeigen */
     visibility: visible;
 }
 
-#mainMenuButton.visible {
+#hauptmenüButton.visible {
     display: block; /* Sichtbar, wenn die Klasse "visible" hinzugefügt wird */
 }
 
-#noteBoxContainer {
+#notizblockContainer {
     margin-top: 20px;
     text-align: center;
 }
 
-#noteBox {
+#notizblock {
     width: 90%;
     height: 100px;
     margin-top: 10px;
@@ -42,7 +42,7 @@
     display: none;
 }
 
-#instruction {
+#anleitung {
     display: block; /* Startseite sichtbar */
 }
 
@@ -78,7 +78,7 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-.points {
+.punkte {
     position: fixed;
     top: 10px;
     right: 10px;
@@ -134,7 +134,7 @@ button:hover {
     flex: 1; /* Gleiche Breite für alle Buttons bei erkllärung*/
 }
 
-#nextLevel {
+#nächstesLevel {
     display: block;
     margin: 20px auto;
     background: #28a745; /* Neue Farbe */
@@ -142,7 +142,7 @@ button:hover {
     text-align: center;
 }
 
-#nextLevel:hover {
+#nächstesLevel:hover {
     background: #218838; /* Etwas dunklere Farbe beim Hover */
 }
 
@@ -166,7 +166,7 @@ input {
     animation: fadeIn 0.5s ease-in-out;
 }
 
-#exampleText {
+#beispielText {
     color: #555;
     font-size: 0.9rem;
     background: #f9f9f9;
