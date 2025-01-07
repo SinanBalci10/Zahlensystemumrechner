@@ -140,7 +140,8 @@ function dezimalZuHexaumwandeln(dezimalZahl) {
     while (dezimalZahl > 0) {
         const rest = dezimalZahl % 16; // Rest berechnen
         const hexadezimalziffer = rest.toString(16).toUpperCase(); // Rest in Hexadezimal umwandeln
-        schritte.push(`Teilen: ${dezimalZahl} ÷ 16 = ${Math.floor(dezimalZahl / 16)}, Rest: ${rest} (${hexadezimalziffer})`);
+        //schritte.push(`Teilen: ${dezimalZahl} ÷ 16 = ${Math.floor(dezimalZahl / 16)}, Rest: ${rest} (${hexadezimalziffer})`);
+        schritte.push(`Zahl ${dezimalZahl}, geteilt durch 16, Rest ${rest} (Hex: ${hexadezimalfiffer})`);
         ergebnis = hexadezimalziffer + ergebnis;
         dezimalZahl = Math.floor(dezimalZahl / 16);
     }
