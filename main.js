@@ -1,20 +1,24 @@
-// Punktestand-Variable
+// Variable für den aktuellen Punktestand
 let punkte = 0;
-//Level Variable
+
+// Variable für das aktuelle Level
 let aktuellesLevel = 1;
-// Aktuelle Zufallszahl
+
+// Die aktuelle zufällige Dezimalzahl, die generiert wurde
 let aktuellesDezimal = 0;
-// Variable, um die aktuelle Aufgabe zu zählen
+
+// Zählt die bearbeiteten Aufgaben
 let aufgabenzähler = 0;
 
 
-// Variable für den Timer
+// Timer-Element für die Zeitmessung
 let zeitIntevall;
-let abgelaufeneZeit = 0;
+let abgelaufeneZeit = 0; // Speichert die abgelaufene Zeit in Sekunden
 
+// Speichert den aktuellen Aufgabentyp (z. B. "Dezimal zu Hexadezimal")
 let aktuellerAufgabentyp = null;
 
-// Timer-Element im DOM
+// Timer-Element im DOM, vorerst unsichtbar
 const zeitElement = document.createElement('div');
 zeitElement.className = 'timer';
 zeitElement.textContent = `Zeit: 0s`;
@@ -22,45 +26,44 @@ zeitElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstell
 
 document.body.appendChild(zeitElement);
 
-// Punktestand-Element im DOM, Punktestand-Element im DOM, nur erstellen, wenn es noch nicht existiert
-let punkteElement = document.querySelector('.punkte');
+// Punktestand-Element im DOM erstellen, wenn es noch nicht existiert
 if (!punkteElement) {
     punkteElement = document.createElement('div');
     punkteElement.className = 'punkte';
     punkteElement.textContent = `Punkte: ${punkte}`;
-    punkteElement.style.cssText = 'display: none; visibility: hidden;'; // Standardmäßig unsichtbar
+    punkteElement.style.cssText = 'display: none; visibility: hidden;';  // Unsichtbar, bis benötigt
     document.body.appendChild(punkteElement);
 }
 
-// sounds
+// Sound-Elemente für richtig und falsch
 const richtigerSound = document.getElementById('richtigerSound');
 const falscherSound = document.getElementById('falscherSound');
 
-
+// Fortschritt für verschiedene Aufgabenarten (z. B. Dezimal zu Hexadezimal)
 const aufgabenfortschritt = {
-    dezimalZuHex: 0,  // Fortschritt für Dezimal zu Hexadezimal
-    binärZuDezimal: 0,  // Fortschritt für Binär zu Dezimal
-    // Weitere Themen können hier hinzugefügt werden
+    dezimalZuHex: 0,  // Anzahl abgeschlossener Dezimal-zu-Hex-Aufgaben
+    binärZuDezimal: 0,  // Anzahl abgeschlossener Binär-zu-Dezimal-Aufgaben
+    // Weitere Aufgabenarten können hier ergänzt werden
 };
 
 function übungsmodusAnzeigen() {
-    // Startseite ausblenden
+    // Die Startseite ausblenden, da wir jetzt im Übungsmodus sind
     document.getElementById('anleitung').style.display = 'none';
 
-    // Themenbereich und Aufgabenbereich ausblenden
+    // Verstecke den Lernmodus und den Fragenbereich, um Platz für den Übungsmodus zu schaffen
     document.getElementById('lernmodus').style.display = 'none';
     document.getElementById('frage').style.display = 'none';
 
-    // Übungsmodi anzeigen
+    // Zeige den Übungsmodus an
     document.getElementById('übungsmodus').style.display = 'block';
 
-    // Zurück-zu-Übungsaufgaben-Button ausblenden
+     // Verstecke den Zurück-zur-Übung-Button, falls er angezeigt wird
     const zurückZurÜbungButton = document.getElementById('zurückZurÜbungButton');
     if (zurückZurÜbungButton) {
         zurückZurÜbungButton.style.display = 'none';
     }
 
-    // Hauptmenü-Button sichtbar machen
+   // Blende den Hauptmenü-Button ein, damit der Nutzer zurück zum Hauptmenü gelangen kann
     const hauptmenüButton = document.getElementById('hauptmenüButton');
     if (hauptmenüButton) {
         hauptmenüButton.style.display = 'block';
@@ -70,47 +73,45 @@ function übungsmodusAnzeigen() {
 
 
 function übungAnzeigen(type) {
-    // Übungsmodi ausblenden
+    // Übungsmodi ausblenden und Aufgabenbereich einblenden
     document.getElementById('übungsmodus').style.display = 'none';
-
-    // Aufgabenbereich anzeigen
     document.getElementById('frage').style.display = 'block';
 
-    // Zurück-zu-Übungsaufgaben-Button sichtbar machen
+    // Zurück-Button und Hauptmenü-Button sichtbar machen
     const zurückZurÜbungButton = document.getElementById('zurückZurÜbungButton');
     if (zurückZurÜbungButton) {
         zurückZurÜbungButton.style.display = 'block';
     }
 
-    // Hauptmenü-Button sicherstellen
     const hauptmenüButton = document.getElementById('hauptmenüButton');
     if (hauptmenüButton) {
         hauptmenüButton.style.display = 'block';
     }
 
-    // Aufgabentyp setzen
+    // Aufgabentyp festlegen
     if (type === 'Dezimal zu Hexadezimal') {
         aktuellerAufgabentyp = "dezimalZuHex"; // Setze den aktuellen Aufgabentyp
     } else if (type === 'Binär zu Dezimal') {
         aktuellerAufgabentyp = "binärZuDezimal"; // Setze den aktuellen Aufgabentyp
     } else {
-        alert(`${type} wird demnächst hinzugefügt.`);
+        alert(`${type} ist noch nicht verfügbar. Bitte wähle eine andere Übung.`);
         return;
     }
 
-    // Prüfen, ob alle Aufgaben in diesem Thema abgeschlossen wurden
+    // Fortschritt zurücksetzen, falls alle Aufgaben abgeschlossen wurden
     if (aufgabenfortschritt[aktuellerAufgabentyp] >= 6) {
         aufgabenfortschritt[aktuellerAufgabentyp] = 0; // Fortschritt zurücksetzen
     }
 
-    // Lade den gespeicherten Fortschritt für das Thema
+    // Lade den aktuellen Fortschritt für die Übung
     aufgabenzähler = aufgabenfortschritt[aktuellerAufgabentyp] || 0;
 
-    // Starte die Aufgabe basierend auf dem Typ
+    // Starte die erste Aufgabe für den ausgewählten Typ
     starteNeueAufgabe(aktuellerAufgabentyp);
 }
 
 function feedbackZurücksetzen() {
+    // Feedback-Element im DOM finden
     const feedback = document.getElementById('feedback');
     if (feedback) {
         feedback.textContent = ""; // Feedback zurücksetzen
@@ -118,6 +119,7 @@ function feedbackZurücksetzen() {
 }
 
 function antwortfeldZurücksetzen() {
+    // Eingabefeld im DOM finden
     const antwortfeld = document.getElementById('antwort');
     if (antwortfeld) {
         antwortfeld.value = ""; // Eingabefeld zurücksetzen
@@ -127,17 +129,24 @@ function antwortfeldZurücksetzen() {
 
 
 // Funktion: Dezimalzahl in Hexadezimalzahl umwandeln
-function dezimalZuHexumwandeln(dezimalZahl) {
+function dezimalZuHexaumwandeln(dezimalZahl) {
+    // Ergebnis der Umwandlung
     let ergebnis = "";
+    // Liste der Schritte für die Erklärung
     let schritte = [];
+
+    // Solange die Zahl größer als 0 ist, weiter teilen
     while (dezimalZahl > 0) {
-        const rest = dezimalZahl % 16;
-        const hexadezimalziffeer = rest.toString(16).toUpperCase();
+        const rest = dezimalZahl % 16; // Rest berechnen
+        const hexadezimalziffeer = rest.toString(16).toUpperCase(); // Rest in Hexadezimal umwandeln
+        // Schritt erklären
         schritte.push(`Teilen: ${dezimalZahl} ÷ 16 = ${Math.floor(dezimalZahl / 16)}, Rest: ${rest} (${hexadezimalziffeer})`);
         ergebnis = hexadezimalziffeer + ergebnis;
         dezimalZahl = Math.floor(dezimalZahl / 16);
     }
+    // Hexadezimalziffer vorne anfügen
     schritte.push(`Ergebnis: ${ergebnis}`);
+    // Dezimalzahl für die nächste Runde aktualisieren
     return { ergebnis, schritte };
 }
 
@@ -414,7 +423,7 @@ function antwortÜberprüfen(aufgabentyp) {
 
     // Korrekte Antwort und Aufgabenbeschreibung basierend auf aufgabentyp festlegen
     if (aufgabentyp === "dezimalZuHex") {
-        richtigeAntwort = dezimalZuHexumwandeln(aktuellesDezimal).ergebnis;
+        richtigeAntwort = dezimalZuHexaumwandeln(aktuellesDezimal).ergebnis;
         aufgabenbeschreibung = "Wandle die Dezimalzahl in eine Hexadezimalzahl um.";
     } else if (aufgabentyp === "binärZuDezimal") {
         richtigeAntwort = parseInt(currentbinär, 2).toString(); // Binär zu Dezimal
