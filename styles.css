@@ -11,6 +11,7 @@
 
 .mit-rahmen {
     border: 2px solid black; /* Schwarzer Rahmen */
+    border-radius: 20px; /* Optional: Abgerundete Ecken */
     padding: 10px 20px; /* Optional: Innenabstand */
 }
 
