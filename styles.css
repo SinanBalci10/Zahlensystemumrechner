@@ -9,6 +9,12 @@
     color: black; /* Setzt die Textfarbe auf Schwarz */
 }
 
+.mit-rahmen {
+    border: 2px solid black; /* Schwarzer Rahmen */
+    border-radius: 5px; /* Optional: Abgerundete Ecken */
+    padding: 10px 20px; /* Optional: Innenabstand */
+}
+
 #antwort {
     margin-bottom: 20px; /* Fügt mehr Abstand unterhalb des Eingabefelds hinzu */
 }
