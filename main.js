@@ -27,6 +27,7 @@ zeitElement.style.cssText = 'display: none; visibility: hidden;'; // Sicherstell
 document.body.appendChild(zeitElement);
 
 // Punktestand-Element im DOM erstellen, wenn es noch nicht existiert
+let punkteElement = document.querySelector('.punkte');
 if (!punkteElement) {
     punkteElement = document.createElement('div');
     punkteElement.className = 'punkte';
