@@ -68,7 +68,6 @@ body {
 }
 
 .container {
-    margin: 0 auto;
     color: #000000;
     width: 90%;
     max-width: 400px;
@@ -107,8 +106,10 @@ body {
 }
 
 button {
+    margin-left: auto; /* Gleicher Abstand links */
+    margin-right: auto; /* Gleicher Abstand rechts */
     display: block;
-    margin: 0 auto; /* Zentriert alle Buttons */
+    margin: 10px auto; /* Zentriert alle Buttons */
     padding: 12px 25px;
     border: none;
     background: #007bff;
