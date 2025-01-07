@@ -33,8 +33,8 @@
             <p>Wähle eine Übungsart aus:</p>
             <ul>
                 <li><button onclick="übungAnzeigen('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
-                <li><button onclick="übungAnzeigen('Binär zu Dezimal')">Binär zu Dezimal</button></li>
-                <li><button onclick="übungAnzeigen('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
+                <li><button onclick="übungAnzeigen('binärZahl zu Dezimal')">binärZahl zu Dezimal</button></li>
+                <li><button onclick="übungAnzeigen('Hexadezimal zu binärZahl')">Hexadezimal zu binärZahl</button></li>
             </ul>
             <button id="hauptmenüButton" onclick="anleitungAnzeigen()">Hauptmenü</button>
         </div>
@@ -45,8 +45,8 @@
             <p>Wähle ein Thema aus:</p>
             <ul>
                 <li><button onclick="themaAnzeigen('Dezimal zu Hexadezimal')">Dezimalzahl zu Hexadezimalzahl</button></li>
-                <li><button onclick="themaAnzeigen('Binär zu Dezimal')">Binär zu Dezimal</button></li>
-                <li><button onclick="themaAnzeigen('Hexadezimal zu Binär')">Hexadezimal zu Binär</button></li>
+                <li><button onclick="themaAnzeigen('binärZahl zu Dezimal')">binärZahl zu Dezimal</button></li>
+                <li><button onclick="themaAnzeigen('Hexadezimal zu binärZahl')">Hexadezimal zu binärZahl</button></li>
             </ul>
             <button id="hauptmenüButton" onclick="anleitungAnzeigen()">Hauptmenü</button>
         </div>
@@ -72,14 +72,14 @@
         </div>
 
         <!-- Abschnitt für spezifische Themen -->
-        <div id="binärZuDezimalDefinition" style="display: none;">
-            <h2>Binär zu Dezimal</h2>
-            <p><strong>Binärsystem:</strong> Das Binärsystem ist ein Zahlensystem mit der Basis 2. Es verwendet nur die Ziffern 0 und 1. Jede Stelle hat einen Stellenwert, der eine Potenz von 2 ist, basierend auf der Position der Stelle, beginnend bei 0 (von rechts nach links).</p>
+        <div id="binärZahlZuDezimalDefinition" style="display: none;">
+            <h2>binärZahl zu Dezimal</h2>
+            <p><strong>binärZahlsystem:</strong> Das binärZahlsystem ist ein Zahlensystem mit der Basis 2. Es verwendet nur die Ziffern 0 und 1. Jede Stelle hat einen Stellenwert, der eine Potenz von 2 ist, basierend auf der Position der Stelle, beginnend bei 0 (von rechts nach links).</p>
             <p><strong>Dezimalsystem:</strong> Das Dezimalsystem ist ein Zahlensystem mit der Basis 10. Es ist das gebräuchlichste Zahlensystem und verwendet die Ziffern von 0 bis 9.</p>
-            <p><strong>Potenz:</strong> Eine Potenz beschreibt die wiederholte Multiplikation einer Basiszahl mit sich selbst. In diesem Fall ist die Basis 2, und die Potenz hängt von der Position der Stelle in der Binärzahl ab.</p>
-            <p><strong>Umwandlungsregel:</strong> Um eine Binärzahl in eine Dezimalzahl umzuwandeln, multipliziere jede Ziffer (0 oder 1) der Binärzahl mit 2<sup>n</sup>, wobei <em>n</em> die Position der Stelle ist (beginnend bei 0 von rechts), und summiere alle Ergebnisse.</p>
+            <p><strong>Potenz:</strong> Eine Potenz beschreibt die wiederholte Multiplikation einer Basiszahl mit sich selbst. In diesem Fall ist die Basis 2, und die Potenz hängt von der Position der Stelle in der binärZahlzahl ab.</p>
+            <p><strong>Umwandlungsregel:</strong> Um eine binärZahlzahl in eine Dezimalzahl umzuwandeln, multipliziere jede Ziffer (0 oder 1) der binärZahlzahl mit 2<sup>n</sup>, wobei <em>n</em> die Position der Stelle ist (beginnend bei 0 von rechts), und summiere alle Ergebnisse.</p>
             <h3>Beispiel:</h3>
-            <p>Umwandlung der Binärzahl <strong>1101</strong> in das Dezimalsystem:</p>
+            <p>Umwandlung der binärZahlzahl <strong>1101</strong> in das Dezimalsystem:</p>
             <ol>
                 <li>Schreibe die Zahl mit Exponenten: <br>
                 1 &middot; 2<sup>3</sup> + 1 &middot; 2<sup>2</sup> + 0 &middot; 2<sup>1</sup> + 1 &middot; 2<sup>0</sup></li>
@@ -93,7 +93,7 @@
                     8 + 4 + 0 + 1 = 13
                 </li>
             </ol>
-            <p><strong>Ergebnis:</strong> Die Binärzahl <strong>1101</strong> entspricht der Dezimalzahl <strong>13</strong>.</p>
+            <p><strong>Ergebnis:</strong> Die binärZahlzahl <strong>1101</strong> entspricht der Dezimalzahl <strong>13</strong>.</p>
             <button onclick="lernmodusAnzeigen()">Zurück zur Themenauswahl</button>
         </div>
 

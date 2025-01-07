@@ -12,7 +12,7 @@ let aufgabenzähler = 0;
 
 
 // Timer-Element für die Zeitmessung
-let zeitIntevall;
+let zeitIntervall;
 let abgelaufeneZeit = 0; // Speichert die abgelaufene Zeit in Sekunden
 
 // Speichert den aktuellen Aufgabentyp (z. B. "Dezimal zu Hexadezimal")
@@ -43,7 +43,7 @@ const falscherSound = document.getElementById('falscherSound');
 // Fortschritt für verschiedene Aufgabenarten (z. B. Dezimal zu Hexadezimal)
 const aufgabenfortschritt = {
     dezimalZuHex: 0,  // Anzahl abgeschlossener Dezimal-zu-Hex-Aufgaben
-    binärZuDezimal: 0,  // Anzahl abgeschlossener Binär-zu-Dezimal-Aufgaben
+    binärZahlZuDezimal: 0,  // Anzahl abgeschlossener binärZahl-zu-Dezimal-Aufgaben
     // Weitere Aufgabenarten können hier ergänzt werden
 };
 
@@ -92,8 +92,8 @@ function übungAnzeigen(type) {
     // Aufgabentyp festlegen
     if (type === 'Dezimal zu Hexadezimal') {
         aktuellerAufgabentyp = "dezimalZuHex"; // Setze den aktuellen Aufgabentyp
-    } else if (type === 'Binär zu Dezimal') {
-        aktuellerAufgabentyp = "binärZuDezimal"; // Setze den aktuellen Aufgabentyp
+    } else if (type === 'binärZahl zu Dezimal') {
+        aktuellerAufgabentyp = "binärZahlZuDezimal"; // Setze den aktuellen Aufgabentyp
     } else {
         alert(`${type} ist noch nicht verfügbar. Bitte wähle eine andere Übung.`);
         return;
@@ -140,7 +140,6 @@ function dezimalZuHexaumwandeln(dezimalZahl) {
     while (dezimalZahl > 0) {
         const rest = dezimalZahl % 16; // Rest berechnen
         const hexadezimalziffer = rest.toString(16).toUpperCase(); // Rest in Hexadezimal umwandeln
-        //schritte.push(`Teilen: ${dezimalZahl} ÷ 16 = ${Math.floor(dezimalZahl / 16)}, Rest: ${rest} (${hexadezimalziffer})`);
         schritte.push(`Zahl ${dezimalZahl}, geteilt durch 16, Rest ${rest} (Hex: ${hexadezimalziffer})`);
         ergebnis = hexadezimalziffer + ergebnis;
         dezimalZahl = Math.floor(dezimalZahl / 16);
@@ -155,16 +154,16 @@ function dezimalZuHexaumwandeln(dezimalZahl) {
 
 // Funktion: Timer starten
 function startTimer() {
-    abgelaufeneZeit = 0; // Zeit auf 0 setzen
-    timerAnzeigeAktualisieren(); // Anzeige aktualisieren
+    abgelaufeneZeit = 0; // Zeit zurücksetzen
+    timerAnzeigeAktualisieren(); // Timer-Anzeige direkt aktualisieren
 
     zeitElement.style.display = 'block'; // Timer anzeigen
     zeitElement.style.visibility = 'visible';
     punkteElement.style.display = 'block'; // Punktestand anzeigen
     punkteElement.style.visibility = 'visible';
 
-    // Timer-Interval starten
-    zeitIntevall = setInterval(() => {
+    // Timer-Interval starten (1 Sekunde)
+    zeitIntervall = setInterval(() => {
         abgelaufeneZeit++;
         timerAnzeigeAktualisieren();
     }, 1000);
@@ -172,11 +171,7 @@ function startTimer() {
 
 // Funktion: Timer stoppen
 function stopTimer() {
-    clearInterval(zeitIntevall); // Timer-Interval stoppen
-    //zeitElement.style.display = 'none'; // Timer ausblenden
-    //zeitElement.style.visibility = 'hidden';
-    //punkteElement.style.display = 'none'; // Punktestand ausblenden
-    //punkteElement.style.visibility = 'hidden';
+    clearInterval(zeitIntervall); // Timer-Intervall stoppen
 }
 
 // Funktion: Timer-Anzeige aktualisieren
@@ -206,31 +201,33 @@ function starteNeueAufgabe(aufgabentyp) {
     let aufgabenblock = 1; // 1 für erste Gruppe, 2 für zweite Gruppe
     let aufgabenkennzeichen = ""; // Buchstabe a, b oder c
     let aufgabeninhalt = ""; // Aufgabenbeschreibung
-    let generierterWert = ""; // Generierter Wert (Dezimal oder Binär)
+    let generierterWert = ""; // Generierter Wert (Dezimal oder binärZahl)
 
     // Aufgabe basierend auf Typ generieren
     if (aufgabenzähler < 3) {
         if (aufgabentyp === "dezimalZuHex") {
             generierterWert = Math.floor(Math.random() * 99) + 1; // Dezimalzahl (1 bis 99)
             aufgabeninhalt = `Wandle die Dezimalzahl (${generierterWert}) in Hexadezimal um.`;
-        } else if (aufgabentyp === "binärZuDezimal") {
+        } else if (aufgabentyp === "binärZahlZuDezimal") {
             const dezimalzahlWert = Math.floor(Math.random() * 99) + 1; // Dezimalwert (1 bis 99)
-            generierterWert = dezimalzahlWert.toString(2); // In Binär umwandeln
-            aufgabeninhalt = `Wandle die Binärzahl (${generierterWert}) in eine Dezimalzahl um.`;
+            generierterWert = dezimalzahlWert.toString(2); // In binärZahl umwandeln
+            aufgabeninhalt = `Wandle die binärZahlzahl (${generierterWert}) in eine Dezimalzahl um.`;
         }
         aufgabenblock = 1;
         aufgabenkennzeichen = String.fromCharCode(96 + (aufgabenzähler % 3) + 1); // Generiert a, b, c
+
     } else if (aufgabenzähler < 6) {
         if (aufgabentyp === "dezimalZuHex") {
             generierterWert = Math.floor(Math.random() * 900) + 100; // Dezimalzahl (100 bis 999)
             aufgabeninhalt = `Wandle die Dezimalzahl (${generierterWert}) in Hexadezimal um.`;
-        } else if (aufgabentyp === "binärZuDezimal") {
+        } else if (aufgabentyp === "binärZahlZuDezimal") {
             const dezimalzahlWert = Math.floor(Math.random() * 900) + 100; // Dezimalwert (100 bis 999)
-            generierterWert = dezimalzahlWert.toString(2); // In Binär umwandeln
-            aufgabeninhalt = `Wandle die Binärzahl (${generierterWert}) in eine Dezimalzahl um.`;
+            generierterWert = dezimalzahlWert.toString(2); // In binärZahl umwandeln
+            aufgabeninhalt = `Wandle die binärZahlzahl (${generierterWert}) in eine Dezimalzahl um.`;
         }
         aufgabenblock = 2;
         aufgabenkennzeichen = String.fromCharCode(96 + ((aufgabenzähler - 3) % 3) + 1); // Generiert a, b, c
+
     } else {
         // Nach 6 Aufgaben: Hauptmenü anzeigen
         const feedback = document.getElementById('feedback');
@@ -246,8 +243,8 @@ function starteNeueAufgabe(aufgabentyp) {
     // Speichern des generierten Werts
     if (aufgabentyp === "dezimalZuHex") {
         aktuellesDezimal = generierterWert;
-    } else if (aufgabentyp === "binärZuDezimal") {
-        currentbinär = generierterWert;
+    } else if (aufgabentyp === "binärZahlZuDezimal") {
+        currentbinärZahl = generierterWert;
     }
 
     // Button für nächste Aufgabe ausblenden
@@ -287,13 +284,13 @@ function starteNeueAufgabe(aufgabentyp) {
     antwortfeldZurücksetzen();
 }
 
-// Funktion zur Generierung einer Binärzahl
-function zufallsbinärgenerieren(länge) {
-    let binär = "";
+// Funktion zur Generierung einer binärZahlzahl
+function zufallsbinärZahlgenerieren(länge) {
+    let binärZahl = "";
     for (let i = 0; i < länge; i++) {
-        binär += Math.floor(Math.random() * 2); // Zufällige 0 oder 1
+        binärZahl += Math.floor(Math.random() * 2); // Zufällige 0 oder 1
     }
-    return binär;
+    return binärZahl;
 }
 
 
@@ -307,7 +304,7 @@ function lernmodusAnzeigen() {
 
     // Alle Themenbereiche ausblenden
     document.getElementById('dezimalZuHexaDefinition').style.display = 'none';
-    document.getElementById('binärZuDezimalDefinition').style.display = 'none';
+    document.getElementById('binärZahlZuDezimalDefinition').style.display = 'none';
 
     // Themenbereich anzeigen
     document.getElementById('lernmodus').style.display = 'block';
@@ -390,16 +387,18 @@ function frageAnzeigen() {
 function themaAnzeigen(thema) {
     // Alle Themenbereiche ausblenden
     document.getElementById('dezimalZuHexaDefinition').style.display = 'none';
-    document.getElementById('binärZuDezimalDefinition').style.display = 'none';
+    document.getElementById('binärZahlZuDezimalDefinition').style.display = 'none';
     //document.getElementById('hexTodezimalZahlDefinition').style.display = 'none'; // Neu hinzugefügt
 
     // Themenbereich anzeigen basierend auf dem Thema
     if (thema === "Dezimal zu Hexadezimal") {
         document.getElementById('dezimalZuHexaDefinition').style.display = 'block';
-    } else if (thema === "Binär zu Dezimal") {
-        document.getElementById('binärZuDezimalDefinition').style.display = 'block';
+    
+    } else if (thema === "binärZahl zu Dezimal") {
+        document.getElementById('binärZahlZuDezimalDefinition').style.display = 'block';
         //} else if (thema === "Hexadezimal zu Dezimal") { // Neu hinzugefügt
         //  document.getElementById('hexTodezimalZahlDefinition').style.display = 'block';
+    
     } else {
         console.error(`Unbekanntes Thema: "${thema}"`);
         return; // Beende die Funktion, wenn das Thema nicht existiert
@@ -428,9 +427,11 @@ function antwortÜberprüfen(aufgabentyp) {
     if (aufgabentyp === "dezimalZuHex") {
         richtigeAntwort = dezimalZuHexaumwandeln(aktuellesDezimal).ergebnis;
         aufgabenbeschreibung = "Wandle die Dezimalzahl in eine Hexadezimalzahl um.";
-    } else if (aufgabentyp === "binärZuDezimal") {
-        richtigeAntwort = parseInt(currentbinär, 2).toString(); // Binär zu Dezimal
-        aufgabenbeschreibung = "Wandle die Binärzahl in eine Dezimalzahl um.";
+    
+    } else if (aufgabentyp === "binärZahlZuDezimal") {
+        richtigeAntwort = parseInt(currentbinärZahl, 2).toString(); // binärZahl zu Dezimal
+        aufgabenbeschreibung = "Wandle die binärZahlzahl in eine Dezimalzahl um.";
+    
     } else {
         console.error("Ungültiger Aufgabentyp:", aufgabentyp);
         return;
@@ -517,6 +518,7 @@ function nächstesLevel() {
     // Feedback und Eingabefelder zurücksetzen
     feedbackZurücksetzen();
     antwortfeldZurücksetzen();
+    
     // Prüfen, ob alle Aufgaben abgeschlossen sind
     if (aufgabenzähler >= 6) {
         alert("Du hast alle Aufgaben abgeschlossen!");
