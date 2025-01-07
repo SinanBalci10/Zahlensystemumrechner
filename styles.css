@@ -9,7 +9,7 @@
     color: black; /* Setzt die Textfarbe auf Schwarz */
 }
 
-ul::marker {
+::marker {
     content: ""; /* Entfernt den Marker */
 }
 
