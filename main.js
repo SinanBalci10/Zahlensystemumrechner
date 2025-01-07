@@ -101,10 +101,11 @@ function übungAnzeigen(type) {
     // Aufgabentyp festlegen
     if (type === 'Dezimal zu Hexadezimal') {
         aktuellerAufgabentyp = "dezimalZuHex"; // Setze den aktuellen Aufgabentyp
+    
     } else if (type === 'binärZahl zu Dezimal') {
         aktuellerAufgabentyp = "binärZahlZuDezimal"; // Setze den aktuellen Aufgabentyp
     } 
-    
+
     // Fortschritt zurücksetzen, falls alle Aufgaben abgeschlossen wurden
     if (aufgabenfortschritt[aktuellerAufgabentyp] >= 6) {
         aufgabenfortschritt[aktuellerAufgabentyp] = 0; // Fortschritt zurücksetzen
