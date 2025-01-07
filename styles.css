@@ -9,6 +9,23 @@
     color: black; /* Setzt die Textfarbe auf Schwarz */
 }
 
+ul li button {
+    position: relative; /* Position für das Pseudo-Element aktivieren */
+    padding-left: 10px; /* Platz für den Marker schaffen */
+    text-align: left; /* Text innerhalb des Buttons linksbündig */
+}
+
+ul li button::before {
+    content: "$"; /* Marker-Text */
+    position: absolute;
+    left: 10px; /* Abstand vom linken Rand */
+    top: 50%; /* Vertikal zentrieren */
+    transform: translateY(-50%); /* Exakte Zentrierung */
+    font-weight: bold;
+    color: black;
+    font-size: 1.2rem;
+}
+
 #übungsmodus {
     display: none; /* Standardmäßig ausblenden */
 }
