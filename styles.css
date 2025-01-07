@@ -28,7 +28,6 @@
 }
 
 #notizblock {
-    color: black;
     width: 90%;
     height: 100px;
     margin-top: 10px;
@@ -69,7 +68,7 @@ body {
 }
 
 .container {
-    color: black;
+    color: #000000;
     width: 90%;
     max-width: 400px;
     text-align: center;
