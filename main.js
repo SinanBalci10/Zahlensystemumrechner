@@ -101,10 +101,10 @@ function übungAnzeigen(type) {
     // Aufgabentyp festlegen
     if (type === 'Dezimal zu Hexadezimal') {
         aktuellerAufgabentyp = "dezimalZuHex"; // Setze den aktuellen Aufgabentyp
-    
+
     } else if (type === 'binärZahl zu Dezimal') {
         aktuellerAufgabentyp = "binärZahlZuDezimal"; // Setze den aktuellen Aufgabentyp
-    } 
+    }
 
     // Fortschritt zurücksetzen, falls alle Aufgaben abgeschlossen wurden
     if (aufgabenfortschritt[aktuellerAufgabentyp] >= 6) {
@@ -400,12 +400,12 @@ function themaAnzeigen(thema) {
     // Themenbereich anzeigen basierend auf dem Thema
     if (thema === "Dezimal zu Hexadezimal") {
         document.getElementById('dezimalZuHexaDefinition').style.display = 'block';
-    
+
     } else if (thema === "binärZahl zu Dezimal") {
         document.getElementById('binärZahlZuDezimalDefinition').style.display = 'block';
         //} else if (thema === "Hexadezimal zu Dezimal") { // Neu hinzugefügt
         //  document.getElementById('hexTodezimalZahlDefinition').style.display = 'block';
-    
+
     } else {
         console.error(`Unbekanntes Thema: "${thema}"`);
         return; // Beende die Funktion, wenn das Thema nicht existiert
@@ -434,11 +434,11 @@ function antwortÜberprüfen(aufgabentyp) {
     if (aufgabentyp === "dezimalZuHex") {
         richtigeAntwort = dezimalZuHexaumwandeln(aktuellesDezimal).ergebnis;
         aufgabenbeschreibung = "Wandle die Dezimalzahl in eine Hexadezimalzahl um.";
-    
+
     } else if (aufgabentyp === "binärZahlZuDezimal") {
         richtigeAntwort = parseInt(currentbinärZahl, 2).toString(); // binärZahl zu Dezimal
         aufgabenbeschreibung = "Wandle die binärZahlzahl in eine Dezimalzahl um.";
-    
+
     } else {
         console.error("Ungültiger Aufgabentyp:", aufgabentyp);
         return;
@@ -525,7 +525,7 @@ function nächstesLevel() {
     // Feedback und Eingabefelder zurücksetzen
     feedbackZurücksetzen();
     antwortfeldZurücksetzen();
-    
+
     // Prüfen, ob alle Aufgaben abgeschlossen sind
     if (aufgabenzähler >= 6) {
         alert("Du hast alle Aufgaben abgeschlossen!");
@@ -557,10 +557,24 @@ function beispieltextUmschalten() {
     // Passenden Text basierend auf dem aktuellen Aufgabentyp anzeigen
     if (aktuellerAufgabentyp === 'dezimalZuHex') {
         document.getElementById('beispielDezimalZuHex').style.display = 'block';
-    
+
     } else if (aktuellerAufgabentyp === 'binärZahlZuDezimal') {
         document.getElementById('beispielBinärZuDezimal').style.display = 'block';
     }
+
+    // Diese Funktion sorgt dafür, dass beim Zurück-Button oder Hauptmenü die Beispieltexte ebenfalls ausgeblendet werden
+    document.getElementById('zurückZurÜbungButton').addEventListener('click', function () {
+        document.querySelectorAll('.beispielText').forEach(text => {
+            text.style.display = 'none';
+        });
+    });
+
+    document.getElementById('hauptmenüButton').addEventListener('click', function () {
+        document.querySelectorAll('.beispielText').forEach(text => {
+            text.style.display = 'none';
+        });
+    });
+
 }
 
 /*

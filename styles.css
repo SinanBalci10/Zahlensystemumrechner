@@ -10,6 +10,15 @@
 }
 
 .beispielText {
+    display: none; /* Anfangs unsichtbar */
+    margin-top: 10px;
+    background-color: white; /* Weiße Hintergrundfarbe */
+    padding: 15px; /* Innenabstand für die Box */
+    border: 1px solid #ccc; /* Graue Randlinie */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Schatten für einen abgerundeten Effekt */
+}
+
+.beispielText {
     display: none; /* Standardmäßig unsichtbar */
     color: #333;
     font-size: 1rem;
