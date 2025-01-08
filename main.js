@@ -548,8 +548,24 @@ function nächstesLevel() {
     }
 }
 
+function beispieltextUmschalten() {
+    // Alle Beispieltexte ausblenden
+    document.querySelectorAll('.beispielText').forEach(text => {
+        text.style.display = 'none';
+    });
+
+    // Passenden Text basierend auf dem aktuellen Aufgabentyp anzeigen
+    if (aktuellerAufgabentyp === 'dezimalZuHex') {
+        document.getElementById('beispielDezimalZuHex').style.display = 'block';
+    
+    } else if (aktuellerAufgabentyp === 'binärZahlZuDezimal') {
+        document.getElementById('beispielBinärZuDezimal').style.display = 'block';
+    }
+}
+
+/*
 // Funktion: Beispieltext ein-/ausblenden
-function beispielUmschalten() {
+function beispielDeziZuHexaUmschalten() {
     const beispielText = document.getElementById('beispielText');
     if (beispielText.style.display === 'none' || beispielText.style.display === '') {
         // Aktualisiere den Beispieltext
@@ -564,7 +580,7 @@ Hexadezimal: 7E7`;
         // Text ausblenden
         beispielText.style.display = 'none';
     }
-}
+}*/
 
 // punktestand wird von css beeinflusst und wird dadurch trotzdem am anfang angezeigt
 // durch die funktion, wird punktestand ausgeblendet

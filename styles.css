@@ -9,6 +9,13 @@
     color: black; /* Setzt die Textfarbe auf Schwarz */
 }
 
+.beispielText {
+    display: none; /* Standardmäßig unsichtbar */
+    color: #333;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
 .mit-rahmen {
     border: 2px solid black; /* Schwarzer Rahmen */
     border-radius: 20px; /* Optional: Abgerundete Ecken */
