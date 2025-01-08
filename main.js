@@ -576,7 +576,7 @@ function beispieltextUmschalten() {
         });
     });
 
-    document.getElementById('hauptmenüButton').addEventListener('click', function () {
+    document.getElementById('hauptmenüButtonÜbung').addEventListener('click', function () {
         // Beispieltext ausblenden, wenn ins Hauptmenü gewechselt wird
         console.log('Hauptmenü-Button geklickt');
         document.querySelectorAll('.beispielText').forEach(text => {
