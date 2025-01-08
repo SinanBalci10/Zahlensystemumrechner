@@ -557,10 +557,12 @@ function beispieltextUmschalten() {
         alleBeispieltexte.forEach(text => {
             text.style.display = 'none';
         });
+    
     } else {
         // Beispieltext je nach Aufgabentyp einblenden
         if (aktuellerAufgabentyp === 'dezimalZuHex') {
             document.getElementById('beispielDezimalZuHex').style.display = 'block';
+        
         } else if (aktuellerAufgabentyp === 'binärZahlZuDezimal') {
             document.getElementById('beispielBinärZuDezimal').style.display = 'block';
         }
@@ -576,6 +578,7 @@ function beispieltextUmschalten() {
 
     document.getElementById('hauptmenüButton').addEventListener('click', function () {
         // Beispieltext ausblenden, wenn ins Hauptmenü gewechselt wird
+        console.log('Hauptmenü-Button geklickt');
         document.querySelectorAll('.beispielText').forEach(text => {
             text.style.display = 'none';
         });
