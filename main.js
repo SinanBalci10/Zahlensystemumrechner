@@ -557,12 +557,12 @@ function beispieltextUmschalten() {
         alleBeispieltexte.forEach(text => {
             text.style.display = 'none';
         });
-    
+
     } else {
         // Beispieltext je nach Aufgabentyp einblenden
         if (aktuellerAufgabentyp === 'dezimalZuHex') {
             document.getElementById('beispielDezimalZuHex').style.display = 'block';
-        
+
         } else if (aktuellerAufgabentyp === 'binärZahlZuDezimal') {
             document.getElementById('beispielBinärZuDezimal').style.display = 'block';
         }
@@ -588,25 +588,6 @@ function beispieltextUmschalten() {
     document.getElementById('beispielButton').addEventListener('click', beispieltextUmschalten);
 
 }
-
-/*
-// Funktion: Beispieltext ein-/ausblenden
-function beispielDeziZuHexaUmschalten() {
-    const beispielText = document.getElementById('beispielText');
-    if (beispielText.style.display === 'none' || beispielText.style.display === '') {
-        // Aktualisiere den Beispieltext
-        beispielText.innerHTML = `2023 ÷ 16 = 126 Rest 7<br>
-126 ÷ 16 = 7 Rest 14 (E)<br>
-7 ÷ 16 = 0 Rest 7<br>
-Hexadezimal: 7E7`;
-
-        // Text anzeigen
-        beispielText.style.display = 'block';
-    } else {
-        // Text ausblenden
-        beispielText.style.display = 'none';
-    }
-}*/
 
 // punktestand wird von css beeinflusst und wird dadurch trotzdem am anfang angezeigt
 // durch die funktion, wird punktestand ausgeblendet

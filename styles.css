@@ -6,29 +6,29 @@
 #binärZahlZuDezimalDefinition,
 #hexTobinärZahlDefinition,
 #hexTodezimalZahlDefinition {
-    color: black; /* Setzt die Textfarbe auf Schwarz */
+    color: black; 
 }
 
 .beispielText {
     display: none; /* Anfangs unsichtbar */
     margin-top: 10px;
-    background-color: white; /* Weiße Hintergrundfarbe */
-    padding: 15px; /* Innenabstand für die Box */
-    border: 1px solid #ccc; /* Graue Randlinie */
+    background-color: white; 
+    padding: 15px; 
+    border: 1px solid #ccc;
     color: #363535;
     font-size: 1rem;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Schatten für einen abgerundeten Effekt */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 
 .mit-rahmen {
     border: 2px solid black; /* Schwarzer Rahmen */
-    border-radius: 20px; /* Optional: Abgerundete Ecken */
-    padding: 10px 20px; /* Optional: Innenabstand */
+    border-radius: 20px; 
+    padding: 10px 20px; 
 }
 
 #antwort {
-    margin-bottom: 20px; /* Fügt mehr Abstand unterhalb des Eingabefelds hinzu */
+    margin-bottom: 20px; 
 }
 
 ::marker {
@@ -46,7 +46,7 @@
 }
 
 #hauptmenüButton.visible {
-    display: block; /* Sichtbar, wenn die Klasse "visible" hinzugefügt wird */
+    display: block; 
 }
 
 #notizblockContainer {
@@ -71,15 +71,15 @@
 }
 
 #anleitung {
-    display: block; /* Startseite sichtbar */
+    display: block; 
 }
 
 h1, #aufgaben {
-    color: #000000; /* Schwarz */
+    color: #000000;
 }
 
 p {
-    color: #000000; /* Schwarz */
+    color: #000000;
 }
 
 body {
@@ -134,13 +134,12 @@ body {
 }
 
 button {
-    display: inline-block; /* Verhindert, dass die Buttons die gesamte Breite des Containers einnehmen */
-    margin: 0 auto; /* Zentriert die Buttons innerhalb der weißen Box */
-    text-align: center; /* Text innerhalb des Buttons zentrieren */
-    padding: 10px 20px; /* Optional: Einheitlicher Innenabstand */
+    display: inline-block; 
+    margin: 0 auto; 
+    text-align: center; 
+    padding: 10px 20px; 
 
     display: block;
-   /* margin: 10px auto;  Zentriert alle Buttons */
     padding: 12px 25px;
     border: none;
     background: #007bff;
@@ -171,13 +170,13 @@ button:hover {
 #nächstesLevel {
     display: block;
     margin: 20px auto;
-    background: #28a745; /* Neue Farbe */
+    background: #28a745; 
     color: #ffffff;
     text-align: center;
 }
 
 #nächstesLevel:hover {
-    background: #218838; /* Etwas dunklere Farbe beim Hover */
+    background: #218838; 
 }
 
 input {
@@ -212,17 +211,16 @@ input {
 }
 
 ul {
-    list-style: none; /* Entfernt die Standard-Listensymbole */
-    padding: 0; /* Entfernt den inneren Abstand */
-    margin: 0 auto; /* Zentriert die Liste */
-    text-align: center; /* Zentriert die Inhalte innerhalb der Liste */
-    width: fit-content; /* Passt die Breite der Liste an ihre Inhalte an */
-   /* color: #000000;  Schwarz für die drei Punkte */
+    list-style: none; 
+    padding: 0; 
+    margin: 0 auto; 
+    text-align: center; 
+    width: fit-content; 
 }
 
 ul li {
-    text-align: center; /* Zentriert den Inhalt innerhalb jedes Listenelements */
-    margin: 10px 0; /* Gleichmäßiger Abstand zwischen den Buttons */
+    text-align: center;
+    margin: 10px 0; 
 }
 
 /* Animationen */
