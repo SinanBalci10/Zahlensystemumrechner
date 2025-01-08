@@ -550,29 +550,39 @@ function nächstesLevel() {
 
 function beispieltextUmschalten() {
     // Alle Beispieltexte ausblenden
-    document.querySelectorAll('.beispielText').forEach(text => {
-        text.style.display = 'none';
-    });
+    const alleBeispieltexte = document.querySelectorAll('.beispielText');
 
-    // Passenden Text basierend auf dem aktuellen Aufgabentyp anzeigen
-    if (aktuellerAufgabentyp === 'dezimalZuHex') {
-        document.getElementById('beispielDezimalZuHex').style.display = 'block';
-    } else if (aktuellerAufgabentyp === 'binärZahlZuDezimal') {
-        document.getElementById('beispielBinärZuDezimal').style.display = 'block';
+    // Wenn der Beispieltext sichtbar ist, dann ausblenden
+    if (document.getElementById('beispielDezimalZuHex').style.display === 'block' || document.getElementById('beispielBinärZuDezimal').style.display === 'block') {
+        alleBeispieltexte.forEach(text => {
+            text.style.display = 'none';
+        });
+    } else {
+        // Beispieltext je nach Aufgabentyp einblenden
+        if (aktuellerAufgabentyp === 'dezimalZuHex') {
+            document.getElementById('beispielDezimalZuHex').style.display = 'block';
+        } else if (aktuellerAufgabentyp === 'binärZahlZuDezimal') {
+            document.getElementById('beispielBinärZuDezimal').style.display = 'block';
+        }
     }
 
-    // Event-Listener für die Buttons "Zurück" und "Hauptmenü" (einmalig registrieren)
+    // Event-Listener für den "Zurück"-Button und "Hauptmenü"-Button
     document.getElementById('zurückZurÜbungButton').addEventListener('click', function () {
+        // Beispieltext ausblenden, wenn zurück gegangen wird
         document.querySelectorAll('.beispielText').forEach(text => {
             text.style.display = 'none';
         });
     });
 
     document.getElementById('hauptmenüButton').addEventListener('click', function () {
+        // Beispieltext ausblenden, wenn ins Hauptmenü gewechselt wird
         document.querySelectorAll('.beispielText').forEach(text => {
             text.style.display = 'none';
         });
     });
+
+    // Event-Listener für den "Beispiel"-Button
+    document.getElementById('beispielButton').addEventListener('click', beispieltextUmschalten);
 
 }
 
