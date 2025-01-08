@@ -562,7 +562,7 @@ function beispieltextUmschalten() {
         document.getElementById('beispielBinärZuDezimal').style.display = 'block';
     }
 
-    // Diese Funktion sorgt dafür, dass beim Zurück-Button oder Hauptmenü die Beispieltexte ebenfalls ausgeblendet werden
+    // Event-Listener für die Buttons "Zurück" und "Hauptmenü" (einmalig registrieren)
     document.getElementById('zurückZurÜbungButton').addEventListener('click', function () {
         document.querySelectorAll('.beispielText').forEach(text => {
             text.style.display = 'none';
