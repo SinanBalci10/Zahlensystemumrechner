@@ -557,7 +557,6 @@ function beispieltextUmschalten() {
     // Passenden Text basierend auf dem aktuellen Aufgabentyp anzeigen
     if (aktuellerAufgabentyp === 'dezimalZuHex') {
         document.getElementById('beispielDezimalZuHex').style.display = 'block';
-
     } else if (aktuellerAufgabentyp === 'binärZahlZuDezimal') {
         document.getElementById('beispielBinärZuDezimal').style.display = 'block';
     }
