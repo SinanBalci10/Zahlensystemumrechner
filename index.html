@@ -19,7 +19,7 @@
     <div class="container">
 
         <!-- Abschnitt themen und übungsaufgaben -->
-        <div id="anleitung" class="section">
+        <div id="hauptmenü" class="section">
             <h1>Umrechnung von Zahlensystemen</h1>
             <div class="button-row">
                 <button onclick="lernmodusAnzeigen()">Definition</button>
@@ -39,7 +39,7 @@
                 <li><button class="mit-rahmen" onclick="übungAnzeigen('Hexadezimal zu binärZahl')">Hexadezimal zu
                         Binärzahl</button></li>
             </ul>
-            <button id="hauptmenüButton" onclick="anleitungAnzeigen()">Hauptmenü</button>
+            <button id="hauptmenüButton" onclick="hauptmenü()">Hauptmenü</button>
         </div>
 
         <!-- Abschnitt für Definitionen -->
@@ -54,7 +54,7 @@
                 <li><button class="mit-rahmen" onclick="themaAnzeigen('Hexadezimal zu binärZahl')">Hexadezimal zu
                         Binärzahl</button></li>
             </ul>
-            <button id="hauptmenüButton" onclick="anleitungAnzeigen()">Hauptmenü</button>
+            <button id="hauptmenüButton" onclick="hauptmenü()">Hauptmenü</button>
         </div>
 
         <!-- Abschnitt für Definition  Dezimalzahl zu Hexadezimalzahl-->
@@ -156,7 +156,7 @@
             <button id="nächstesLevel" style="display: none;" onclick="nächstesLevel()">Nächste Aufgabe</button>
             <button id="zurückZurÜbungButton" onclick="übungsmodusAnzeigen()"
                 style="display: none; margin-bottom: 10px;">Zurück</button>
-            <button id="hauptmenüButtonÜbung" onclick="anleitungAnzeigen()" style="margin-top: 20px;">Hauptmenü</button>
+            <button id="hauptmenüButtonÜbung" onclick="hauptmenü()" style="margin-top: 20px;">Hauptmenü</button>
         </div>
 
     </div>

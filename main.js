@@ -49,7 +49,7 @@ const aufgabenfortschritt = {
 
 function übungsmodusAnzeigen() {
     // Die Startseite ausblenden, da wir jetzt im Übungsmodus sind
-    document.getElementById('anleitung').style.display = 'none';
+    document.getElementById('hauptmenü').style.display = 'none';
 
     // Verstecke den Lernmodus und den Fragenbereich, um Platz für den Übungsmodus zu schaffen
     document.getElementById('lernmodus').style.display = 'none';
@@ -242,7 +242,7 @@ function starteNeueAufgabe(aufgabentyp) {
             feedback.textContent = "Herzlichen Glückwunsch, du hast alle Aufgaben abgeschlossen!";
             feedback.style.color = "green";
         }
-        anleitungAnzeigen(); // Zurück zum Hauptmenü
+        hauptmenü(); // Zurück zum Hauptmenü
         aufgabenzähler = 0; // Zähler zurücksetzen für neue Runde
         return;
     }
@@ -306,7 +306,7 @@ function zufallsbinärZahlgenerieren(länge) {
 function lernmodusAnzeigen() {
 
     // Alle nicht benötigten Bereiche ausblenden
-    document.getElementById('anleitung').style.display = 'none'; // Startseite ausblenden
+    document.getElementById('hauptmenü').style.display = 'none'; // Startseite ausblenden
     document.getElementById('frage').style.display = 'none'; // Aufgabenbereich ausblenden
 
     // Alle Themenbereiche ausblenden
@@ -325,7 +325,7 @@ function lernmodusAnzeigen() {
 }
 
 // Funktion: Hauptmenü anzeigen
-function anleitungAnzeigen() {
+function hauptmenü() {
 
     // Bereiche ausblenden, die nicht zum Hauptmenü gehören
     document.getElementById('lernmodus').style.display = 'none';
@@ -340,7 +340,7 @@ function anleitungAnzeigen() {
 
 
     // Hauptmenü anzeigen
-    document.getElementById('anleitung').style.display = 'block';
+    document.getElementById('hauptmenü').style.display = 'block';
 
     // Hauptmenü-Button ausblenden (weil wir bereits im Hauptmenü sind)
     const hauptmenüButton = document.getElementById('hauptmenüButton');
@@ -372,7 +372,7 @@ function anleitungAnzeigen() {
 
 // Funktion: Zeige die erste Aufgabe
 function frageAnzeigen() {
-    document.getElementById('anleitung').style.display = 'none'; // ausblenden
+    document.getElementById('hauptmenü').style.display = 'none'; // ausblenden
     document.getElementById('lernmodus').style.display = 'none'; //ausblenden
 
     document.getElementById('frage').style.display = 'block'; // frage einblenden
@@ -413,7 +413,7 @@ function themaAnzeigen(thema) {
 
     // Hauptmenü und andere Bereiche ausblenden
     document.getElementById('lernmodus').style.display = 'none';
-    document.getElementById('anleitung').style.display = 'none';
+    document.getElementById('hauptmenü').style.display = 'none';
 
     // Punktestand ausblenden
     if (punkteElement) {
@@ -500,7 +500,7 @@ function antwortÜberprüfen(aufgabentyp) {
 
         if (aufgabenzähler >= 6) {
             alert("Du hast alle Aufgaben abgeschlossen!");
-            anleitungAnzeigen(); // Zurück zum Hauptmenü
+            hauptmenü(); // Zurück zum Hauptmenü
             aufgabenzähler = 0; // Zähler zurücksetzen für neue Runde
         }
     } else {
@@ -592,7 +592,7 @@ function beispieltextUmschalten() {
 // punktestand wird von css beeinflusst und wird dadurch trotzdem am anfang angezeigt
 // durch die funktion, wird punktestand ausgeblendet
 window.onload = () => {
-    document.getElementById('anleitung').style.display = 'block';
+    document.getElementById('hauptmenü').style.display = 'block';
     punkteElement.style.display = 'none';
     punkteElement.style.visibility = 'hidden';
 };
