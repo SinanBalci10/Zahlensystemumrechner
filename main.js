@@ -49,7 +49,7 @@ const aufgabenfortschritt = {
 
 function übungsthemenAnzeigen() {
     // Die Startseite ausblenden, da wir jetzt im übungsthemen sind
-    document.getElementById('hauptmenü').style.display = 'none';
+    document.getElementById('hauptmenüAnzeigen').style.display = 'none';
 
     // Verstecke den definitionen und den Fragenbereich, um Platz für den übungsthemen zu schaffen
     document.getElementById('definitionen').style.display = 'none';
@@ -64,11 +64,11 @@ function übungsthemenAnzeigen() {
         zurückZurÜbungButton.style.display = 'none';
     }
 
-    // Blende den Hauptmenü-Button ein, damit der Nutzer zurück zum Hauptmenü gelangen kann
-    const hauptmenüButton = document.getElementById('hauptmenüButton');
-    if (hauptmenüButton) {
-        hauptmenüButton.style.display = 'block';
-        hauptmenüButton.style.visibility = 'visible';
+    // Blende den hauptmenüAnzeigen-Button ein, damit der Nutzer zurück zum hauptmenüAnzeigen gelangen kann
+    const hauptmenüAnzeigenButton = document.getElementById('hauptmenüAnzeigenButton');
+    if (hauptmenüAnzeigenButton) {
+        hauptmenüAnzeigenButton.style.display = 'block';
+        hauptmenüAnzeigenButton.style.visibility = 'visible';
     }
 }
 
@@ -87,15 +87,15 @@ function übungAnzeigen(type) {
     document.getElementById('übungsthemen').style.display = 'none';
     document.getElementById('frage').style.display = 'block';
 
-    // Zurück-Button und Hauptmenü-Button sichtbar machen
+    // Zurück-Button und hauptmenüAnzeigen-Button sichtbar machen
     const zurückZurÜbungButton = document.getElementById('zurückZurÜbungButton');
     if (zurückZurÜbungButton) {
         zurückZurÜbungButton.style.display = 'block';
     }
 
-    const hauptmenüButton = document.getElementById('hauptmenüButton');
-    if (hauptmenüButton) {
-        hauptmenüButton.style.display = 'block';
+    const hauptmenüAnzeigenButton = document.getElementById('hauptmenüAnzeigenButton');
+    if (hauptmenüAnzeigenButton) {
+        hauptmenüAnzeigenButton.style.display = 'block';
     }
 
     // Aufgabentyp festlegen
@@ -191,11 +191,11 @@ function starteNeueAufgabe(aufgabentyp) {
     stopTimer(); // Aktuellen Timer stoppen
     startTimer(); // Neuen Timer starten
 
-    // Hauptmenü-Button sichtbar machen
-    const hauptmenüButton = document.getElementById('hauptmenüButton');
-    if (hauptmenüButton) {
-        hauptmenüButton.style.display = 'block'; // Button einblenden
-        hauptmenüButton.style.visibility = 'visible'; // Falls notwendig
+    // hauptmenüAnzeigen-Button sichtbar machen
+    const hauptmenüAnzeigenButton = document.getElementById('hauptmenüAnzeigenButton');
+    if (hauptmenüAnzeigenButton) {
+        hauptmenüAnzeigenButton.style.display = 'block'; // Button einblenden
+        hauptmenüAnzeigenButton.style.visibility = 'visible'; // Falls notwendig
     }
 
     // Notizbox zurücksetzen
@@ -236,13 +236,13 @@ function starteNeueAufgabe(aufgabentyp) {
         aufgabenkennzeichen = String.fromCharCode(96 + ((aufgabenzähler - 3) % 3) + 1); // Generiert a, b, c
 
     } else {
-        // Nach 6 Aufgaben: Hauptmenü anzeigen
+        // Nach 6 Aufgaben: hauptmenüAnzeigen anzeigen
         const feedback = document.getElementById('feedback');
         if (feedback) {
             feedback.textContent = "Herzlichen Glückwunsch, du hast alle Aufgaben abgeschlossen!";
             feedback.style.color = "green";
         }
-        hauptmenü(); // Zurück zum Hauptmenü
+        hauptmenüAnzeigen(); // Zurück zum hauptmenüAnzeigen
         aufgabenzähler = 0; // Zähler zurücksetzen für neue Runde
         return;
     }
@@ -306,7 +306,7 @@ function zufallsbinärZahlgenerieren(länge) {
 function definitionenAnzeigen() {
 
     // Alle nicht benötigten Bereiche ausblenden
-    document.getElementById('hauptmenü').style.display = 'none'; // Startseite ausblenden
+    document.getElementById('hauptmenüAnzeigen').style.display = 'none'; // Startseite ausblenden
     document.getElementById('frage').style.display = 'none'; // Aufgabenbereich ausblenden
 
     // Alle Themenbereiche ausblenden
@@ -316,18 +316,18 @@ function definitionenAnzeigen() {
     // Themenbereich anzeigen
     document.getElementById('definitionen').style.display = 'block';
 
-    // Hauptmenü-Button sichtbar machen
-    const hauptmenüButton = document.getElementById('hauptmenüButton');
-    if (hauptmenüButton) {
-        hauptmenüButton.style.display = 'block';
-        hauptmenüButton.style.visibility = 'visible'; // Falls visibility hidden ist
+    // hauptmenüAnzeigen-Button sichtbar machen
+    const hauptmenüAnzeigenButton = document.getElementById('hauptmenüAnzeigenButton');
+    if (hauptmenüAnzeigenButton) {
+        hauptmenüAnzeigenButton.style.display = 'block';
+        hauptmenüAnzeigenButton.style.visibility = 'visible'; // Falls visibility hidden ist
     }
 }
 
-// Funktion: Hauptmenü anzeigen
-function hauptmenü() {
+// Funktion: hauptmenüAnzeigen anzeigen
+function hauptmenüAnzeigen() {
 
-    // Bereiche ausblenden, die nicht zum Hauptmenü gehören
+    // Bereiche ausblenden, die nicht zum hauptmenüAnzeigen gehören
     document.getElementById('definitionen').style.display = 'none';
     document.getElementById('frage').style.display = 'none';
     document.getElementById('übungsthemen').style.display = 'none';
@@ -339,13 +339,13 @@ function hauptmenü() {
     }
 
 
-    // Hauptmenü anzeigen
-    document.getElementById('hauptmenü').style.display = 'block';
+    // hauptmenüAnzeigen anzeigen
+    document.getElementById('hauptmenüAnzeigen').style.display = 'block';
 
-    // Hauptmenü-Button ausblenden (weil wir bereits im Hauptmenü sind)
-    const hauptmenüButton = document.getElementById('hauptmenüButton');
-    if (hauptmenüButton) {
-        hauptmenüButton.classList.remove('visible'); // Klasse entfernen
+    // hauptmenüAnzeigen-Button ausblenden (weil wir bereits im hauptmenüAnzeigen sind)
+    const hauptmenüAnzeigenButton = document.getElementById('hauptmenüAnzeigenButton');
+    if (hauptmenüAnzeigenButton) {
+        hauptmenüAnzeigenButton.classList.remove('visible'); // Klasse entfernen
     }
 
 
@@ -372,18 +372,18 @@ function hauptmenü() {
 
 // Funktion: Zeige die erste Aufgabe
 function frageAnzeigen() {
-    document.getElementById('hauptmenü').style.display = 'none'; // ausblenden
+    document.getElementById('hauptmenüAnzeigen').style.display = 'none'; // ausblenden
     document.getElementById('definitionen').style.display = 'none'; //ausblenden
 
     document.getElementById('frage').style.display = 'block'; // frage einblenden
-    document.getElementById('hauptmenüButton').style.display = 'block'; // Hauptmenü-Button anzeigen
+    document.getElementById('hauptmenüAnzeigenButton').style.display = 'block'; // hauptmenüAnzeigen-Button anzeigen
 
 
-    // Hauptmenü-Button sichtbar machen
-    const hauptmenüButton = document.getElementById('hauptmenüButton');
-    if (hauptmenüButton) {
-        hauptmenüButton.style.display = 'block'; // Button einblenden
-        hauptmenüButton.style.visibility = 'visible'; // Falls visibility hidden aktiv ist
+    // hauptmenüAnzeigen-Button sichtbar machen
+    const hauptmenüAnzeigenButton = document.getElementById('hauptmenüAnzeigenButton');
+    if (hauptmenüAnzeigenButton) {
+        hauptmenüAnzeigenButton.style.display = 'block'; // Button einblenden
+        hauptmenüAnzeigenButton.style.visibility = 'visible'; // Falls visibility hidden aktiv ist
     }
 
     starteNeueAufgabe(); // Timer starten, sobald die Übungsaufgaben beginnen
@@ -411,9 +411,9 @@ function themaAnzeigen(thema) {
         return; // Beende die Funktion, wenn das Thema nicht existiert
     }
 
-    // Hauptmenü und andere Bereiche ausblenden
+    // hauptmenüAnzeigen und andere Bereiche ausblenden
     document.getElementById('definitionen').style.display = 'none';
-    document.getElementById('hauptmenü').style.display = 'none';
+    document.getElementById('hauptmenüAnzeigen').style.display = 'none';
 
     // Punktestand ausblenden
     if (punkteElement) {
@@ -500,7 +500,7 @@ function antwortÜberprüfen(aufgabentyp) {
 
         if (aufgabenzähler >= 6) {
             alert("Du hast alle Aufgaben abgeschlossen!");
-            hauptmenü(); // Zurück zum Hauptmenü
+            hauptmenüAnzeigen(); // Zurück zum hauptmenüAnzeigen
             aufgabenzähler = 0; // Zähler zurücksetzen für neue Runde
         }
     } else {
@@ -568,7 +568,7 @@ function beispieltextUmschalten() {
         }
     }
 
-    // Event-Listener für den "Zurück"-Button und "Hauptmenü"-Button
+    // Event-Listener für den "Zurück"-Button und "hauptmenüAnzeigen"-Button
     document.getElementById('zurückZurÜbungButton').addEventListener('click', function () {
         // Beispieltext ausblenden, wenn zurück gegangen wird
         document.querySelectorAll('.beispielText').forEach(text => {
@@ -576,9 +576,9 @@ function beispieltextUmschalten() {
         });
     });
 
-    document.getElementById('hauptmenüButtonÜbung').addEventListener('click', function () {
-        // Beispieltext ausblenden, wenn ins Hauptmenü gewechselt wird
-        console.log('Hauptmenü-Button geklickt');
+    document.getElementById('hauptmenüAnzeigenButtonÜbung').addEventListener('click', function () {
+        // Beispieltext ausblenden, wenn ins hauptmenüAnzeigen gewechselt wird
+        console.log('hauptmenüAnzeigen-Button geklickt');
         document.querySelectorAll('.beispielText').forEach(text => {
             text.style.display = 'none';
         });
@@ -592,7 +592,7 @@ function beispieltextUmschalten() {
 // punktestand wird von css beeinflusst und wird dadurch trotzdem am anfang angezeigt
 // durch die funktion, wird punktestand ausgeblendet
 window.onload = () => {
-    document.getElementById('hauptmenü').style.display = 'block';
+    document.getElementById('hauptmenüAnzeigen').style.display = 'block';
     punkteElement.style.display = 'none';
     punkteElement.style.visibility = 'hidden';
 };

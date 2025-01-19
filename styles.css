@@ -39,13 +39,13 @@
     display: none; /* Standardmäßig ausblenden */
 }
 
-#hauptmenüButton {
+#hauptmenüAnzeigenButton {
     margin-top: 20px;
     display: block; /* Standardmäßig anzeigen */
     visibility: visible;
 }
 
-#hauptmenüButton.visible {
+#hauptmenüAnzeigenButton.visible {
     display: block; 
 }
 
@@ -70,7 +70,7 @@
     display: none;
 }
 
-#hauptmenü {
+#hauptmenüAnzeigen {
     display: block; 
 }
 
