@@ -22,13 +22,13 @@
         <div id="hauptmenü" class="section">
             <h1>Umrechnung von Zahlensystemen</h1>
             <div class="button-row">
-                <button onclick="lernmodusAnzeigen()">Definition</button>
-                <button onclick="übungsmodusAnzeigen()">Aufgaben</button>
+                <button onclick="definitionenAnzeigen()">Definition</button>
+                <button onclick="übungsthemenAnzeigen()">Aufgaben</button>
             </div>
         </div>
 
         <!-- Abschnitt für die Übungsmodi -->
-        <div id="übungsmodus" style="display: none;">
+        <div id="übungsthemen" style="display: none;">
             <h1>Aufgaben</h1>
             <p>Wähle eine Übungsart aus:</p>
             <ul>
@@ -43,7 +43,7 @@
         </div>
 
         <!-- Abschnitt für Definitionen -->
-        <div id="lernmodus" style="display: none;">
+        <div id="definitionen" style="display: none;">
             <h1>Definition</h1>
             <p>Wähle ein Thema aus:</p>
             <ul>
@@ -79,7 +79,7 @@
             <p>5078 - (16 × 317) = 6</p>
             <p>Die Reste, von unten nach oben gelesen, sind 1, 3, D und 6. Daher ist die Hexadezimaldarstellung von 5078
                 gleich 13D6.</p>
-            <button onclick="lernmodusAnzeigen()">Zurück zur Themenauswahl</button>
+            <button onclick="definitionenAnzeigen()">Zurück zur Themenauswahl</button>
         </div>
 
         <!-- Abschnitt für Definition Binärzahl zu Dezimalzahl-->
@@ -114,7 +114,7 @@
             </ol>
             <p><strong>Ergebnis:</strong> Die binärZahlzahl <strong>1101</strong> entspricht der Dezimalzahl
                 <strong>13</strong>.</p>
-            <button onclick="lernmodusAnzeigen()">Zurück zur Themenauswahl</button>
+            <button onclick="definitionenAnzeigen()">Zurück zur Themenauswahl</button>
         </div>
 
         <!-- Abschnitt für die Aufgaben -->
@@ -154,7 +154,7 @@
             <i class="fas fa-check-circle" style="display: none; color: green;" id="success-icon"></i>
             <i class="fas fa-times-circle" style="display: none; color: red;" id="error-icon"></i>
             <button id="nächstesLevel" style="display: none;" onclick="nächstesLevel()">Nächste Aufgabe</button>
-            <button id="zurückZurÜbungButton" onclick="übungsmodusAnzeigen()"
+            <button id="zurückZurÜbungButton" onclick="übungsthemenAnzeigen()"
                 style="display: none; margin-bottom: 10px;">Zurück</button>
             <button id="hauptmenüButtonÜbung" onclick="hauptmenü()" style="margin-top: 20px;">Hauptmenü</button>
         </div>

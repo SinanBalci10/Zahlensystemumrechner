@@ -47,16 +47,16 @@ const aufgabenfortschritt = {
     // Weitere Aufgabenarten können hier ergänzt werden
 };
 
-function übungsmodusAnzeigen() {
-    // Die Startseite ausblenden, da wir jetzt im Übungsmodus sind
+function übungsthemenAnzeigen() {
+    // Die Startseite ausblenden, da wir jetzt im übungsthemen sind
     document.getElementById('hauptmenü').style.display = 'none';
 
-    // Verstecke den Lernmodus und den Fragenbereich, um Platz für den Übungsmodus zu schaffen
-    document.getElementById('lernmodus').style.display = 'none';
+    // Verstecke den definitionen und den Fragenbereich, um Platz für den übungsthemen zu schaffen
+    document.getElementById('definitionen').style.display = 'none';
     document.getElementById('frage').style.display = 'none';
 
-    // Zeige den Übungsmodus an
-    document.getElementById('übungsmodus').style.display = 'block';
+    // Zeige den übungsthemen an
+    document.getElementById('übungsthemen').style.display = 'block';
 
     // Verstecke den Zurück-zur-Übung-Button, falls er angezeigt wird
     const zurückZurÜbungButton = document.getElementById('zurückZurÜbungButton');
@@ -79,12 +79,12 @@ function übungAnzeigen(type) {
     if (type === 'Hexadezimal zu binärZahl') {
         alert("Diese Übung ist derzeit nicht verfügbar. Bitte wähle eine andere Übung.");
         // Zurück zum Aufgabenbereich
-        übungsmodusAnzeigen();
+        übungsthemenAnzeigen();
         return;
     }
 
     // Übungsmodi ausblenden und Aufgabenbereich einblenden
-    document.getElementById('übungsmodus').style.display = 'none';
+    document.getElementById('übungsthemen').style.display = 'none';
     document.getElementById('frage').style.display = 'block';
 
     // Zurück-Button und Hauptmenü-Button sichtbar machen
@@ -302,8 +302,8 @@ function zufallsbinärZahlgenerieren(länge) {
 
 
 
-// Funktion: Zeige den Lernmodus
-function lernmodusAnzeigen() {
+// Funktion: Zeige den definitionen
+function definitionenAnzeigen() {
 
     // Alle nicht benötigten Bereiche ausblenden
     document.getElementById('hauptmenü').style.display = 'none'; // Startseite ausblenden
@@ -314,7 +314,7 @@ function lernmodusAnzeigen() {
     document.getElementById('binärZahlZuDezimalDefinition').style.display = 'none';
 
     // Themenbereich anzeigen
-    document.getElementById('lernmodus').style.display = 'block';
+    document.getElementById('definitionen').style.display = 'block';
 
     // Hauptmenü-Button sichtbar machen
     const hauptmenüButton = document.getElementById('hauptmenüButton');
@@ -328,9 +328,9 @@ function lernmodusAnzeigen() {
 function hauptmenü() {
 
     // Bereiche ausblenden, die nicht zum Hauptmenü gehören
-    document.getElementById('lernmodus').style.display = 'none';
+    document.getElementById('definitionen').style.display = 'none';
     document.getElementById('frage').style.display = 'none';
-    document.getElementById('übungsmodus').style.display = 'none';
+    document.getElementById('übungsthemen').style.display = 'none';
 
     // Zurück-zu-Übungsaufgaben-Button ausblenden
     const zurückZurÜbungButton = document.getElementById('zurückZurÜbungButton');
@@ -373,7 +373,7 @@ function hauptmenü() {
 // Funktion: Zeige die erste Aufgabe
 function frageAnzeigen() {
     document.getElementById('hauptmenü').style.display = 'none'; // ausblenden
-    document.getElementById('lernmodus').style.display = 'none'; //ausblenden
+    document.getElementById('definitionen').style.display = 'none'; //ausblenden
 
     document.getElementById('frage').style.display = 'block'; // frage einblenden
     document.getElementById('hauptmenüButton').style.display = 'block'; // Hauptmenü-Button anzeigen
@@ -390,7 +390,7 @@ function frageAnzeigen() {
 
 }
 
-// Funktion: Zeige spezifisches Thema
+// Funktion: Zeige spezifisches Thema 
 function themaAnzeigen(thema) {
     // Alle Themenbereiche ausblenden
     document.getElementById('dezimalZuHexaDefinition').style.display = 'none';
@@ -412,7 +412,7 @@ function themaAnzeigen(thema) {
     }
 
     // Hauptmenü und andere Bereiche ausblenden
-    document.getElementById('lernmodus').style.display = 'none';
+    document.getElementById('definitionen').style.display = 'none';
     document.getElementById('hauptmenü').style.display = 'none';
 
     // Punktestand ausblenden
@@ -531,7 +531,7 @@ function nächstesLevel() {
         alert("Du hast alle Aufgaben abgeschlossen!");
         aufgabenfortschritt[aktuellerAufgabentyp] = 0; // Fortschritt für das aktuelle Thema zurücksetzen
         aufgabenzähler = 0; // Zähler zurücksetzen
-        übungsmodusAnzeigen(); // Zurück zur Übungsmodi-Auswahl
+        übungsthemenAnzeigen(); // Zurück zur Übungsmodi-Auswahl
         return;
     }
 
